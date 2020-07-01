@@ -19,4 +19,14 @@ SAP as the market leader of enterprise systems changed their strategy to become 
 A key aspect of both platforms is the *Modelling* of the desired functionality. Through the focus on extensibility and API-agnostic behavior, MTPP uses a simple dropdown with input field layout. The SCI in turn uses a variance of BPMN modelling language for their Integration Flows (an Integration Flow or IFlow is the most granular component for modelling a use-case in the SCI). While the flexibility is provided in MTPP out-of-the-box, one of the multiple pre-defined components in SCI is the Script module. The Groovy Script based template allows users to modify, analyze or extract the response content which was returned from a previous communcation. This forces the user to proactively develop the chaining API calls on his or her own. In the following, an example Integration Flow is illustrated.
 
 ![IFlow-Example](/resources/images/IFlow-Example.png)
-Format: ![Alt Text](url)
+
+It is mentionable that the SCI allows *OR* and *AND* conditions, just as the MTPP does, too.
+One of the major advantages of SCI compared to MTPP is the out-of-the-box availability of hundreds of components. As mentioned earlier, the MTPP is about flexibility. It can be inferred that this leads to a lower amount of predefined delivered components. SAP, in turn, focuses more on the core components to be available, like the support of different protocols  
+
+
+
+
+
+
+
+
