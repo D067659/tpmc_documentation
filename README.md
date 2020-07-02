@@ -26,8 +26,16 @@ A major disadvantage comes up while discussing this advantage: As SCI is only a 
 
 To sum the comparison of SCI and MTPP up, both services follow a similar approach of connecting and chaining different events in a communication process. While MTPP focuses more on the capability of extensibility, the SCI is built on best-practise-components to suppor their business cloud strategy. MTPP has their benefits in the mentioned flexibility, which adresses end-user needs as they can decide on their own which APIs are integrated with an own degree of custom logic. While the SCI has a great portfolio of different services, its more business oriented and has a deviating focus of the target processes. Serving the SCI as an end-user product comes with a restriction in terms of limited capability, but not with a restriction in terms of technical limitation, as API-based communication is supported as well.
 
+## Comparison to NodeRed (this is only a sketched Draft version!)
+Keeping the naming convention of a *Flow* for clustering a activity, NodeRed is another integration platform which can be compared to MTPP. Having a look at the creation of a flow reveals its difference to the SCI and also to MTPP:
 
+![NodeRedFlow-Example](/resources/images/NodeRedFlow-Example.png)
 
+The approach of NodeRed is absolutley based on a very technical layer. A real business, following the idea of creating value to the end-users is neglected on this platform. Focusing on exactly the technical integration allows the platform to scale towards huge capabilities in terms of extensibility. Both SCI and MTPP focusing on end-user tasks, their use-cases and concerns. NodeRed, instead, focusing on the properties of a technical integration flow. Another screenshot demonstrates this, as it depicts the properties of a randomly chosen entity:
+
+![NodeRedFlow-Properties](/resources/images/NodeRedFlow-Properties.png)
+
+No business-related information is given, but a server, a ...
 
 
 
