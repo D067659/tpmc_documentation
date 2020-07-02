@@ -26,7 +26,7 @@ A major disadvantage comes up while discussing this advantage: As SCI is only a 
 
 To sum the comparison of SCI and MTPP up, both services follow a similar approach of connecting and chaining different events in a communication process. While MTPP focuses more on the capability of extensibility, the SCI is built on best-practise-components to suppor their business cloud strategy. MTPP has their benefits in the mentioned flexibility, which adresses end-user needs as they can decide on their own which APIs are integrated with an own degree of custom logic. While the SCI has a great portfolio of different services, its more business oriented and has a deviating focus of the target processes. Serving the SCI as an end-user product comes with a restriction in terms of limited capability, but not with a restriction in terms of technical limitation, as API-based communication is supported as well.
 
-## Comparison to NodeRed (this is only a sketched Draft version!)
+## Comparison to NodeRed (this is only a sketched Draft version and subject to change if s.o. has better insights!)
 Keeping the naming convention of a *Flow* for clustering a activity, NodeRed is another integration platform which can be compared to MTPP. Having a look at the creation of a flow reveals its difference to the SCI and also to MTPP:
 
 ![NodeRedFlow-Example](/resources/images/NodeRedFlow-Example.png)
@@ -35,7 +35,7 @@ The approach of NodeRed is absolutley based on a very technical layer. A real bu
 
 ![NodeRedFlow-Properties](/resources/images/NodeRedFlow-Properties.png)
 
-No business-related information is given, but a server, a ...
+No business-related information is given, but a server, a entity ID or the way of manipulating the payload. This is not what MTPP stands for. Besides the rigorous end-to-end focus, MTPP still answers the demand of developers to extend the platform using the MTPP Developer Suite. But even non-technical affine users are easily able to use the platform on their own with a proper intent to use the platform in a sophisticated manner.
 
 
 
