@@ -31,7 +31,7 @@ The results of the six-month project, i.e. both the developed platform for the d
 </p>
 
 We are all students in the area of computer science from the two mentioned universities:
-* <a href= "mailto:chisraluca66@yahoo.com">Chiș, Raluca</a> (Babeș-Bolyai University, Cluj)
+technical_documentation/* <a href= "mailto:chisraluca66@yahoo.com">Chiș, Raluca</a> (Babeș-Bolyai University, Cluj)
 * <a href= "mailto:andreeacoaja16@gmail.com">Coajă, Andreea</a> (Babeș-Bolyai University, Cluj)
 * <a href= "mailto:mhessent@mail.uni-mannheim.de">Hessenthaler, Marius</a> (Universität Mannheim, Mannheim)
 * <a href= "mailto:tohorn@mail.uni-mannheim.de">Horn, Tobias</a> (Universität Mannheim, Mannheim)
@@ -49,16 +49,16 @@ In order to nevertheless work together successfully in such a large team with ve
 The following documentation should enable a technically experienced person to understand the function and the interaction of the core modules of the underlying **Microservice Architecture** of the developed software prototype. On the other hand, the implementation and the underlying concepts, especially in the area of dynamic integration of further services, should be addressed to the extent that an external person is able to integrate further services or even continue working on the developed prototype.
 
 After a description of the overall archtitecture, the four microservices that are basically independent of each other, are explained in more detail. Finally, the general approach to Continuous Integration and Continous Delivery that was pursued is explained shortly.
-* [Overall Microservice Architecture](overall_microservice_architecture.md)
-* [Frontend Service](frontend_service.md)
-* [Master Service](master_service.md)
-* [Service Provider](service_provider.md)
-* [User Service](user_service.md)
-* [Approach to Continuous Integration and Continuous Delivery](ci_cd_approach.md) 
+* [Overall Microservice Architecture](technical_documentation/overall_microservice_archtitecture.md)
+* [Frontend Service](technical_documentation/frontend_service.md)
+* [Master Service](technical_documentation/master_service.md)
+* [Service Provider](technical_documentation/service_provider.md)
+* [User Service](technical_documentation/user_service.md)
+* [Approach to Continuous Integration and Continuous Delivery](technical_documentation/ci_cd_approach.md) 
 
 Besides, there are two supplementary services that were initially developed as part of an earlier archtitecture idea which was based on several independent *Category Services* instead of having one more generic *Service Provider* and became redundant with the introduction of this (in case of [Finance Category Service](https://github.com/hokedo/tpmc_finance_category_service/tree/master/finance_category_service/api)) or were modified to serve only as an additional external API (in case of [Messaging Category Service](https://github.com/TobiasHorn1899/tpmc_messaging_category_service)) to be accessed by the *Service Provider* like any external API.
 
 ## Evaluation
 Initially, it should be mentioned that the following evaluation does not claim to meet scientific standards. The aim is rather to give a short overview of comparable technologies in a first step. In doing so, similarities and differences between our platform and similar tools shall be pointed out. This should only be a purely qualitative comparison. In a second step, we quantitatively evaluated the performance of our platform against various criteria using previously defined use cases and associated evaluation tasks.  
-* [Comparison With Existing Platforms](comparison_with_existing_platforms.md)
-* [Use-Case Based Evaluation Process](use_case_based_evaluation_process.md)
+* [Comparison With Existing Platforms](evaluation/comparison_with_existing_platforms.md)
+* [Use-Case Based Evaluation Process](evaluation/use_case_based_evaluation_process.md)
