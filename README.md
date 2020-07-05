@@ -31,7 +31,7 @@ The results of the six-month project, i.e. both the developed platform for the d
 </p>
 
 We are all students in the area of computer science from the two mentioned universities:
-technical_documentation/* <a href= "mailto:chisraluca66@yahoo.com">Chiș, Raluca</a> (Babeș-Bolyai University, Cluj)
+* <a href= "mailto:chisraluca66@yahoo.com">Chiș, Raluca</a> (Babeș-Bolyai University, Cluj)
 * <a href= "mailto:andreeacoaja16@gmail.com">Coajă, Andreea</a> (Babeș-Bolyai University, Cluj)
 * <a href= "mailto:mhessent@mail.uni-mannheim.de">Hessenthaler, Marius</a> (Universität Mannheim, Mannheim)
 * <a href= "mailto:tohorn@mail.uni-mannheim.de">Horn, Tobias</a> (Universität Mannheim, Mannheim)
