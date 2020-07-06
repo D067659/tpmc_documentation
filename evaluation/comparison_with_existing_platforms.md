@@ -1,11 +1,3 @@
-# Documentation for the Team Project - Cluj Mannheim
-> Documentation - Team Project Cluj Mannheim
-> 
-> We gonna discuss whether we add the documentation files (e.g. Overleaf files, powerpoints, ...) or just shift the existing docu to be this readme file (using >  markup).
-> 
-> General idea how the docu should look like (style of writing, granularity: https://github.com/corona-warn-app)
-
-
 ## Evaluation of Existing Platforms - Benchmarking against MTP Platform
 ### MTP Platform
 Communication to other online services is key, especially in the field of automation. Chaining multiple communication responses and use the extracted data for other communicaiton requests is essential in the field of autonomous automation, meaning that no human-being is involved anymore.
