@@ -28,7 +28,3 @@ The approach of NodeRed is heavily based on a very technical layer. A real busin
 ![NodeRedFlow-Properties](/resources/images/NodeRedFlow-Properties.png)
 
 No business-related information is given, but a server, a entity ID or the way of manipulating the payload. This is not what MTPP stands for. Besides the rigorous end-to-end focus, MTPP still answers the demand of developers to extend the platform using the MTPP Developer Suite. But even non-technical affine users are easily able to use the platform on their own with a proper intent to use the platform in a sophisticated manner.
-
-
-
-
