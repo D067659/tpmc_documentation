@@ -11,9 +11,28 @@ Since this is only a high-level described goal, it is reasonable to have a look 
 `/api/available_components` 
 
 ## Functionality explained by Endpoints
-### /API/ROUTINE/
-The routine endpoint is used by the Frontend after finishing the creation of a routine. It receives a JSON object of a routine. The most important parts of a routine are:
-* The GUID of a routine
+### ROUTINE Endpoint
+*Functionality for GET Requests*:
+A GET request to the endpoint results in a list of all the saved routines which are created by the specific user, requesting the endpoint.
+
+*Functionality for GET Requests /routine/{routineId}/start_routine*:
+The routine endpoint is used by the Frontend after finishing the creation of a specific routine, whose ID is also a part of the URI for the endpoint. It receives a JSON object of a routine. The most important parts of a routine are:
+* The ID of a routine
 * Several components which describe a order and a logic for executing specific actions, like checking the weather (1. component) at a given time (2. component)
-* A routine name for a better UI representation
-* The user id belonging to the user who triggered the execution of a routine.
+* A routine name for a better UI representation than only a ID
+* A user id belonging to the user who triggered the execution of a routine.
+
+In the first place, each part of the JSONs content is evaluated. This means, operations are executed (each operations has information stored what a action should look like) and the result is stored in a variable, if a variable name was specified via the UI (to hand-over information from one action to another).
+If the current component is a list, this means that a OR operation needs to be performed on those components, which are present in the identified list.
+An operation (action) is explained by the parameters. After resolving and transforming those parameters into required fields for this action, the `/invoke_functions` endpoint of the Service Provider handles the real execution of the action (and the forwarding of the result back). It is mentionable that the services were desigend in a way, that the **Master Service is always the brain** of the project, while the **Service Provider is the mechanical hand**.
+
+
+
+
+### FUNCTIONS Endpoint
+
+
+### APIS Endpoint
+
+
+### AVAILABLE_COMPONENTS Endpoint
