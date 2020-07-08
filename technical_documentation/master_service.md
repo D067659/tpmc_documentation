@@ -5,7 +5,6 @@ Since this is only a high-level described goal, it is reasonable to have a look 
 `/api/routine/`
 
 `/api/functions`
-
 `/api/apis/`
 
 `/api/available_components` 
