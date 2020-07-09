@@ -22,7 +22,7 @@ The routine endpoint is used by the Frontend after finishing the creation of a s
 * A routine name for a better UI representation than only a ID
 * A user id belonging to the user who triggered the execution of a routine.
 
-In the first place, each part of the JSONs content is evaluated. This means, operations are executed (each operations has information stored what a action should look like) and the result is stored in a variable, if a variable name was specified via the UI (to hand-over information from one action to another).
+In the first place, each part of the JSONs content is evaluated. This means, operations are executed (each operations has information stored what an action should look like) and the result is stored in a variable, if a variable name was specified via the UI (to hand-over information from one action to another).
 If the current component is a list, this means that a OR operation needs to be performed on those components, which are present in the identified list.
 An operation (action) is explained by the parameters. After resolving and transforming those parameters into required fields for this action, the `/invoke_function/` endpoint of the Service Provider handles the real execution of the action (and the forwarding of the result back). It is mentionable that the services were desigend in a way, that the **Master Service is always the brain** of the project, while the **Service Provider is the mechanical hand**.
 Besides the mentioned operations, other componenets of a given routine are conditions, specifying a momentum of execution for the operations. Currently supported condition types are:
@@ -30,7 +30,7 @@ Besides the mentioned operations, other componenets of a given routine are condi
 * Number-Relations: Triggers if one number is bigger than another (e.g. stock prices, exchange rate, degree celcius)
 * Timer-Based: Triggers if a specific time in a given timezone is reached
 
-The process flow of conditions are comparable to operations: The required information is extracted from handed-in parameters and it is then decidable whether a operation is required to be executed. Those evaluable components are checked regularly until the condition is met and the operation executed. 
+The process flow of conditions is comparable to operations: The required information is extracted from handed-in parameters and it is then decidable whether a operation is required to be executed. Those evaluable components are checked regularly until the condition is met and the operation executed. 
 
 
 
