@@ -49,13 +49,7 @@ In Appendix 1 the python source code of the most relevant functions for this mec
 
 
 `
-def start_routine(routine, manual=False):
-    message = "Successfully finished routine!"
-    try:
-        routine.state = 'running'
-        routine.save()
-
-        variable_store = {}
+  variable_store = {}
 
         # skip the first component (routine.components[1:] if the user
         # manually started this routine
