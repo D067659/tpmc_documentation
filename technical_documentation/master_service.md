@@ -145,5 +145,5 @@ def execute_operation(operation):
 
     function_name = operation["function_name"]
     parameters = operation["parameters"]
-    return invoke_function.invoke_function(function_name, parameters)  " Targets service provider
+    return invoke_function.invoke_function(function_name, parameters)  # Targets service provider
 ```
