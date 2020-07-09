@@ -48,10 +48,14 @@ In Appendix 1 the python source code of the most relevant functions for this mec
 
 ### Appendix 1 - Source Code of Core Components Mechanism
 **Starting point: start_routine**
-
+```javascript
 def foo():
     if not bar:
         return True
+```
+
+
+
 
 def start_routine(routine, manual=False):
     """
