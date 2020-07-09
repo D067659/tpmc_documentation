@@ -49,14 +49,6 @@ In Appendix 1 the python source code of the most relevant functions for this mec
 ### Appendix 1 - Source Code of Core Components Mechanism
 **Starting point: start_routine**
 ```python
-def foo():
-    if not bar:
-        return True
-```
-
-
-
-
 def start_routine(routine, manual=False):
     """
     Go through all routine components and execute their respective operations or evaluate
@@ -67,11 +59,14 @@ def start_routine(routine, manual=False):
     happened.
     :rtype: str
     """
+    
     message = "Successfully finished routine!"
     try:
         routine.state = 'running'
         routine.save()
+        
         variable_store = {}
+        
         # skip the first component (routine.components[1:] if the user
         # manually started this routine
         components = routine.components[1 if manual else 0:]
@@ -80,6 +75,7 @@ def start_routine(routine, manual=False):
             # we don't want to accidentally alter it and save it later
             component = deepcopy(component)
             evaluate_component(component, variable_store)
+            
         logger.info(f"Finished execution of: {routine}")
     except Exception as ex:
         logger.warning(f"Stopped execution of: {routine}")
@@ -88,13 +84,12 @@ def start_routine(routine, manual=False):
     finally:
         routine.state = 'standby'
         routine.save()
+        
     return message
+```
 
 **Function evalute_component**
-def foo():
-    if not bar:
-        return True
-        
+```python        
 def evaluate_component(component, variable_store):
     """
     Execute an operation and store its result in a variable, if a variable name is provided.
@@ -106,18 +101,22 @@ def evaluate_component(component, variable_store):
     :param dict variable_store:
     :return:
     """
+    
     if isinstance(component, dict):
         component["parameters"] = replace_variables(component["parameters"], variable_store)
+        
         if component["type"] == "operation":
             result = execute_operation(component)
             if "result" in component:
                 variable_store[component["result"]] = result
+                
         elif component["type"] == "condition":
             result = evaluate_condition(component)
             if not result:
                 # throw this to so that the user knows that he can stop executing
                 # further routine components.
                 raise FalseConditionException(f"Condition was false: {component}")
+                
     elif isinstance(component, list):
         # go through the list and recursively evaluate/execute the components
         for item in component:
@@ -133,3 +132,18 @@ def evaluate_component(component, variable_store):
             # for loop ended without reaching "break". this means that no
             # component was "True" and all of them threw the "FalseConditionException"
             raise FalseConditionException(f"Conditions were false: {component}")
+```
+**Example for a split of components: execute_operation**
+```python
+def execute_operation(operation):
+    """
+    Get the function which is needed to execute this operation and pass in the provided parameters.
+    To find the function we need it's category name and function name.
+    :param dict operation:
+    :return:
+    """
+
+    function_name = operation["function_name"]
+    parameters = operation["parameters"]
+    return invoke_function.invoke_function(function_name, parameters)  " Targets service provider
+```
