@@ -47,7 +47,8 @@ In Appendix 1 the python source code of the most relevant functions for this mec
 
 ### Appendix 1 - Source Code of Component Mechanism
 
-`**def start_routine(routine, manual=False):**
+Function `start_routine`:
+`def start_routine(routine, manual=False):
     """
     Go through all routine components and execute their respective operations or evaluate
     their respective conditions one at a time.
@@ -84,3 +85,8 @@ In Appendix 1 the python source code of the most relevant functions for this mec
         routine.save()
 
     return message`
+    
+dasdfasdf 
+ Function `start_routine`:
+
+
