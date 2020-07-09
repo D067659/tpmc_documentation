@@ -34,7 +34,7 @@ The process flow of conditions is comparable to operations: The required informa
 
 The algorithm continues with this logic untill no more components have been handed-over from the Frontend to the Backend. If all of the componenets were computed succesfully, the Backend returns the success message `Successfully finished routine!`. In an error case, the specific error, caused by a component, is presented as the response.
 
-Following this [link](http://github.com) leads to the python source code of the most relevant functions for this mechanism.
+In Appendix 1 the python source code of the most relevant functions for this mechanism is added.
 
 ### FUNCTIONS Endpoint
 
@@ -43,6 +43,11 @@ Following this [link](http://github.com) leads to the python source code of the 
 
 
 ### AVAILABLE_COMPONENTS Endpoint
+
+
+
+### Appendix 1 - Source Code of Core Components Mechanism
+**Starting point: start_routine**
 
 def start_routine(routine, manual=False):
     """
@@ -54,14 +59,11 @@ def start_routine(routine, manual=False):
     happened.
     :rtype: str
     """
-
     message = "Successfully finished routine!"
     try:
         routine.state = 'running'
         routine.save()
-
         variable_store = {}
-
         # skip the first component (routine.components[1:] if the user
         # manually started this routine
         components = routine.components[1 if manual else 0:]
@@ -70,7 +72,6 @@ def start_routine(routine, manual=False):
             # we don't want to accidentally alter it and save it later
             component = deepcopy(component)
             evaluate_component(component, variable_store)
-
         logger.info(f"Finished execution of: {routine}")
     except Exception as ex:
         logger.warning(f"Stopped execution of: {routine}")
@@ -79,6 +80,45 @@ def start_routine(routine, manual=False):
     finally:
         routine.state = 'standby'
         routine.save()
-
     return message
 
+**Function evalute_component**
+
+def evaluate_component(component, variable_store):
+    """
+    Execute an operation and store its result in a variable, if a variable name is provided.
+    Evaluate a condition and throw an exception if the result is "False".
+    If the current component is a list, it means an OR operation needs to be performed on
+    the components inside the list. Recursively call this function to evaluate/execute the
+    components within.
+    :param Union[dict, list] component:
+    :param dict variable_store:
+    :return:
+    """
+    if isinstance(component, dict):
+        component["parameters"] = replace_variables(component["parameters"], variable_store)
+        if component["type"] == "operation":
+            result = execute_operation(component)
+            if "result" in component:
+                variable_store[component["result"]] = result
+        elif component["type"] == "condition":
+            result = evaluate_condition(component)
+            if not result:
+                # throw this to so that the user knows that he can stop executing
+                # further routine components.
+                raise FalseConditionException(f"Condition was false: {component}")
+    elif isinstance(component, list):
+        # go through the list and recursively evaluate/execute the components
+        for item in component:
+            try:
+                evaluate_component(item, variable_store)
+                # it's enough that one condition doesn't throw an exception
+                # for all conditions to be true in an OR operator
+                break
+            except FalseConditionException as ex:
+                # if this exception was thrown, it means that the condition was "False"
+                continue
+        else:
+            # for loop ended without reaching "break". this means that no
+            # component was "True" and all of them threw the "FalseConditionException"
+            raise FalseConditionException(f"Conditions were false: {component}")
