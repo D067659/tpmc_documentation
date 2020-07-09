@@ -34,7 +34,7 @@ The process flow of conditions is comparable to operations: The required informa
 
 The algorithm continues with this logic untill no more components have been handed-over from the Frontend to the Backend. If all of the componenets were computed succesfully, the Backend returns the success message `Successfully finished routine!`. In an error case, the specific error, caused by a component, is presented as the response.
 
-In Appendix 1 the python source code of the most relevant functions for this mechanism is added.
+Following this [link](http://github.com) leads to the python source code of the most relevant functions for this mechanism.
 
 ### FUNCTIONS Endpoint
 
@@ -44,12 +44,23 @@ In Appendix 1 the python source code of the most relevant functions for this mec
 
 ### AVAILABLE_COMPONENTS Endpoint
 
+def start_routine(routine, manual=False):
+    """
+    Go through all routine components and execute their respective operations or evaluate
+    their respective conditions one at a time.
+    :param Routine routine:
+    :param bool manual: Skip the first component (timer condition) in case the user manually started the routine.
+    :return: String message which lets the user know if everything went well or an exception
+    happened.
+    :rtype: str
+    """
 
-### Appendix 1 - Source Code of Component Mechanism
+    message = "Successfully finished routine!"
+    try:
+        routine.state = 'running'
+        routine.save()
 
-
-`
-  variable_store = {}
+        variable_store = {}
 
         # skip the first component (routine.components[1:] if the user
         # manually started this routine
@@ -70,9 +81,4 @@ In Appendix 1 the python source code of the most relevant functions for this mec
         routine.save()
 
     return message
- `
-    
-dasdfasdf 
- Function `start_routine`:
-
 
