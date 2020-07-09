@@ -32,7 +32,9 @@ Besides the mentioned operations, other componenets of a given routine are condi
 
 The process flow of conditions is comparable to operations: The required information is extracted from handed-in parameters and it is then decidable whether a operation is required to be executed. Those evaluable components are checked regularly until the condition is met and the operation executed. 
 
+The algorithm continues with this logic untill no more components have been handed-over from the Frontend to the Backend. If all of the componenets were computed succesfully, the Backend returns the success message `Successfully finished routine!`. In an error case, the specific error, caused by a component, is presented as the response.
 
+In Appendix 1 the python source code of the most relevant functions for this mechanism is added.
 
 ### FUNCTIONS Endpoint
 
@@ -41,3 +43,44 @@ The process flow of conditions is comparable to operations: The required informa
 
 
 ### AVAILABLE_COMPONENTS Endpoint
+
+
+### Appendix 1 - Source Code of Component Mechanism
+
+`def start_routine(routine, manual=False):
+    """
+    Go through all routine components and execute their respective operations or evaluate
+    their respective conditions one at a time.
+    :param Routine routine:
+    :param bool manual: Skip the first component (timer condition) in case the user manually started the routine.
+    :return: String message which lets the user know if everything went well or an exception
+    happened.
+    :rtype: str
+    """
+
+    message = "Successfully finished routine!"
+    try:
+        routine.state = 'running'
+        routine.save()
+
+        variable_store = {}
+
+        # skip the first component (routine.components[1:] if the user
+        # manually started this routine
+        components = routine.components[1 if manual else 0:]
+        for component in components:
+            # copy the component and lose the initial reference
+            # we don't want to accidentally alter it and save it later
+            component = deepcopy(component)
+            evaluate_component(component, variable_store)
+
+        logger.info(f"Finished execution of: {routine}")
+    except Exception as ex:
+        logger.warning(f"Stopped execution of: {routine}")
+        logger.warning(ex)
+        message = str(ex)
+    finally:
+        routine.state = 'standby'
+        routine.save()
+
+    return message`
