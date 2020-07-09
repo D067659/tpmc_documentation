@@ -49,15 +49,7 @@ In Appendix 1 the python source code of the most relevant functions for this mec
 
 
 `def start_routine(routine, manual=False):
-    """
-    Go through all routine components and execute their respective operations or evaluate
-    their respective conditions one at a time.
-    :param Routine routine:
-    :param bool manual: Skip the first component (timer condition) in case the user manually started the routine.
-    :return: String message which lets the user know if everything went well or an exception
-    happened.
-    :rtype: str
-    """
+
 
     message = "Successfully finished routine!"
     try:
