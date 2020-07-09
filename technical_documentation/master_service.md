@@ -48,7 +48,8 @@ In Appendix 1 the python source code of the most relevant functions for this mec
 ### Appendix 1 - Source Code of Component Mechanism
 
 
-`def start_routine(routine, manual=False):
+`
+def start_routine(routine, manual=False):
     message = "Successfully finished routine!"
     try:
         routine.state = 'running'
@@ -74,7 +75,8 @@ In Appendix 1 the python source code of the most relevant functions for this mec
         routine.state = 'standby'
         routine.save()
 
-    return message`
+    return message
+ `
     
 dasdfasdf 
  Function `start_routine`:
