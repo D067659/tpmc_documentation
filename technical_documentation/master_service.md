@@ -83,7 +83,10 @@ def start_routine(routine, manual=False):
     return message
 
 **Function evalute_component**
-
+def foo():
+    if not bar:
+        return True
+        
 def evaluate_component(component, variable_store):
     """
     Execute an operation and store its result in a variable, if a variable name is provided.
