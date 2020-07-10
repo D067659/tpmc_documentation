@@ -34,10 +34,7 @@ The process flow of conditions is comparable to operations: The required informa
 
 The algorithm continues with this logic untill no more components have been handed-over from the Frontend to the Backend. If all of the components were computed succesfully, the Backend returns the success message `Successfully finished routine!`. In an error case, the specific error, caused by a component, is presented as the response.
 
-In Appendix 1 the python source code of the most relevant functions for this mechanism is added.
-
-[Appendix 1](###Appendix-1-Source-Code-of-Core-Components-Mechanism)
-
+In [Appendix 1](#appendix-1---source-code-of-core-components-mechanism) the python source code of the most relevant functions for this mechanism is added.
 
 
 ### FUNCTIONS Endpoint
