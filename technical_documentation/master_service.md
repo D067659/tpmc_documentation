@@ -41,35 +41,37 @@ In [Appendix 1](#appendix-1---source-code-of-core-components-mechanism) the pyth
 As it is intended that only the Master Service (besides the User Service) is in touch with the Frontend, all the stored data from the Service Provider needs to be forwarded to be able to be consumed and manipulated by the user via the Frontend (in this chapter, the created functions).
 
 *Functionality for GET Requests*:
-Forwards all the functions (manually created one and those which are provided by default) which are found for the users authentication token. This is what the GET method is made for.
+Forwards all the functions (manually created one and those which are provided by default) which are found for the users authentication token.
 
 *Functionality for POST Requests*:
-As the user has access to the Development Suite, the possibility exists to create new functions. This is what the POST method is made for.
+As the user has access to the Development Suite, the possibility exists to create new functions.
 
 *Functionality for PATCH Requests*:
-As the user has access to the Development Suite, the possibility exists to update existing functions. This is what the PATCH method is made for. Some of the key fields are non-editable, which allows the Frontend to only manipulate the help text, displayed at the UI besides the function name and to add further fields which are non-mandatory for the function to be executed (the generalized data model, not the specific one).
+As the user has access to the Development Suite, the possibility exists to update existing functions. Some of the key fields are non-editable, which allows the Frontend to only manipulate the help text, displayed at the UI besides the function name and to add further fields (the generalized data model, not the specific one).
 
 *Functionality for DELETE Requests*:
-As the user has access to the Development Suite, the possibility exists to delete existing functions (both created ones and those which are provided by default). This is what the DELETE method is made for. Deleting a function results in the deletion of dependent APIs in order to prevent inconsitent data. 
+As the user has access to the Development Suite, the possibility exists to delete existing functions (both created ones and those which are provided by default). Deleting a function results in the deletion of dependent APIs in order to prevent inconsitent data. 
 
 
 ### APIS Endpoint
 As it is intended that only the Master Service (besides the User Service) is in touch with the Frontend, all the stored data from the Service Provider needs to be forwarded to be able to be consumed and manipulated by the user via the Frontend (in this chapter, the created APIs).
 
 *Functionality for GET Requests*:
-Forwards all the APIs (manually created one and those which are provided by default) which are found for the users authentication token. This is what the GET method is made for.
-
+Forwards all the APIs (manually created one and those which are provided by default) which are found for the users authentication token.
 *Functionality for POST Requests*:
-As the user has access to the Development Suite, the possibility exists to create new APIs and map them to existing functions. This is what the POST method is made for.
+As the user has access to the Development Suite, the possibility exists to create new APIs and map them to existing functions.
 
 *Functionality for PATCH Requests*:
-As the user has access to the Development Suite, the possibility exists to update existing APIs. This is what the PATCH method is made for. Some of the key fields are non-editable.
+As the user has access to the Development Suite, the possibility exists to update existing APIs (only an update of the API name is allowed). Some of the key fields are non-editable.
 
 *Functionality for DELETE Requests*:
-As the user has access to the Development Suite, the possibility exists to delete existing APIs (both created ones and those which are provided by default). This is what the DELETE method is made for.
+As the user has access to the Development Suite, the possibility exists to delete existing APIs (both created ones and those which are provided by default).
 
 ### AVAILABLE_COMPONENTS Endpoint
-The data structure of a routine or the one for a list of functions differs a lot compared to a descriptive structure of what components are generally available. This is what the GET method is made for (for this endpoint only GET is allowed). All available components and their data types are forwarded from the Service Provider to be populated by the Frontend. It is mentionable that no single custom line of code is needed for the available components to be generated. This is automatically built by the information, stored in the database for the functiosn and APIs. Data types are inferred from their data model and the selection of possible components, too.        
+The data structure of a routine or the one for a list of functions differs a lot compared to a descriptive structure of what components are generally available. 
+In this endpoint, the structure is more suitable for the specific requirements of the Frontend, like the order by categories and a split between conditions and operations. For this endpoint only GET is allowed. 
+All available components and their data types are forwarded from the Service Provider to be populated by the Frontend. It is mentionable that no single custom line of code is needed for the available components to be generated. This is automatically built by the information, stored in the database for the functiosn and APIs. Data types are inferred from their data model and the selection of possible components, too. More information on this topic can be found in the [Frontend documentation](https://github.com/D067659/tpmc_documentation/blob/master-service-docu/technical_documentation/frontend_service.md)
+        
 
 
 ### Appendix 1 - Source Code of Core Components Mechanism
