@@ -1,40 +1,44 @@
 # Master Service
-The Master Service in the only contact point with the Frontend, besides the User Service for authentication. Its main responsibility is to compute a given routine, validate the outcome and send it back to the Frontend.
+The Master Service in the only contact point with the Frontend, besides the User Service for authentication. Its main responsibility is to manage the execution of a given routine, validate the outcome and send it back to the Frontend.
 Since this is only a high-level described goal, it is reasonable to have a look at all the exposed endpoints of the Master Service in order to gain a holistic overview of the capabilities of the Master Service:
 
 `/api/routine/`
 
-`/api/functions`
+`/api/functions/`
 
 `/api/apis/`
 
-`/api/available_components` 
+`/api/available_components/` 
 
 ## Functionality explained by Endpoints
 ### ROUTINE Endpoint
 *Functionality for GET Requests*:
-A GET request to the endpoint results in a list of all the saved routines which are created by the specific user, requesting the endpoint. This is what the GET method is made for.
+A GET request to the endpoint results in a list of all the saved routines which are created by the specific user, requesting the endpoint.
 
 *Functionality for GET Requests /routine/{routineId}/start_routine*:
 The routine endpoint is used by the Frontend after finishing the creation of a specific routine, whose ID is also a part of the URI for the endpoint. It receives a JSON object of a routine. The most important parts of a routine are:
 * The ID of a routine
-* Several components which describe a order and a logic for executing specific actions, like checking the weather (1. component) at a given time (2. component)
+* Several components which describe a order and a logic for executing specific actions, like checking the weather (2. component) at a given time (1. component)
 * A routine name for a better UI representation than only a ID
 * A user id belonging to the user who triggered the execution of a routine.
 
 In the first place, each part of the JSONs content is evaluated. This means, operations are executed (each operations has information stored what an action should look like) and the result is stored in a variable, if a variable name was specified via the UI (to hand-over information from one action to another).
-If the current component is a list, this means that a OR operation needs to be performed on those components, which are present in the identified list.
+If the current component is a list, this means that an OR operation needs to be performed on those components, which are present in the identified list.
 An operation (action) is explained by the parameters. After resolving and transforming those parameters into required fields for this action, the `/invoke_function/` endpoint of the Service Provider handles the real execution of the action (and the forwarding of the result back). It is mentionable that the services were desigend in a way, that the **Master Service is always the brain** of the project, while the **Service Provider is the mechanical hand**.
-Besides the mentioned operations, other componenets of a given routine are conditions, specifying a momentum of execution for the operations. Currently supported condition types are:
+Besides the mentioned operations, other components of a given routine are conditions, specifying a momentum of execution for the operations. Currently supported condition types are:
 
 * Number-Relations: Triggers if one number is bigger than another (e.g. stock prices, exchange rate, degree celcius)
 * Timer-Based: Triggers if a specific time in a given timezone is reached
 
 The process flow of conditions is comparable to operations: The required information is extracted from handed-in parameters and it is then decidable whether a operation is required to be executed. Those evaluable components are checked regularly until the condition is met and the operation executed. 
 
-The algorithm continues with this logic untill no more components have been handed-over from the Frontend to the Backend. If all of the componenets were computed succesfully, the Backend returns the success message `Successfully finished routine!`. In an error case, the specific error, caused by a component, is presented as the response.
+The algorithm continues with this logic untill no more components have been handed-over from the Frontend to the Backend. If all of the components were computed succesfully, the Backend returns the success message `Successfully finished routine!`. In an error case, the specific error, caused by a component, is presented as the response.
 
 In Appendix 1 the python source code of the most relevant functions for this mechanism is added.
+
+[Appendix 1](###Appendix-1-Source-Code-of-Core-Components-Mechanism)
+
+
 
 ### FUNCTIONS Endpoint
 As it is intended that only the Master Service (besides the User Service) is in touch with the Frontend, all the stored data from the Service Provider needs to be forwarded to be able to be consumed and manipulated by the user via the Frontend (in this chapter, the created functions).
