@@ -1,8 +1,24 @@
 # Use Case
+## Introduction
+In this section we will give some use cases our platform covers. The use cases cover the actors in the use case, the success scenario. Additionally we specify an evaluation task a test user can fulfill to test the performance of our plattform.
+
+## Evaluation
+One part of our evaluation will be based on how well users can fulfill the use cases. Therefore each use case will consist of a Task that can be done by a test user for evaulation. Each task has evaluation and control criteria.
+
+## Terms
+### Standard user
+The standard user requires less technical knowledge. Its primary aim is to create its own routines.
+### Advanced user
+The advanced user has more technical knowledge. Besides creating routines the advanced user will also add new functions and APIs.
+
+## Use Cases
+1. Create Routine
+2. ...
+
 ## Create Routine
 ### Primary Actor: Standard User
 ### Trigger
-The user wants to create a new Routine and logs into to platform.
+The user wants to create a new Routine.
 ### Preconditions
 1. The Advanced User added one or more Functions and one or more APIs to the platform.
 2. The user has an user account.
@@ -20,11 +36,63 @@ The user wants to create a new Routine and logs into to platform.
 #### Task
 Create a routine that holds the following components:
 1. Timer condition
+
+![Timer Condition Screenshot](/resources/images/Timer_condition.png)
 2. A stock price search of "Apple"
+
+![Stock Price Operation](/resources/images/Stockprice_by_name_operation.png)
 3. An email containing the stockprice search result, a subject and a recipient
 
+![Email Operation](/resources/images/Email_operation.png)
+
 #### Control criteria
-A routine is saved correctly at the right user account. The first component is a timer condition. The second component is the Finance operation "Stockprice by Company Name" with "Apple" in the field "Company Name" and a result variable starting with a "$". The third component is a messaging operation "Send Email" with a valid email address and an arbitrary subject and message text with at least on containing the stock price result variable starting with a "$".
+A routine is saved correctly at the users account. The first component is a timer condition. The second component is the Finance operation "Stockprice by Company Name" with "Apple" in the field "Company Name" and a result variable starting with a "$". The third component is a messaging operation "Send Email" with a valid email address and an arbitrary subject and message text with at least on containing the stock price result variable starting with a "$".
+The routine JSON structure should then look like this:
+
+```
+{
+    "url": "http://master.gsq.ro/api/routine/3348a805-86f3-4271-bd7e-630d065290d1/",
+    "id": "3348a805-86f3-4271-bd7e-630d065290d1",
+    "components": [
+        {
+            "category_name": "timer",
+            "function_name": "start_at",
+            "type": "condition",
+            "parameters": {
+                "weekday": [
+                    "monday"
+                ],
+                "timezone": "Europe/Berlin",
+                "time": "12:00"
+            }
+        },
+        {
+            "category_name": "Finance",
+            "function_name": "stock_price_by_name",
+            "type": "operation",
+            "parameters": {
+                "company_name": "Apple"
+            },
+            "result": "$"
+        },
+        {
+            "category_name": "Messaging",
+            "function_name": "send_email",
+            "type": "operation",
+            "parameters": {
+                "recipient": "test@email.com",
+                "subject": "Current Apple Stock price",
+                "content": "This is the current stock price of Apple: $result_variable"
+            },
+            "result": "$"
+        }
+    ],
+    "routine_name": "test",
+    "state": "standby",
+    "created_at": "2020-07-10T14:33:54.095380Z",
+    "updated_at": "2020-07-13T08:20:25.751354Z"
+}
+```
 
 #### Evaluation criteria
 The test subject stops the time from starting to the successful saving of the routine.
