@@ -20,119 +20,117 @@ In order to understand the concept we developed to achieved these goals, it is e
 
 ### Data model - Functions
 <table>
-	<tr>
-		<th>Attribute</th>
-  <th>Type</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>user</td>
-  <td>id</td>
-		<td>Some id representing the user this function belongs to.</td>
-	</tr>
-	<tr>
-		<td>category</td>
-  <td>String</td>
-  <td>Area this function fits into. Has only a "semantic" meaning and is used to structure the available functions by categories in the UI.</td>
-	</tr>
- <tr>
-		<td>function_name</td>
-  <td>String</td>
-  <td>Internal name of the function. It is displayed in the developer view of the UI and must be unique under the functions of a given user.</td>
-	</tr>
- <tr>
-  <td>function_label</td>
-  <td>String</td>
-  <td>Label for this function which is displayed in the UI when searching for available functions while creating or editing a routine.</td>
-	</tr>
- <tr>
-  <td>result</td>
-  <td>Object</td>
-  <td>An object representing the result of this function if it has one. If a function has no result, this is respresented by an empty object. The attributes of a non empty <b>result</b> object are as follows:
-  
-  <table>
-	   <tr>
-		    <th>Attribute</th>
+   <tr>
+      <th>Attribute</th>
       <th>Type</th>
-		    <th>Description</th>
-	   </tr>
-	   <tr>
-		    <td>name</td>
+      <th>Description</th>
+   </tr>
+   <tr>
+      <td>user</td>
+      <td>id</td>
+      <td>Some id representing the user this function belongs to.</td>
+   </tr>
+   <tr>
+      <td>category</td>
       <td>String</td>
-		    <td>Internal name of the result variable.</td>
-	   </tr>
- 	   <tr>
-		    <td>type</td>
-      <td>String ("number", "text" or "boolean")</td>
-		    <td>The datatype of the result variable. Used for validation of the results from API calls.</td>
-	   </tr>
- 	   <tr>
-		    <td>label</td>
+      <td>Area this function fits into. Has only a "semantic" meaning and is used to structure the available functions by categories in the UI.</td>
+   </tr>
+   <tr>
+      <td>function_name</td>
       <td>String</td>
-		    <td>Label for the result variable which is displayed in the UI when this function is to be used as part of a routine.</td>
-	   </tr>
- 	   <tr>
-		    <td>pattern</td>
+      <td>Internal name of the function. It is displayed in the developer view of the UI and must be unique under the functions of a given user.</td>
+   </tr>
+   <tr>
+      <td>function_label</td>
       <td>String</td>
-      <td><i>Optional</i>. A valid Regular Expression for the <i>Python</i> library <i>re</i> (docu see <a href="https://docs.python.org/3/library/re.html">here</a>). Also used for validation of the results from API calls if present.</td>
-	   </tr>
- 	   <tr>
-		    <td>help_text</td>
-      <td>String</td>
-      <td><i>Optional</i>. Detailed explanation of the result of this function.</td>
-	   </tr>
-
-  </table>
-  
-  </td>
-	</tr>
- <tr>
-  <td>fields</td>
-  <td>List</td>
-  <td>List of the fields (or parameters) that may or have to be passed to this function when it should be executed. If a function has no fields, this should be an empty list. The attributes of each <b>field</b> in the list are as follows:
-   
-   <table>
-	   <tr>
-		    <th>Attribute</th>
-      <th>Type</th>
-		    <th>Description</th>
-	   </tr>
-	   <tr>
-		    <td>name</td>
-      <td>String</td>
-		    <td>Internal name of this field. Used within API specifications.</td>
-	   </tr>
- 	   <tr>
-		    <td>type</td>
-      <td>String ("number", "text" or "boolean")</td>
-		    <td>The datatype of this. Used for validation.</td>
-	   </tr>
- 	   <tr>
-		    <td>label</td>
-      <td>String</td>
-		    <td>Label for this field which is displayed in the UI when this function is to be used as part of a routine.</td>
-	   </tr>
- 	   <tr>
-		    <td>required</td>
-      <td>Boolean</td>
-      <td>If set to <i>True</i> this field must be specified when this function is invoked, otherwise not.</td>
-	   </tr>
- 	   <tr>
-		    <td>help_text</td>
-      <td>String</td>
-      <td><i>Optional</i>. Detailed explanation of this field.</td>
-	   </tr>
-
-  </table>
- </td>
-	</tr>
-
+      <td>Label for this function which is displayed in the UI when searching for available functions while creating or editing a routine.</td>
+   </tr>
+   <tr>
+      <td>result</td>
+      <td>Object</td>
+      <td>
+         An object representing the result of this function if it has one. If a function has no result, this is respresented by an empty object. The attributes of a non empty <b>result</b> object are as follows: 
+         <details>
+		 <summary padding=20px><b>Show/Hide structure</b></summary>
+            <table>
+               <tr>
+                  <th>Attribute</th>
+                  <th>Type</th>
+                  <th>Description</th>
+               </tr>
+               <tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td>Internal name of the result variable.</td>
+               </tr>
+               <tr>
+                  <td>type</td>
+                  <td>String ("number", "text" or "boolean")</td>
+                  <td>The datatype of the result variable. Used for validation of the results from API calls.</td>
+               </tr>
+               <tr>
+                  <td>label</td>
+                  <td>String</td>
+                  <td>Label for the result variable which is displayed in the UI when this function is to be used as part of a routine.</td>
+               </tr>
+               <tr>
+                  <td>pattern</td>
+                  <td>String</td>
+                  <td><i>Optional</i>. A valid Regular Expression for the <i>Python</i> library <i>re</i> (docu see <a href="https://docs.python.org/3/library/re.html">here</a>). Also used for validation of the results from API calls if present.</td>
+               </tr>
+               <tr>
+                  <td>help_text</td>
+                  <td>String</td>
+                  <td><i>Optional</i>. Detailed explanation of the result of this function.</td>
+               </tr>
+            </table>
+         </details>
+	      <p></p>
+      </td>
+   </tr>
+   <tr>
+      <td>fields</td>
+      <td>List</td>
+      <td>
+         List of the fields (or parameters) that may or have to be passed to this function when it should be executed. If a function has no fields, this should be an empty list. The attributes of each <b>field</b> in the list are as follows:
+	      <details>
+            <summary>Show/Hide structure</summary>
+         <table>
+            <tr>
+               <th>Attribute</th>
+               <th>Type</th>
+               <th>Description</th>
+            </tr>
+            <tr>
+               <td>name</td>
+               <td>String</td>
+               <td>Internal name of this field. Used within API specifications.</td>
+            </tr>
+            <tr>
+               <td>type</td>
+               <td>String ("number", "text" or "boolean")</td>
+               <td>The datatype of this. Used for validation.</td>
+            </tr>
+            <tr>
+               <td>label</td>
+               <td>String</td>
+               <td>Label for this field which is displayed in the UI when this function is to be used as part of a routine.</td>
+            </tr>
+            <tr>
+               <td>required</td>
+               <td>Boolean</td>
+               <td>If set to <i>True</i> this field must be specified when this function is invoked, otherwise not.</td>
+            </tr>
+            <tr>
+               <td>help_text</td>
+               <td>String</td>
+               <td><i>Optional</i>. Detailed explanation of this field.</td>
+            </tr>
+         </table>
+		      </details>
+      </td>
+   </tr>
 </table>
-
-
-
-
-
 
 ### Data model - APIs
 <table>
@@ -251,11 +249,6 @@ The **flow for the execution of a function with a given API** can be roughly des
 3. Replace all placeholders in the corresponding attributes (*request_params_template* etc.) by their evaluated values.
 4.	Make the actual API call using the specified URL, request method etc.
 5.	If the call was successful and there is a result path specified, try to extract the result value from the response JSON according to specified path. 
-
-
-
-
-
 
 ## Technical Implementation by the Service Provider
 ### Overall Architecture
