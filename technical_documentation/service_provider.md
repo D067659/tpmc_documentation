@@ -7,8 +7,7 @@ Since the Service Provider is so to say the implementation of our overall mappin
 The structure of this documentation is as follows: 
 * [Underlying Mapping Concept](#underlying-mapping-concept)
 * [Technical Implementation by the Service Provider](#technical-implementation-by-the-service-provider)
-  * [Overall Architecture](#overall-architecture)
-  * [Capabilities offered by the individual Endpoints](#capabilities-offered-by-the-individual-endpoints)
+  * [Functionality offered by the individual Endpoints](#functionality-offered-by-the-individual-endpoints)
   * [Function Execution Flow](#function-execution-flow)
 * [Appendix 1 - Exemplary Fixtures of Function and API Specifications](#appendix-1---exemplary-fixtures-of-function-and-api-specifications)
 * [Appendix 2 - Source Code for main part of Function Execution](#appendix-2---source-code-for-main-part-of-function-execution) 
@@ -24,7 +23,7 @@ In order to understand the concept we developed to achieved these goals, it is e
       <th>Attribute</th>
       <th>Type</th>
       <th>Description</th>
-   </tr>
+  </tr>
    <tr>
       <td>user</td>
       <td>id</td>
@@ -49,9 +48,10 @@ In order to understand the concept we developed to achieved these goals, it is e
       <td>result</td>
       <td>Object</td>
       <td>
-         An object representing the result of this function if it has one. If a function has no result, this is respresented by an empty object. The attributes of a non empty <b>result</b> object are as follows: 
-         <details>
-		 <summary padding=20px><b>Show/Hide structure</b></summary>
+         An object representing the result of this function if it has one. If a function has no result, this is respresented by an empty object. 
+	 The attributes of a non empty <b>result</b> object are as follows: 
+	 <details>
+		 <summary><b>Show/Hide structure</b><br/>&nbsp;</summary>
             <table>
                <tr>
                   <th>Attribute</th>
@@ -83,9 +83,8 @@ In order to understand the concept we developed to achieved these goals, it is e
                   <td>String</td>
                   <td><i>Optional</i>. Detailed explanation of the result of this function.</td>
                </tr>
-            </table>
+		</table>
          </details>
-	      <p></p>
       </td>
    </tr>
    <tr>
@@ -94,7 +93,7 @@ In order to understand the concept we developed to achieved these goals, it is e
       <td>
          List of the fields (or parameters) that may or have to be passed to this function when it should be executed. If a function has no fields, this should be an empty list. The attributes of each <b>field</b> in the list are as follows:
 	      <details>
-            <summary>Show/Hide structure</summary>
+		      <summary><b>Show/Hide structure</b><br/>&nbsp;</summary>
          <table>
             <tr>
                <th>Attribute</th>
@@ -210,7 +209,8 @@ In order to understand the concept we developed to achieved these goals, it is e
   <td>placeholders</td>
   <td>List</td>
   <td>List of placeholders used in prior attributes that need to be replaced by "real" values before the API is accessed. If no placeholders were used, this is respresented by an empty list. The attributes of each <b>placeholder</b> object are as follows:
-  
+  <details>
+		      <summary><b>Show/Hide structure</b><br/>&nbsp;</summary>
   <table>
 	   <tr>
 		    <th>Attribute</th>
@@ -236,7 +236,7 @@ The structure of the <b>value</b> object in either cases is shown in Appendix 1.
 		    <td>If set to <i>True</i> the value of the placeholder will always be converted to a string before it is inserted at the specified location.</td>
 	   </tr>
 
-  </table>
+  </table></details>
   
   </td>
 	</tr>
@@ -244,19 +244,46 @@ The structure of the <b>value</b> object in either cases is shown in Appendix 1.
 </table>
 
 The **flow for the execution of a function with a given API** can be roughly described as follows:
-1.	Check, if all fields required for applying this API were specified. 
+1. Check, if all fields required for applying this API were specified. 
 2. If so, evaluate all placeholders and store their values.
 3. Replace all placeholders in the corresponding attributes (*request_params_template* etc.) by their evaluated values.
-4.	Make the actual API call using the specified URL, request method etc.
-5.	If the call was successful and there is a result path specified, try to extract the result value from the response JSON according to specified path. 
+4. Make the actual API call using the specified URL, request method etc.
+5. If the call was successful and there is a result path specified, try to extract the result value from the response JSON according to specified path. 
 
 ## Technical Implementation by the Service Provider
-### Overall Architecture
 
-### Capabilities offered by the individual Endpoints
+As already said, the Service Provider is a straightforward implementation of the Mapping Concept discussed in the prior section. Consequently the core tasks of the Service Provider are, one the hand, to manage a database of functions respectively API specifications and, on the other hand, to execute functions when requested. This is reflected in the three endpoints the Service Provider provides:
+* `/services/manage_functions/`
+* `/services/manage_apis/`
+* `/services/invoke_function/`
+Thus, at first the functionality of each endpoint is explained. After that, the flow of function execution including possible errors is depicted.
+
+
+### Functionality offered by the individual Endpoints
+#### Manage Functions Endpoint
+This endpoint offers the possibility to create new functions, retrieve a list of all existing functions as well as retrieve, update or delete an existing functions:
+* Functionality for *GET* request to `/services/manage_functions/`:
+This request results in a list of all the saved functions which are created by the specific user requesting the endpoint. An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). It should be mentioned that the user field is not included since there are anyway only functions returned which are either owned by the requesting user or *built-in*, i.e. available for every user.
+
+* Functionality for *POST* request to `/services/manage_functions/`:
+Via this request new functions can be added to the user's list of functions. Since the Service Provider is very generic and thus error-prone, the function to be added is validated exhaustively (see file `function_serializer.py`) before it is stored in the database. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).
+
+* Functionality for *GET* request to `/services/manage_functions/{functionId}`:
+This request results in the specification of the function with the specified id, if exists.
+
+* Functionality for *PUT* request to `/services/manage_functions/{functionId}`:
+Via this request XXXXXXXXXXXXXX.
+
+* Functionality for *DELETE* request to `/services/manage_functions/{functionId}`:
+This request results in the deletion of the function with the specified id, if exists. Deleting a function results in the deletion of dependent APIs in order to prevent inconsitent data.
+
+
 Manage Functions and APIs and execute functions.
 built in erklären, sonst immer nur für einen nutzer
-### Function Execution Flow
+### Function Execution Flow 
+#### Flow
+#### Possible Errors
+Very error prone
 
 ## Appendix 1 - Exemplary Fixtures of Function and API Specifications
 
