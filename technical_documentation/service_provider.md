@@ -156,7 +156,7 @@ In order to understand the concept we developed to achieved these goals, it is e
  <tr>
   <td>url</td>
   <td>String (must be valid <i>URL</i>)</td>
-  <td>URL to which the request is made when this API is accessed.</td>
+  <td>URL to which the request is made when this API is accessed. May contain placeholders (see below).</td>
 	</tr>
  <tr>
   <td>header</td>
@@ -304,15 +304,134 @@ Via this request the Service Provider can be advised to execute a certain functi
 If the request is valid (i.e. the function exists, all mandatory fields are specified, all specified fields have the correct type, etc.) the Service Provider tries to execute the function by using associated APIs. This process is discussed in the next section.
 
 ### Flow of Function execution
+When executing a function, at first, all available APIs for the given function are selected and ordered according to the selection logic described above (see description of attribute *priority*). Then a method called *invoke_api* (see file `api_utils.py` and [Appendix 2](#appendix-2---source-code-for-main-part-of-function-execution)) is executed one after the other for all APIs until an execution is successful. As parameters, the method is basically told which API is to be used and which function fields are given including the specified values: 
+1) Check if the given API is applicable, i.e. if all fields mandatory to use this API, i.e. to evaluate its placeholders, are specified
+2) Evaluate all placeholders and store their values
+3) Fill all templates belonging to attributes which required for making the request and the result extraction (*url*, *header*, *request_params_template*, *request_body_template*, *response_result_path*) by replacing all placeholders (*§{placeholderId}§*) with the values that were computed in the prior step.
+4) Perform the actual API call
+5) Extract the result value from the response JSON returned by the API according to the *response_result_path*, if not empty, and validate the extracted result against the function specification (i.e. check type and pattern, if one specifed) before it is returned.
 
+Since the service provider is very generic and in principle allows the addition of any functions and APIs, erros can still occur during the execution of the method despite all previous validation. The possible exceptions (see file `exceptions.py`), all of which inheriting from an exception called *ApiInvocationError*, that might be thrown by the *invoke_api* method are explained below:
 
-#### Flow
-#### Possible Errors
-Very error prone
+<table>
+   <tr>
+      <th>Error</th>
+      <th>Description</th>
+  </tr>
+  <tr>
+     <td>ApiNotApplicableError</td>
+     <td>Raised when the specified inputs are not sufficient to use this API.</td>
+  </tr>
+  <tr>
+     <td>ApiRequestError</td>
+     <td>Raised when the request to the external API itself lead to an exception.</td>
+  </tr>
+  <tr>
+     <td>ApiCallNotSuccessfulError</td>
+     <td>Raised when the status code of the response object of the external API call is not 2xx.</td>
+  </tr>
+  <tr>
+     <td>InvalidResultPathError</td>
+     <td>Raised when result couldn't be extracted from the API response according to the specified result path.</td>
+  </tr>
+  <tr>
+     <td>InvalidResponseBodyTypeError</td>
+     <td>Raised when the response body does not contain valid JSON.</td>
+  </tr>
+  <tr>
+     <td>PlaceholderEvaluationError</td>
+     <td>Raised when the evaluation of a placeholder failed.</td>
+  </tr>
+  <tr>
+     <td>ResultValidationError</td>
+     <td>Raised when the validation of the extracted result fails, e.g. because it has the wrong type and cannot be converted into the desired type.</td>
+  </tr>	
+</table>
+	
 
 ## Appendix 1 - Exemplary Fixtures of Function and API Specifications
 
 ## Appendix 2 - Source Code for main part of Function Execution 
+**Source code of *invoke_api* method:**
 
+```python
+def invoke_api(api: Api, specified_fields, invocation_stack):
+    """
+    Tries to invoke the passed API with the specified fields.
+    :param Api api: the services to be invoked
+    :param list specified_fields: specified fields for function execution
+    :param list invocation_stack: list of functions waiting for the result of this function invocation
+                                  (maintained to detect cycles due to placeholder evaluations)
+    :return result of the underlying function if the API call was successful
+    :exception raises exception if the API can't be accessed (e.g. specified_fields not sufficient, API not available etc.)
+    """
+    # Append the current function to the invocation stack
+    invocation_stack.append(api.function_name)
 
+    # 1) Check if this API is applicable, i.e. if all fields required to use this API are specified
+    specified_fields_names = []
+    for field in specified_fields:
+        specified_fields_names.append(field["name"])
+
+    required_fields_names = api.required_fields_names()
+    if not all(field_name in specified_fields_names for field_name in required_fields_names):
+        missing_fields = list(set(required_fields_names) - set(specified_fields_names))
+        raise ApiNotApplicableError(api_name=api.name, missing_fields=missing_fields)
+
+    # 2) Evaluate all placeholders and store values in a dict composed of id-value pairs
+    placeholder_values = {}
+    for placeholder in api.placeholders:
+        value = _evaluate_placeholder(invocation_stack, placeholder, specified_fields, api.user)
+        if value is None:
+            raise PlaceholderEvaluationError(api_name=api.name, placeholder_id=placeholder["id"])
+        else:
+            placeholder_values[placeholder["id"]] = value
+
+    # 3) Fill all templates required for the request, i.e. replace all placeholders by the computed values
+    request_url = _fill_template(api.url, placeholder_values)
+    request_params = {}
+    if api.request_params_template:
+        request_params = _fill_template(api.request_params_template, placeholder_values)
+
+    request_body = {}
+    if api.request_body_template:
+        request_body = _fill_template(api.request_body_template, placeholder_values)
+
+    # 4) Make API Call
+    try:
+        if api.request_method == "GET":
+            response = requests.get(url=request_url, headers=api.header, params=request_params)
+        else:
+            response = requests.request(api.request_method, url=request_url, headers=api.header, params=request_params,
+                                        json=request_body)
+    except Exception as ex:
+        raise ApiRequestError(api_name=api.name, exception_string=str(ex))
+
+    if not status.is_success(response.status_code):
+        raise ApiCallNotSuccessfulError(api_name=api.name, response_string=str(response), response_text=response.text)
+
+    # 5) Extract result value from response JSON according to the response_result_path if not empty
+    if api.response_result_path != "":
+        try:
+            response_data = response.json()
+        except ValueError:
+            raise InvalidResponseBodyTypeError(api.name)
+        else:
+            try:
+                response_result_path = _fill_template(api.response_result_path, placeholder_values)
+                result = _extract_response(response_result_path, response_data)
+            except ValueError:
+                raise InvalidResultPathError(api_name=api.name, result_path=api.response_result_path)
+            else:
+                #  validate result using the information given in the function specification
+                result = _validate_result(result, api.function.result.get("type"),
+                                          api.function.result.get("pattern"))
+                if result is None:
+                    raise ResultValidationError(api_name=api.name)
+    else:
+        result = None
+
+    return result
+```
+</details>
 
