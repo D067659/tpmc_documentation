@@ -8,7 +8,7 @@ The structure of this documentation is as follows:
 * [Underlying Mapping Concept](#underlying-mapping-concept)
 * [Technical Implementation by the Service Provider](#technical-implementation-by-the-service-provider)
   * [Functionality offered by the individual Endpoints](#functionality-offered-by-the-individual-endpoints)
-  * [Function Execution Flow](#function-execution-flow)
+  * [Flow of Function Execution](#flow-of-function-execution)
 * [Appendix 1 - Exemplary Fixtures of Function and API Specifications](#appendix-1---exemplary-fixtures-of-function-and-api-specifications)
 * [Appendix 2 - Source Code for main part of Function Execution](#appendix-2---source-code-for-main-part-of-function-execution) 
 
@@ -261,26 +261,51 @@ Thus, at first the functionality of each endpoint is explained. After that, the 
 
 ### Functionality offered by the individual Endpoints
 #### Manage Functions Endpoint
-This endpoint offers the possibility to create new functions, retrieve a list of all existing functions as well as retrieve, update or delete an existing functions:
-* Functionality for *GET* request to `/services/manage_functions/`:
-This request results in a list of all the saved functions which are created by the specific user requesting the endpoint. An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). It should be mentioned that the user field is not included since there are anyway only functions returned which are either owned by the requesting user or *built-in*, i.e. available for every user.
+This endpoint offers the possibility to create new functions, get a list of all existing functions as well as retrieve, update or delete an existing functions. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `function_serializer.py`) before they are executed.
 
-* Functionality for *POST* request to `/services/manage_functions/`:
-Via this request new functions can be added to the user's list of functions. Since the Service Provider is very generic and thus error-prone, the function to be added is validated exhaustively (see file `function_serializer.py`) before it is stored in the database. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).
+* **Functionality for *GET* request to `/services/manage_functions/`:**
+This request results in a list of all stored functions the requesting user has access to. An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). It should be mentioned that the *user* attribute is not included since there are anyway only functions returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
 
-* Functionality for *GET* request to `/services/manage_functions/{functionId}`:
-This request results in the specification of the function with the specified id, if exists.
+* **Functionality for *POST* request to `/services/manage_functions/`:**
+Via this request new functions can be added to the user's list of functions. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).
 
-* Functionality for *PUT* request to `/services/manage_functions/{functionId}`:
-Via this request XXXXXXXXXXXXXX.
+* **Functionality for *GET* request to `/services/manage_functions/{functionId}`:**
+This request results in the specification of the function with the specified id, if present in the list of accessible functions.
 
-* Functionality for *DELETE* request to `/services/manage_functions/{functionId}`:
-This request results in the deletion of the function with the specified id, if exists. Deleting a function results in the deletion of dependent APIs in order to prevent inconsitent data.
+* **Functionality for *PUT* request to `/services/manage_functions/{functionId}`:**
+Via this request the function with the specified id can be updated, if present in the list of accessible functions. To avoid inconsistencies with any existing associated APIs, only selected attributes (*category*, *function_label*) can be updated and additional fields can be added to the list of fields. <!--"Built-in" functions cannot be edited.-->d
+
+* **Functionality for *DELETE* request to `/services/manage_functions/{functionId}`:**
+This request results in the deletion of the function with the specified id, if present in the list of accessible functions. Deleting a function results in the deletion of all associated APIs in order to prevent inconsistent data.
+
+#### Manage APIs Endpoint
+This endpoint offers the possibility to create new APIs, get a list of all existing APIs as well as retrieve, update or delete an existing API. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `api_serializer.py`) before they are executed.
+
+* **Functionality for *GET* request to `/services/manage_apis/`:**
+This request results in a list of all stored APIs the requesting user has access to. An example for an API as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). Again, the *user* attribute is not included since there are anyway only APIs returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
+
+* **Functionality for *POST* request to `/services/manage_apis/`:**
+Via this request new APIs can be added to the user's list of APIs. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).
+
+* **Functionality for *GET* request to `/services/manage_apis/{ApiId}`:**
+This request results in the specification of the API with the specified id, if present in the list of accessible APIs.
+
+* **Functionality for *PUT* request to `/services/manage_apis/{ApiId}`:**
+Via this request the API with the specified id can be updated, if present in the list of accessible APIs. All attributes except from *name* can be edited. 
+
+* **Functionality for *DELETE* request to `/services/manage_apis/{ApiId}`:**
+This request results in the deletion of the API with the specified id, if present in the list of accessible APIs.
+
+#### Invoke Function Endpoint
+This endpoint offers the possibility to invoke a certain function by making a appropriate *POST* request. 
+* **Functionality for *POST* request to `/services/invoke_function/`:**
+Via this request the Service Provider can be advised to execute a certain function. Therefore, the request's body must hold the name of the function (attribute *function_name*) to be executed as well as the values of the fields that were specified by the user. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). In order to prevent as many errors as possible at this early stage the provided body is validated exhaustively (see file `invoke_function_serializer.py`) against the corresponding function specification before the request is executed.
+
+If the request is valid (i.e. the function exists, all mandatory fields are specified, all specified fields have the correct type, etc.) the Service Provider tries to execute the function by using associated APIs. This process is discussed in the next section.
+
+### Flow of Function execution
 
 
-Manage Functions and APIs and execute functions.
-built in erklären, sonst immer nur für einen nutzer
-### Function Execution Flow 
 #### Flow
 #### Possible Errors
 Very error prone
