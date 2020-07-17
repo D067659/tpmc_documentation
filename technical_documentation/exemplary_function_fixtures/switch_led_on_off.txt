@@ -1,0 +1,37 @@
+======================================
+Function
+======================================
+        {
+            "category": "IoT",
+            "function_name": "switch_led_on_off",
+            "function_label": "Switch LED On/Off",
+            "result": {},
+            "fields": []
+        }
+
+
+======================================
+APIs
+======================================
+{
+            "function_name": "switch_led_on_off",
+            "name": "Toggle LED On/Off State (Node Red)",
+            "url": "https://node-red.gsq.ro/led/power",
+            "header": {},
+            "request_params_template": {},
+            "request_body_template": {},
+            "response_result_path": "",
+            "request_method": "POST",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": []
+        }
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "switch_led_on_off",
+  "specified_fields": []
+}

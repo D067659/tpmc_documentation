@@ -1,0 +1,169 @@
+======================================
+Function
+======================================
+        {
+            "category": "Messaging",
+            "function_name": "send_email",
+            "function_label": "Send Email",
+            "result": {},
+            "fields": [
+                {
+                    "name": "recipient",
+                    "type": "text",
+                    "label": "Recipient Email Address",
+                    "required": false
+                },
+                {
+                    "name": "subject",
+                    "type": "text",
+                    "label": "Subject",
+                    "required": false
+                },
+                {
+                    "name": "content",
+                    "type": "text",
+                    "label": "Message",
+                    "required": false
+                }
+            ]
+        }
+
+
+
+
+
+
+
+
+======================================
+APIs
+======================================
+        {
+            "function_name": "send_email",
+            "name": "Sendgrid",
+            "url": "https://api.sendgrid.com/v3/mail/send",
+            "header": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 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"
+            },
+            "request_params_template": {},
+            "request_body_template": {
+                "from": {
+                    "email": "notification@yoursmarthomeservice.com"
+                },
+                "content": [
+                    {
+                        "type": "text/plain",
+                        "value": "§1§"
+                    }
+                ],
+                "subject": "§2§",
+                "personalizations": [
+                    {
+                        "to": [
+                            {
+                                "email": "§3§"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "response_result_path": "",
+            "request_method": "POST",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "content",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 2,
+                    "value": {
+                        "field": "subject",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 3,
+                    "value": {
+                        "field": "recipient",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]	    
+        }
+------------------------------------------
+        {
+            "function_name": "send_email",
+            "name": "MessagingServiceEmail",
+            "url": "https://messaging.gsq.ro/api/send_email/",
+            "header": {},
+            "request_params_template": {
+                "token": "886dde74-7fd3-459e-9643-6782ee9caeb0"
+            },
+            "request_body_template": {
+                "content": "§1§",
+                "subject": "§2§",
+                "recipient": "§3§"
+            },
+            "response_result_path": "",
+            "request_method": "POST",
+            "priority": 2,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "content",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 2,
+                    "value": {
+                        "field": "subject",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 3,
+                    "value": {
+                        "field": "recipient",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]	
+        }
+
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "send_email",
+  "specified_fields": [
+    {
+      "name": "recipient",
+      "value": "tobias.horn97@gmx.de"
+    },
+    {
+      "name": "subject",
+      "value": "Test Subject"
+    },
+    {
+      "name": "content",
+      "value": "test content"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+======================================
+Function
+======================================
+        {
+            "category": "Messaging",
+            "function_name": "send_discord_message",
+            "function_label": "Send Discord Message",
+            "result": {},
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "text",
+                    "label": "Name of the Bot",
+                    "required": false
+                },
+                {
+                    "name": "content",
+                    "type": "text",
+                    "label": "Content of the Message",
+                    "required": false
+                }
+            ]
+        }
+
+
+
+
+
+
+
+
+======================================
+APIs
+======================================
+        {
+            "function_name": "send_discord_message",
+            "name": "MessagingServiceDiscord",
+            "url": "https://messaging.gsq.ro/api/send_discord_message/",
+            "header": {},
+            "request_params_template": {
+                "token": "886dde74-7fd3-459e-9643-6782ee9caeb0"
+            },
+            "request_body_template": {
+                "content": "§1§",
+                "username": "§2§"
+            },
+            "response_result_path": "",
+            "request_method": "POST",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "content",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 2,
+                    "value": {
+                        "field": "username",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]	
+        }
+
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "send_discord_message",
+  "specified_fields": [
+    {
+      "name": "username",
+      "value": "Test"
+    },
+    {
+      "name": "content",
+      "value": "test"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+======================================
+Function
+======================================
+        {
+            "category": "Weather",
+            "function_name": "weather_for_location",
+            "function_label": "Current Weather",
+            "result": {
+                "name": "weather_description",
+                "type": "text",
+                "label": "Description of current weather at specified location"
+            },
+            "fields": [
+                {
+                    "name": "city",
+                    "type": "text",
+                    "label": "City",
+                    "required": false
+                },
+                {
+                    "name": "country_code",
+                    "type": "text",
+                    "label": "Country Code",
+                    "required": false
+                }
+            ]
+        }
+
+
+
+
+
+
+
+
+======================================
+APIs
+======================================
+        {
+            "function_name": "weather_for_location",
+            "name": "Open Weather Map",
+            "url": "https://community-open-weather-map.p.rapidapi.com/weather",
+            "header": {
+                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "q": "§1§",
+                "lang": "en"
+            },
+            "request_body_template": {},
+            "response_result_path": "weather[0].description",
+            "request_method": "GET",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "city",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+----------------------------------------------------
+        {
+            "function_name": "weather_for_location",
+            "name": "Aeris Weather",
+            "url": "https://aerisweather1.p.rapidapi.com/observations/§1§,§2§",
+            "header": {
+                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-host": "aerisweather1.p.rapidapi.com"
+            },
+            "request_params_template": {},
+            "request_body_template": {},
+            "response_result_path": "response.ob.weather",
+            "request_method": "GET",
+            "priority": 2,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "city",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 2,
+                    "value": {
+                        "field": "country_code",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "weather_for_location",
+  "specified_fields": [
+    {
+      "name": "city",
+      "value": "Mannheim"
+    },
+    {
+      "name": "country_code",
+      "value": "de"
+    }
+  ]
+}
