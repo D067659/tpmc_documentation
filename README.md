@@ -55,7 +55,7 @@ After a description of the overall archtitecture, the four microservices that ar
 * [Overall Microservice Architecture](technical_documentation/overall_microservice_archtitecture.md)
 * [Frontend Service](technical_documentation/frontend_service.md)
 * [Master Service](technical_documentation/master_service.md)
-* [Service Provider](technical_documentation/service_provider.md)
+* [Service Provider and its underlying Mapping Concept](technical_documentation/service_provider.md)
 * [User Service](technical_documentation/user_service.md)
 
 Besides, there are two supplementary services that were initially developed as part of an earlier archtitecture idea which was based on several independent *Category Services* instead of having one more generic *Service Provider* and became redundant with the introduction of this (in case of [Finance Category Service](https://github.com/hokedo/tpmc_finance_category_service/tree/master/finance_category_service/api)) or were modified to serve only as an additional external API (in case of [Messaging Category Service](https://github.com/TobiasHorn1899/tpmc_messaging_category_service)) to be accessed by the *Service Provider* like any external API.
