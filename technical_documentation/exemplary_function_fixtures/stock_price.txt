@@ -1,0 +1,181 @@
+======================================
+Function
+======================================
+{
+            "category": "Finance",
+            "function_name": "stock_price",
+            "function_label": "Retrieve Stock Price of a Company",
+            "result": {
+                "name": "stock_price",
+                "type": "text",
+                "label": "Stock Price",
+		"pattern": "\\d+([.]?\\d+)?"
+            },
+            "fields": [
+                {
+                    "name": "company_name",
+                    "type": "text",
+                    "label": "Company Name",
+                    "required": false,
+                    "help_text": "Name of the company"
+                },
+                {
+                    "name": "company_symbol",
+                    "type": "text",
+                    "label": "Company Symbol",
+                    "required": false,
+                    "help_text": "Symbol of the company"
+                }
+            ]
+        }
+
+
+
+======================================
+APIs
+======================================
+        {
+            "function_name": "stock_price",
+            "name": "Yahoo Finance (stock/get-detail by Name)",
+            "url": "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
+            "header": {
+                "x-rapidapi-key": "3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d",
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "lang": "en",
+                "region": "US",
+                "symbol": "§1§"
+            },
+            "request_body_template": {},
+            "response_result_path": "price.regularMarketOpen.raw",
+            "request_method": "GET",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "function_name": "retrieve_company_symbol",
+                        "apply_function": true,
+                        "function_fields": [
+                            {
+                                "name": "search_name",
+                                "value": "§company_name§"
+                            }
+                        ]
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+--------------------------------------------------
+        {
+            "function_name": "stock_price",
+            "name": "Finnhub (by Name)",
+            "url": "https://finnhub-realtime-stock-price.p.rapidapi.com/quote",
+            "header": {
+                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-host": "finnhub-realtime-stock-price.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "symbol": "§1§"
+            },
+            "request_body_template": {},
+            "response_result_path": "c",
+            "request_method": "GET",
+            "priority": 2,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "function_name": "retrieve_company_symbol",
+                        "apply_function": true,
+                        "function_fields": [
+                            {
+                                "name": "search_name",
+                                "value": "§company_name§"
+                            }
+                        ]
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+-------------------------------------------------------
+        {
+            "function_name": "stock_price",
+            "name": "Yahoo Finance (stock/get-detail by Symbol)",
+            "url": "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
+            "header": {
+                "x-rapidapi-key": "3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d",
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "lang": "en",
+                "region": "US",
+                "symbol": "§1§"
+            },
+            "request_body_template": {},
+            "response_result_path": "price.regularMarketOpen.raw",
+            "request_method": "GET",
+            "priority": 1,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "company_symbol",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+-------------------------------------------------------------
+        {
+            "function_name": "stock_price",
+            "name": "Finnhub (by Symbol)",
+            "url": "https://finnhub-realtime-stock-price.p.rapidapi.com/quote",
+            "header": {
+                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-host": "finnhub-realtime-stock-price.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "symbol": "§1§"
+            },
+            "request_body_template": {},
+            "response_result_path": "c",
+            "request_method": "GET",
+            "priority": 0,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "company_symbol",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+
+=======================================
+Invocation Example
+=======================================
+# only one field is mandatory depending on the preferred API
+{
+  "function_name": "stock_price",
+  "specified_fields": [
+    {
+      "name": "company_name",
+      "value": "Apple"
+    },
+    {
+      "name": "company_symbol",
+      "value": "AAPL"
+    }
+  ]
+}
