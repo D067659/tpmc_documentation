@@ -198,7 +198,7 @@ In order to understand the concept we developed to achieved these goals, it is e
     <li>"2" corresponds to "high"</li>
     <li>"3" corresponds to "preferred"</li>
    </ul>
-   In case there are several APIs that can be applied to execute a given function, APIs with higher priority are chosen first. Only if none of the APIs with high priority is applicable resp. available, APIs with a lower priority class will be chosen. Priority "3" can be assigned only to one API for a given function. Also, this preferred API determines which fields of the function are defined as required fields, namely, those fields that are required to apply this API.</td>
+   In case there are several APIs that can be applied to execute a given function, APIs with higher priority are chosen first. Only if none of the APIs with high priority is applicable resp. available, APIs with a lower priority class will be chosen. Priority "3" can be assigned only to one API for a given function and if there is any API at all there must be one preferred API. This preferred API determines which fields of the function are defined as required fields, namely, those fields that are required to apply this API.</td>
 	</tr>
  <tr>
   <td>enabled</td>
@@ -220,14 +220,14 @@ In order to understand the concept we developed to achieved these goals, it is e
 	   <tr>
 		    <td>id</td>
       <td>number</td>
-		    <td>Id of this placeholder. Used to match it with it's usages in the aforementioned attributes. A placeholder is inserted into a template (JSON file or String) via <i>§&lt;id&gt;§. At exactly this position the value of the placeholder is put when the template is filled (see later).</td>
+		    <td>Id of this placeholder. Used to match it with it's usages in the aforementioned attributes. A placeholder is inserted into a template (JSON file or String) via <i>§&lt;id&gt;§</i>. At exactly this position the value of the placeholder is put when the template is filled (see later).</td>
 	   </tr>
  	  <tr>
 		    <td>value</td>
       <td>Object</td>
-		    <td>Object which specifies how the placeholder shall be evaluated, i.e. how its value must be derived by potentialy using (some of) the fields of the invoked function specified by the user. There are two types of placeholder values: Those which correspond directly to one of the specified fields and those which are the result of another function that needs to be invoked first. In the latter case the specified fields may be used as parameters of this function. 
-       
-The structure of the <b>value</b> object in either cases is shown in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications) (e.g. for case 1 see API named "Yahoo Finance (stock/get-detail by Symbol)" and for case 2 see API named "Yahoo Finance (stock/get-detail by Name)". In both cases a boolean attribute <i>apply_function</i> specifies in which case we are. This information could also be derived from the structure of the object, but this attribute simplifies processing and validation. In the first case, i.e. if we do not apply a function, the name of the function field (attribute <i>name</i>) whose user specified value should be used as value of this placeholder is given in an attribute called <i>field</i>. In the latter case, besides the <i>apply_function</i> attribute, there are two more attributes: One, named <i>function_name</i> holding the internal name of the function to be invoked for evaluation. The second, named <i>function_fields</i> holding a list of objects specifying which fields are passed to the function for invocation together with their values. In case, a value is sourrounded by "§" signs, this means that this value should be the value of the corresponding field of the originally invoked function.
+		    <td>Object which specifies how the placeholder shall be evaluated, i.e. how its value must be derived by potentialy using (some of) the fields of the invoked function specified by the user. There are two types of placeholder values: Those which correspond directly to one of the specified fields and those which are the result of another function that needs to be invoked first. In the latter case the specified fields may be used as parameters of this function. <br/>
+The structure of the <b>value</b> object in either cases is shown in <a href=#appendix-1---exemplary-fixtures-of-function-and-api-specifications>Appendix 1</a> (For case 1 see step 2) and for case 2 see step 4)). <br/>		    
+In both cases a boolean attribute <i>apply_function</i> specifies in which case we are. This information could also be derived from the structure of the object, but this attribute simplifies processing and validation. In the first case, i.e. if we do not apply a function, the name of the function field (attribute <i>name</i>) whose user specified value should be used as value of this placeholder is given in an attribute called <i>field</i>. In the latter case, besides the <i>apply_function</i> attribute, there are two more attributes: One, named <i>function_name</i> holding the internal name of the function to be invoked for evaluation. The second, named <i>function_fields</i> holding a list of objects specifying which fields are passed to the function for invocation together with their values. In case, a value is sourrounded by "§" signs, this means that this value should be the value of the corresponding field of the originally invoked function.
      </td>
 	   </tr>
  	   <tr>
@@ -264,17 +264,16 @@ Thus, at first the functionality of each endpoint is explained. After that, the 
 This endpoint offers the possibility to create new functions, get a list of all existing functions as well as retrieve, update or delete an existing functions. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `function_serializer.py`) before they are executed.
 
 * **Functionality for *GET* request to `/services/manage_functions/`:**
-This request results in a list of all stored functions the requesting user has access to. An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). It should be mentioned that the *user* attribute is not included since there are anyway only functions returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
+This request results in a list of all stored functions the requesting user has access to. <!--An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> It should be mentioned that the *user* attribute is not included since there are anyway only functions returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
 
 * **Functionality for *POST* request to `/services/manage_functions/`:**
-Via this request new functions can be added to the user's list of functions. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).
+Via this request new functions can be added to the user's list of functions. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 1).
 
 * **Functionality for *GET* request to `/services/manage_functions/{functionId}`:**
 This request results in the specification of the function with the specified id, if present in the list of accessible functions.
 
 * **Functionality for *PUT* request to `/services/manage_functions/{functionId}`:**
-Via this request the function with the specified id can be updated, if present in the list of accessible functions. To avoid inconsistencies with any existing associated APIs, only selected attributes (*category*, *function_label*) can be updated and additional fields can be added to the list of fields. <!--"Built-in" functions cannot be edited.-->d
-
+Via this request the function with the specified id can be updated, if present in the list of accessible functions. To avoid inconsistencies with any existing associated APIs, only selected attributes (*category*, *function_label*) can be updated and additional fields can be added to the list of fields. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 3).
 * **Functionality for *DELETE* request to `/services/manage_functions/{functionId}`:**
 This request results in the deletion of the function with the specified id, if present in the list of accessible functions. Deleting a function results in the deletion of all associated APIs in order to prevent inconsistent data.
 
@@ -282,16 +281,16 @@ This request results in the deletion of the function with the specified id, if p
 This endpoint offers the possibility to create new APIs, get a list of all existing APIs as well as retrieve, update or delete an existing API. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `api_serializer.py`) before they are executed.
 
 * **Functionality for *GET* request to `/services/manage_apis/`:**
-This request results in a list of all stored APIs the requesting user has access to. An example for an API as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). Again, the *user* attribute is not included since there are anyway only APIs returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
+This request results in a list of all stored APIs the requesting user has access to. <!--An example for an API as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> Again, the *user* attribute is not included since there are anyway only APIs returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
 
 * **Functionality for *POST* request to `/services/manage_apis/`:**
-Via this request new APIs can be added to the user's list of APIs. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).
+Via this request new APIs can be added to the user's list of APIs. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 2) and 4).
 
 * **Functionality for *GET* request to `/services/manage_apis/{ApiId}`:**
 This request results in the specification of the API with the specified id, if present in the list of accessible APIs.
 
 * **Functionality for *PUT* request to `/services/manage_apis/{ApiId}`:**
-Via this request the API with the specified id can be updated, if present in the list of accessible APIs. All attributes except from *name* can be edited. 
+Via this request the API with the specified id can be updated, if present in the list of accessible APIs. All attributes can be edited. 
 
 * **Functionality for *DELETE* request to `/services/manage_apis/{ApiId}`:**
 This request results in the deletion of the API with the specified id, if present in the list of accessible APIs.
@@ -299,7 +298,7 @@ This request results in the deletion of the API with the specified id, if presen
 #### Invoke Function Endpoint
 This endpoint offers the possibility to invoke a certain function by making a appropriate *POST* request. 
 * **Functionality for *POST* request to `/services/invoke_function/`:**
-Via this request the Service Provider can be advised to execute a certain function. Therefore, the request's body must hold the name of the function (attribute *function_name*) to be executed as well as the values of the fields that were specified by the user. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications). In order to prevent as many errors as possible at this early stage the provided body is validated exhaustively (see file `invoke_function_serializer.py`) against the corresponding function specification before the request is executed.
+Via this request the Service Provider can be advised to execute a certain function. Therefore, the request's body must hold the name of the function (attribute *function_name*) to be executed as well as the values of the fields that were specified by the user. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 5). In order to prevent as many errors as possible at this early stage the provided body is validated exhaustively (see file `invoke_function_serializer.py`) against the corresponding function specification before the request is executed.
 
 If the request is valid (i.e. the function exists, all mandatory fields are specified, all specified fields have the correct type, etc.) the Service Provider tries to execute the function by using associated APIs. This process is discussed in the next section.
 
@@ -350,7 +349,19 @@ Since the service provider is very generic and in principle allows the addition 
 	
 
 ## Appendix 1 - Exemplary Fixtures of Function and API Specifications
-**Initial Remark:** Many more fixtures for *POST* requests of Functions and associated APIs along with exemplary function invocations can be found in the directory XXX. There you can find the fixtures of all "built-in" functions resp. APIs, i.e. functions that will be added initially to a new user account. 
+**Initial Remark:** Many more fixtures for *POST* requests of Functions and associated APIs along with exemplary function invocations can be found in the directory XXX. There you can find the fixtures of all "built-in" functions resp. APIs, i.e. functions that will be added initially to a new user account:
+* [stock_price](exemplary_function_fixtures/stock_price.txt)
+* [currency_converter](exemplary_function_fixtures/currency_converter.txt)
+* [retrieve_company_symbol](exemplary_function_fixtures/retrieve_company_symbol.txt)
+* [send_email](exemplary_function_fixtures/send_email.txt)
+* [send_discord_message](exemplary_function_fixtures/send_discord_message.txt)
+* [similarity_between_two_texts](exemplary_function_fixtures/similarity_between_two_texts.txt)
+* [weather_for_location](exemplary_function_fixtures/weather_for_location.txt)
+* [latest_news](exemplary_function_fixtures/latest_news.txt)
+* [coronavirus_confirmed_cases](exemplary_function_fixtures/coronavirus_confirmed_cases.txt)
+* [switch_led_on_off](exemplary_function_fixtures/switch_led_on_off.txt)
+* [get_led_power](exemplary_function_fixtures/get_led_power.txt)
+* [change_led_color](exemplary_function_fixtures/change_led_color.txt)
 
 All of the following representations refer to the scenario that we want to add a function named **"stock_price"**, which should allow to query the stock price of a company which is passed as a parameter. 
 
