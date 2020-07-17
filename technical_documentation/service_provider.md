@@ -349,7 +349,7 @@ Since the service provider is very generic and in principle allows the addition 
 	
 
 ## Appendix 1 - Exemplary Fixtures of Function and API Specifications
-**Initial Remark:** Many more fixtures for *POST* requests of Functions and associated APIs along with exemplary function invocations can be found in the directory XXX. There you can find the fixtures of all "built-in" functions resp. APIs, i.e. functions that will be added initially to a new user account:
+**Initial Remark:** Many more fixtures for *POST* requests of Functions and associated APIs along with exemplary function invocations can be found [here](exemplary_function_fixtures). There you can find the fixtures of several "built-in" functions resp. APIs, i.e. functions and APIs that will be added initially to a new user account:
 * [stock_price](exemplary_function_fixtures/stock_price.txt)
 * [currency_converter](exemplary_function_fixtures/currency_converter.txt)
 * [retrieve_company_symbol](exemplary_function_fixtures/retrieve_company_symbol.txt)
@@ -440,7 +440,7 @@ The function has one parameter which allows to specify the company of interest a
 	]
 }
 ```
-4) Now we can use the same external API as before by transforming the *company_name* value to the stock symbol of the corresponding company by using another function called *retrieve_company_symbol*. The specification of this function is not depicted here but is given in the directory XXX. Therefore, we add another API (which we set as the new preferred one) which allows to execute this function if the company name is given via a **POST** request to the **manage_apis** endpoint:
+4) Now we can use the same external API as before by transforming the *company_name* value to the stock symbol of the corresponding company by using another function called *retrieve_company_symbol*. The specification of this function is not depicted here but can be found [here](exemplary_function_fixtures/retrieve_company_symbol.txt). Therefore, we add another API (which we set as the new preferred one) which allows to execute this function if the company name is given via a **POST** request to the **manage_apis** endpoint:
 ```
 {
 	"function_name":"stock_price",
