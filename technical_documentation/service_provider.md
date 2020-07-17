@@ -227,7 +227,7 @@ In order to understand the concept we developed to achieved these goals, it is e
       <td>Object</td>
 		    <td>Object which specifies how the placeholder shall be evaluated, i.e. how its value must be derived by potentialy using (some of) the fields of the invoked function specified by the user. There are two types of placeholder values: Those which correspond directly to one of the specified fields and those which are the result of another function that needs to be invoked first. In the latter case the specified fields may be used as parameters of this function. 
        
-The structure of the <b>value</b> object in either cases is shown in Appendix 1. In both cases a boolean attribute <i>apply_function</i> specifies in which case we are. This information could also be derived from the structure of the object, but this attribute simplifies processing and validation. In the first case, i.e. if we do not apply a function, the name of the function field (attribute <i>name</i>) whose user specified value should be used as value of this placeholder is given in an attribute called <i>field</i>. In the latter case, besides the <i>apply_function</i> attribute, there are two more attributes: One, named <i>function_name</i> holding the internal name of the function to be invoked for evaluation. The second, named <i>function_fields</i> holding a list of objects specifying which fields are passed to the function for invocation together with their values. In case, a value is sourrounded by "§" signs, this means that this value should be the value of the corresponding field of the originally invoked function.
+The structure of the <b>value</b> object in either cases is shown in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications) (e.g. for case 1 see API named "Yahoo Finance (stock/get-detail by Symbol)" and for case 2 see API named "Yahoo Finance (stock/get-detail by Name)". In both cases a boolean attribute <i>apply_function</i> specifies in which case we are. This information could also be derived from the structure of the object, but this attribute simplifies processing and validation. In the first case, i.e. if we do not apply a function, the name of the function field (attribute <i>name</i>) whose user specified value should be used as value of this placeholder is given in an attribute called <i>field</i>. In the latter case, besides the <i>apply_function</i> attribute, there are two more attributes: One, named <i>function_name</i> holding the internal name of the function to be invoked for evaluation. The second, named <i>function_fields</i> holding a list of objects specifying which fields are passed to the function for invocation together with their values. In case, a value is sourrounded by "§" signs, this means that this value should be the value of the corresponding field of the originally invoked function.
      </td>
 	   </tr>
  	   <tr>
@@ -350,6 +350,144 @@ Since the service provider is very generic and in principle allows the addition 
 	
 
 ## Appendix 1 - Exemplary Fixtures of Function and API Specifications
+**Initial Remark:** Many more fixtures for *POST* requests of Functions and associated APIs along with exemplary function invocations can be found in the directory XXX. There you can find the fixtures of all "built-in" functions resp. APIs, i.e. functions that will be added initially to a new user account. 
+
+All of the following representations refer to the scenario that we want to add a function named **"stock_price"**, which should allow to query the stock price of a company which is passed as a parameter. 
+
+1) At first we add the *stock_price* function via a **POST** request to the **manage_functions** endpoint:
+```
+{
+	"category":"Finance",
+	"function_name":"stock_price",
+	"function_label":"Retrieve Stock Price of a Company",
+	"result":{
+		"name":"stock_price",
+		"type":"text",
+		"label":"Stock Price",
+		"pattern":"\\d+([.]?\\d+)?"
+	},
+	"fields":[
+		{
+			"name":"company_symbol",
+			"type":"text",
+			"label":"Company Symbol",
+			"required":false,
+			"help_text":"Symbol of the company"
+		}
+	]
+}
+```
+The function has one parameter which allows to specify the company of interest a via its stock symbol. 
+
+2) Now we add an API that allows to execute this function via a **POST** request to the **manage_apis** endpoint:
+```
+{
+	"function_name":"stock_price",
+	"name":"Yahoo Finance (stock/get-detail by Symbol)",
+	"url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
+	"header":{
+		"x-rapidapi-key":"<secret_api_key>",
+		"x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com"
+	},
+	"request_params_template":{
+		"lang":"en",
+		"region":"US",
+		"symbol":"§1§"
+	},
+	"request_body_template":{
+
+	},
+	"response_result_path":"price.regularMarketOpen.raw",
+	"request_method":"GET",
+	"priority":3,
+	"enabled":true,
+	"placeholders":[
+		{
+			"id":1,
+			"value":{
+				"field":"company_symbol",
+				"apply_function":false
+			},
+			"replace_as_string":true
+		}
+	]
+}
+```
+3) In order to use this function more conveniently without looking up the stock symbol, we want to have the possibility to specify the company of interest also via its name. Therefore, we add another field to the function via a **PUT** request to the **manage_functions** endpoint:
+```
+{
+	"category":"Finance",
+	"function_label":"Retrieve Stock Price of a Company",
+	"additional_fields":[
+		{
+			"name":"company_name",
+			"type":"text",
+			"label":"Company Name",
+			"required":false,
+			"help_text":"Name of the company"
+		}
+	]
+}
+```
+4) Now we can use the same external API as before by transforming the *company_name* value to the stock symbol of the corresponding company by using another function called *retrieve_company_symbol*. The specification of this function is not depicted here but is given in the directory XXX. Therefore, we add another API (which we set as the new preferred one) which allows to execute this function if the company name is given via a **POST** request to the **manage_apis** endpoint:
+```
+{
+	"function_name":"stock_price",
+	"name":"Yahoo Finance (stock/get-detail by Name)",
+	"url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
+	"header":{
+		"x-rapidapi-key":"<secret_api_key>",
+		"x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com"
+	},
+	"request_params_template":{
+		"lang":"en",
+		"region":"US",
+		"symbol":"§1§"
+	},
+	"request_body_template":{
+
+	},
+	"response_result_path":"price.regularMarketOpen.raw",
+	"request_method":"GET",
+	"priority":3,
+	"enabled":true,
+	"placeholders":[
+		{
+			"id":1,
+			"value":{
+				"function_name":"retrieve_company_symbol",
+				"apply_function":true,
+				"function_fields":[
+					{
+						"name":"search_name",
+						"value":"§company_name§"
+					}
+				]
+			},
+			"replace_as_string":true
+		}
+	]
+}
+```
+As alredy mentioned this API uses a placeholder which is evaluated by executing another function.
+
+5) Finally, we want to invoke our function which can be done via a **POST** request to the **invoke_function** endpoint:
+```
+{
+	"function_name":"stock_price",
+	"specified_fields":[
+		{
+			"name":"company_name",
+			"value":"Apple"
+		},
+		{
+			"name":"company_symbol",
+			"value":"AAPL"
+		}
+	]
+}
+```
+It is mentionable, that the specification of the company symbol is optional since our preferred API only requires the company name only the company name is mandatory. However, by specifying optional parameters, we increase the chance of successful function execution since we could also apply the API specified in step 2) if the preferred API is not available.
 
 ## Appendix 2 - Source Code for main part of Function Execution 
 **Source code of *invoke_api* method:**
