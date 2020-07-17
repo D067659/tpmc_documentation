@@ -155,7 +155,7 @@ Invocation Example
   "specified_fields": [
     {
       "name": "recipient",
-      "value": "tobias.horn97@gmx.de"
+      "value": "your.email@domain.de"
     },
     {
       "name": "subject",
