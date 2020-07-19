@@ -1,6 +1,6 @@
 # Master Service
 The Master Service in the only contact point with the Frontend, besides the User Service for authentication. Its main responsibility is to manage the execution of a given routine, validate the outcome and send it back to the Frontend.
-Since this is only a high-level described goal, it is reasonable to have a look at all the exposed endpoints of the Master Service in order to gain a holistic overview of the capabilities of the Master Service:
+Since this is only a high-level described fact, it is reasonable to have a look at all the exposed endpoints of the Master Service in order to gain a holistic overview of the capabilities of the Master Service:
 
 `/api/routine/`
 
@@ -16,7 +16,7 @@ Since this is only a high-level described goal, it is reasonable to have a look 
 A GET request to the endpoint results in a list of all the saved routines which are created by the specific user, requesting the endpoint.
 
 *Functionality for GET Requests /routine/{routineId}/start_routine*:
-The routine endpoint is used by the Frontend after finishing the creation of a specific routine, whose ID is also a part of the URI for the endpoint. It receives a JSON object of a routine. The most important parts of a routine are:
+The routine endpoint is used by the Frontend after finishing the creation of a specific routine, whose ID is also a part of the URI (Uniform Resource Identifier) for the endpoint. It receives a JSON object of a routine. The most important parts of a routine are:
 * The ID of a routine
 * Several components which describe a order and a logic for executing specific actions, like checking the weather (2. component) at a given time (1. component)
 * A routine name for a better UI representation than only a ID
@@ -25,12 +25,13 @@ The routine endpoint is used by the Frontend after finishing the creation of a s
 In the first place, each part of the JSONs content is evaluated. This means, operations are executed (each operations has information stored what an action should look like) and the result is stored in a variable, if a variable name was specified via the UI (to hand-over information from one action to another).
 If the current component is a list, this means that an OR operation needs to be performed on those components, which are present in the identified list.
 An operation (action) is explained by the parameters. After resolving and transforming those parameters into required fields for this action, the `/invoke_function/` endpoint of the Service Provider handles the real execution of the action (and the forwarding of the result back). It is mentionable that the services were desigend in a way, that the **Master Service is always the brain** of the project, while the **Service Provider is the mechanical hand**.
+
 Besides the mentioned operations, other components of a given routine are conditions, specifying a momentum of execution for the operations. Currently supported condition types are:
 
 * Number-Relations: Triggers if one number is bigger than another (e.g. stock prices, exchange rate, degree celcius)
 * Timer-Based: Triggers if a specific time in a given timezone is reached
 
-The process flow of conditions is comparable to operations: The required information is extracted from handed-in parameters and it is then decidable whether a operation is required to be executed. Those evaluable components are checked regularly until the condition is met and the operation executed. 
+The process flow of conditions is comparable to operations: The required information is extracted from handed-in parameters and it is then decidable whether the routine is interrupted, or a operation is allowed to be executed. Those evaluable components are checked regularly until the condition is met and the operation executed. 
 
 The algorithm continues with this logic untill no more components have been handed-over from the Frontend to the Backend. If all of the components were computed succesfully, the Backend returns the success message `Successfully finished routine!`. In an error case, the specific error, caused by a component, is presented as the response.
 
@@ -52,7 +53,6 @@ As the user has access to the Development Suite, the possibility exists to updat
 *Functionality for DELETE Requests*:
 As the user has access to the Development Suite, the possibility exists to delete existing functions (both created ones and those which are provided by default). Deleting a function results in the deletion of dependent APIs in order to prevent inconsitent data. 
 
-
 ### APIS Endpoint
 As it is intended that only the Master Service (besides the User Service) is in touch with the Frontend, all the stored data from the Service Provider needs to be forwarded to be able to be consumed and manipulated by the user via the Frontend (in this chapter, the created APIs).
 
@@ -67,10 +67,12 @@ As the user has access to the Development Suite, the possibility exists to updat
 *Functionality for DELETE Requests*:
 As the user has access to the Development Suite, the possibility exists to delete existing APIs (both created ones and those which are provided by default).
 
+**Important information:** Both functions and APIs POST, PATCH and DELETE functionalitites are exclusivley accessible via the Developer Suite of the Frontend.
+
 ### AVAILABLE_COMPONENTS Endpoint
 The data structure of a routine or the one for a list of functions differs a lot compared to a descriptive structure of what components are generally available. 
 In this endpoint, the structure is more suitable for the specific requirements of the Frontend, like the order by categories and a split between conditions and operations. For this endpoint only GET is allowed. 
-All available components and their data types are forwarded from the Service Provider to be populated by the Frontend. It is mentionable that no single custom line of code is needed for the available components to be generated. This is automatically built by the information, stored in the database for the functiosn and APIs. Data types are inferred from their data model and the selection of possible components, too. More information on this topic can be found in the [Frontend documentation](https://github.com/D067659/tpmc_documentation/blob/master-service-docu/technical_documentation/frontend_service.md)
+All available components and their data types are forwarded from the Service Provider to be populated by the Frontend. It is mentionable that no single custom line of code is needed for the available components to be generated. This is automatically built by the information, stored in the database for the functions and APIs. Data types are inferred from their data model and the selection of possible components, too. More information on this topic can be found in the [Frontend documentation](https://github.com/D067659/tpmc_documentation/blob/master-service-docu/technical_documentation/frontend_service.md)
         
 
 
