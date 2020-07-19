@@ -9,9 +9,15 @@ Furthermore, it is common practice to not strictly separate HTML and JS in diffe
 ## Functionality explained by Actions
 ### Create or edit a Routine
 After the login a user is able to either edit existing routines or create a new one from scratch. Through the model binding (binding a JSON to specific input fields of the HTML), there is no specical effort in creating a valid JSON for a routine. Through the two-way binding concept of VueJS, all the necessary information is handed-in by the user automatically by filling the required input fields. The information about the available components and their metadata is described in the [master service documentation, section AVAILABLE_COMPONENTS](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/master_service.md#available_components-endpoint).
-The creation of a routine follows a wizard component, providing a step-by-step walkthrough when creating or editing a routine. The main part, defining components for the execution of a routine, **mandatorily starts with a timer conditions** to state out a specific time when the routine shall start. This leads to the first example of the component-based idea of VueJS. The definition of components are divided into those componenets, allowing the programmer to use the coding at multiple places without any effort. Thus, the coding is used both at creating a routine and editing a routine.
+The creation of a routine follows a wizard component, providing a step-by-step walkthrough when creating or editing a routine. The main part, defining components for the execution of a routine, **mandatorily starts with a timer conditions** to state out a specific time when the routine shall start. This leads to the first example of the component-based idea of VueJS. The definition of components are divided into those componenets, allowing the programmer to use the coding at multiple places without any effort. Thus, the coding is used both at creating a routine and editing a routine. For this use case, 4 components are used (the order of the list shows the order of component-consumption):
 
+1. `MTPCategoryComponent`: Facet of the whole logic, allows to add new conditions and operations and shows all inserted routine parts. 
 
+2. `MTPCategoryComponent`: Is a part of the selection of new conditions and operations. This component provides a selection of a function by category and shows the possible fields based on the selected dropdown.
+
+3. `MTPFunctionComponent`:  Shows all fields and allows the input, this is the main level of shaping the desired routine JSON.
+
+4. `MTPInputField`: The most granular level of an input field: The "physical" entering of values happens here.
 
 ### Create or edit a Function
 
