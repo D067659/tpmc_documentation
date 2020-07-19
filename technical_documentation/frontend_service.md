@@ -7,7 +7,7 @@ VueJS, just as ReactJS, follows the principle of a component-based design. This 
 
 ## Functionality explained by Actions
 ### Create or edit a Routine
-After the login a user is able to either edit existing routines or create a new one from scratch. Through the model binding (binding a JSON to specific input fields of the HTML), there is no specical effort in creating a valid JSON for a routine. Through the two-way binding concept of VueJS, all the necessary information is handed-in by the user automatically by filling the required input fields. The information about the available components and their metadata is described [in the Master Service documentation](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/master_service.md#available_components-endpoint)
+After the login a user is able to either edit existing routines or create a new one from scratch. Through the model binding (binding a JSON to specific input fields of the HTML), there is no specical effort in creating a valid JSON for a routine. Through the two-way binding concept of VueJS, all the necessary information is handed-in by the user automatically by filling the required input fields. The information about the available components and their metadata is described in the master service documentation, [section AVAILABLE_COMPONENTS](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/master_service.md#available_components-endpoint)
 
 
 
