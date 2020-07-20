@@ -1,0 +1,81 @@
+======================================
+Function
+======================================
+        {
+            "category": "Text Analyse",
+            "function_name": "similarity_between_two_texts",
+            "function_label": "Similarity between Two Texts",
+            "result": {
+                "name": "similarity",
+                "type": "number",
+                "label": "Similarity"
+            },
+            "fields": [
+                {
+                    "name": "text1",
+                    "type": "text",
+                    "label": "Text1",
+                    "required": false,
+                    "help_text": "Text you want to compare"
+                },
+                {
+                    "name": "text2",
+                    "type": "text",
+                    "label": "Text2",
+                    "required": false,
+                    "help_text": "Text you want to be compared to"
+                }
+            ]
+        }
+
+
+======================================
+APIs
+======================================
+{
+            "function_name": "similarity_between_two_texts",
+            "name": "Text Similarity",
+            "url": "https://twinword-text-similarity-v1.p.rapidapi.com/similarity/",
+            "header": {
+                "x-rapidapi-key": "8c0b63edb2msh88d34e61d1241e3p1bf4f4jsn2095178f41c8",
+                "x-rapidapi-host": "twinword-text-similarity-v1.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "text1": "§1§",
+                "text2": "§2§"
+            },
+            "request_body_template": {},
+            "response_result_path": "similarity",
+            "request_method": "GET",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "text1",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 2,
+                    "value": {
+                        "field": "text2",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+
+=======================================
+Invocation Example
+=======================================
+{"function_name": "similarity_between_two_texts", 
+"specified_fields": [{	"name": "text1", 
+			"value": "nice"}, 
+		     {	"name": "text2", 
+			"value": "good"}
+		]
+}

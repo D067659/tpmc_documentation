@@ -1,0 +1,97 @@
+======================================
+Function
+======================================
+        {
+            "category": "News",
+            "function_name": "coronavirus_confirmed_cases",
+            "function_label": "Number of Covid-19 cases in a specific country",
+            "result": {
+                "name": "total_cases",
+                "type": "number",
+                "label": "Number of confirmed cases (including recovered and deaths)",
+		"pattern": "\\d+"
+            },
+            "fields": [
+                {
+                    "name": "country_name",
+                    "type": "text",
+                    "label": "Country Name",
+                    "required": false
+                }
+            ]
+        }
+
+
+======================================
+APIs
+======================================
+        {
+            "function_name": "coronavirus_confirmed_cases",
+            "name": "COVID-19 data",
+            "url": "https://covid-19-data.p.rapidapi.com/country",
+            "header": {
+                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "name": "§1§",
+                "format": "json"
+            },
+            "request_body_template": {},
+            "response_result_path": "[0].confirmed",
+            "request_method": "GET",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "country_name",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+--------------------------------------
+        {
+            "function_name": "coronavirus_confirmed_cases",
+            "name": "COVID-19",
+            "url": "https://covid-193.p.rapidapi.com/statistics",
+            "header": {
+    		"x-rapidapi-host": "covid-193.p.rapidapi.com",
+   		"x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e"
+    	     },
+            "request_params_template": {
+                "country": "§1§"
+            },
+            "request_body_template": {},
+            "response_result_path": "response[0].cases.total",
+            "request_method": "GET",
+            "priority": 2,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "country_name",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "coronavirus_confirmed_cases",
+  "specified_fields": [
+    {
+      "name": "country_name",
+      "value": "germany"
+    }
+  ]
+}

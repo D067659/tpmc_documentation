@@ -1,0 +1,59 @@
+======================================
+Function
+======================================
+        {
+            "category": "IoT",
+            "function_name": "change_led_color",
+            "function_label": "Change LED Color",
+            "result": {},
+            "fields": [
+                {
+                    "name": "color",
+                    "type": "text",
+                    "label": "Color",
+		    "required": false
+                }
+            ]
+        }
+
+
+
+======================================
+APIs
+======================================
+ {
+            "function_name": "change_led_color",
+            "name": "Change LED Color (Node Red)",
+            "url": "https://node-red.gsq.ro/led/change_color",
+            "header": {},
+            "request_params_template": {},
+            "request_body_template": {
+                "color": "§1§"
+            },
+            "response_result_path": "",
+            "request_method": "POST",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+	        {
+                    "id": 1,
+                    "value": {
+                        "field": "color",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+	     ]
+        }
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "change_led_color",
+  "specified_fields": [
+	{ "name": "color",
+	  "value": "blue"}
+  ]
+}

@@ -1,0 +1,163 @@
+======================================
+Function
+======================================
+        {
+            "category": "Finance",
+            "function_name": "currency_converter",
+            "function_label": "Currency Converter",
+            "result": {
+                "name": "amount",
+                "type": "number",
+                "label": "Amount in Target Currency",
+		"pattern": "\\d+([.]?\\d+)?"
+            },
+            "fields": [
+                {
+                    "name": "quantity",
+                    "type": "number",
+                    "label": "Amount/Quantity",
+                    "required": false,
+                    "help_text": "The amount you want to convert."
+                },
+                {
+                    "name": "from_currency",
+                    "type": "text",
+                    "label": "Source Currency",
+                    "required": false,
+                    "help_text": "The currency you want to convert."
+                },
+                {
+                    "name": "to_currency",
+                    "type": "text",
+                    "label": "Target Currency",
+                    "required": false,
+                    "help_text": "The currency you want to convert in."
+                }
+            ]
+        }
+
+
+
+
+
+
+
+
+======================================
+APIs
+======================================
+        {
+            "function_name": "currency_converter",
+            "name": "Currency Converter",
+            "url": "https://currency-converter5.p.rapidapi.com/currency/convert",
+            "header": {
+                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-host": "currency-converter5.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "to": "§1§",
+                "from": "§2§",
+                "amount": "§3§",
+                "format": "json"
+            },
+            "request_body_template": {},
+            "response_result_path": "rates.§1§.rate_for_amount",
+            "request_method": "GET",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "to_currency",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 2,
+                    "value": {
+                        "field": "from_currency",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 3,
+                    "value": {
+                        "field": "quantity",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]	
+        }
+-------------------------------------------
+        {
+            "function_name": "currency_converter",
+            "name": "Brave New Coin",
+            "url": "https://bravenewcoin-v1.p.rapidapi.com/convert",
+            "header": {
+                "x-rapidapi-key": "d0bb944f22msh5ec2cfcd6c7e69bp1568f2jsn22aa5dcdf65e",
+                "x-rapidapi-host": "bravenewcoin-v1.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "to": "§1§",
+                "qty": "§3§",
+                "from": "§2§"
+            },
+            "request_body_template": {},
+            "response_result_path": "to_quantity",
+            "request_method": "GET",
+            "priority": 1,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "to_currency",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 2,
+                    "value": {
+                        "field": "from_currency",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                },
+                {
+                    "id": 3,
+                    "value": {
+                        "field": "quantity",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]	
+        }
+
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "currency_converter",
+  "specified_fields": [
+    {
+      "name": "quantity",
+      "value": 10
+    },
+    {
+      "name": "from_currency",
+      "value": "EUR"
+    },
+    {
+      "name": "to_currency",
+      "value": "RON"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+======================================
+Function
+======================================
+        {
+            "category": "IoT",
+            "function_name": "get_led_power",
+            "function_label": "Get LED Power State (On/Off)",
+            "result": {
+                "name": "power",
+                "type": "text",
+		"label": "Power Status"
+            },
+            "fields": []
+        }
+
+
+
+
+
+======================================
+APIs
+======================================
+{
+            "function_name": "get_led_power",
+            "name": "GET LED Power",
+            "url": "https://node-red.gsq.ro/led",
+            "header": {},
+            "request_params_template": {},
+            "request_body_template": {},
+            "response_result_path": "power",
+            "request_method": "GET",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": []
+        }
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "get_led_power",
+  "specified_fields": []
+}

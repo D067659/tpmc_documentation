@@ -1,0 +1,90 @@
+======================================
+Function
+======================================
+        {
+            "category": "Finance",
+            "function_name": "retrieve_company_symbol",
+            "function_label": "Retrieves company symbol from search string",
+            "result": {
+                "name": "company_symbol",
+                "type": "text",
+                "label": "Company Symbol"
+            },
+            "fields": [
+                {
+                    "name": "search_name",
+                    "type": "text",
+                    "label": "Search Name",
+                    "required": false,
+                    "help_text": "Name of the Company for which the Symbol should be retrieved"
+                }
+            ]
+        }
+
+
+
+
+
+
+
+
+======================================
+APIs
+======================================
+        {
+            "function_name": "retrieve_company_symbol",
+            "name": "Yahoo Finance (market/auto-complete)",
+            "url": "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/auto-complete",
+            "header": {
+                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+            },
+            "request_params_template": {
+                "lang": "en",
+                "query": "§1§",
+                "region": "US"
+            },
+            "request_body_template": {},
+            "response_result_path": "ResultSet.Result[0].symbol",
+            "request_method": "GET",
+            "priority": 3,
+            "enabled": true,
+            "placeholders": [
+                {
+                    "id": 1,
+                    "value": {
+                        "field": "search_name",
+                        "apply_function": false
+                    },
+                    "replace_as_string": true
+                }
+            ]
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================
+Invocation Example
+=======================================
+{
+  "function_name": "retrieve_company_symbol",
+  "specified_fields": [
+    {
+      "name": "search_name",
+      "value": "Apple"
+    }
+  ]
+}
