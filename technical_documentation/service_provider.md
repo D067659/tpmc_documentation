@@ -1,19 +1,19 @@
 # Service Provider and its underlying Mapping Concept
 
-In short, the Service Provider is the part of our Prototype which is responsible for executing pre-defined functions using external APIs. Its responsibility is cleary decoupled from the Master Service which orchestrates the execution of a user routine (docu see [here](master_service.md)). In the context of the overall microservice architecture of our prototype, the Service Provider is accessed solely via the Master Service, mainly to execute functions, i.e. certain actions possibly having some input and returning some output. 
+In short, the Service Provider is the microservice of the MTP platform which is responsible for executing functions using external APIs. Its responsibility is cleary decoupled from the Master Service which orchestrates the execution of a user routine (docu see [Master Service Documentation](master_service.md)). In the context of the overall microservice architecture of our prototype, the Service Provider is accessed solely via the Master Service, mainly to execute functions, which may have some input and may return some result. Besides retrieving all existing functions and APIs, the Service Provider allows to create, update or delete functions during runtime.
 
-Since the Service Provider is so to say the implementation of our overall mapping concept for dynamic adding (i.e. during runtime) of new functions and external APIs to execute those functions. Therefore, in order to be able to understand the architecture of the Service Provider it is indispensable to understand the underlying mapping concept, i.e. the way how functions and APIs are represented, first. Thus, this documentation in a first step explains how our Mapping Concept works and afterwards focusses on the technical implementation of this concept by the Service Provider.
+Since the Service Provider is so to say the implementation of our overall mapping concept for dynamic adding (i.e. during runtime) of new functions and external APIs to execute those functions. Therefore, in order to be able to understand the architecture of the Service Provider it is indispensable to understand the underlying Mapping Concept, i.e. the way how functions and APIs are represented, first. Thus, this documentation at first explains in detail how the underlying Mapping Concept works and afterwards focusses on the technical implementation of this concept by the Service Provider.
 
 The structure of this documentation is as follows: 
 * [Underlying Mapping Concept](#underlying-mapping-concept)
-* [Technical Implementation by the Service Provider](#technical-implementation-by-the-service-provider)
-  * [Functionality offered by the individual Endpoints](#functionality-offered-by-the-individual-endpoints)
+* [Technical Implementation](#technical-implementation)
+  * [Endpoints](#endpoints)
   * [Flow of Function Execution](#flow-of-function-execution)
 * [Appendix 1 - Exemplary Fixtures of Function and API Specifications](#appendix-1---exemplary-fixtures-of-function-and-api-specifications)
 * [Appendix 2 - Source Code for main part of Function Execution](#appendix-2---source-code-for-main-part-of-function-execution) 
 
 ## Underlying Mapping Concept
-The motivation for the following concept stems from one of the core goals of this project, namely to enable the "execution of service compositions independent of the available API-endpoints (that is “plug-and-play” at runtime)". Whereas the flexible composition of services is the responsibility of the Master Service, the latter part, i.e. the execution of individual services, which are represented by **functions** in terms of the Mapping Concept, is the responsibility of the Service Provider. Thereby, on the one hand, we wanted to be able to add new functions which then can be used as part of a routine . On the other hand, we wanted to be able to add new external providers, which are represented by **APIs** in terms of the Mapping Concept, which offer the functionality to execute the function by accessing certain endpoints of a *REST API*. Both should be possible <u>dynamically during runtime</u>. 
+The motivation for the following concept stems from one of the core goals of this project, namely to enable the "execution of service compositions independent of the available API-endpoints". Whereas the flexible composition of services is the responsibility of the Master Service, the latter part, i.e. the execution of individual services, which are represented by **functions** in terms of the Mapping Concept, is the responsibility of the Service Provider. Thereby, on the one hand, we wanted to be able to add new functions which then can be used as part of a routine. On the other hand, we wanted to be able to add new external providers, which are represented by **APIs** in terms of the Mapping Concept, which offer the functionality to execute the function by accessing certain endpoints of a external API. Both should be possible <u>dynamically during runtime</u>. 
 
 In order to understand the concept we developed to achieved these goals, it is easiest to take a look at the two data models of a function and an API one by one.
 
@@ -32,7 +32,7 @@ In order to understand the concept we developed to achieved these goals, it is e
    <tr>
       <td>category</td>
       <td>String</td>
-      <td>Area this function fits into. Has only a "semantic" meaning and is used to structure the available functions by categories in the UI.</td>
+      <td>Area this function fits into. Has only a descriptive meaning and is used to structure the available functions by categories in the UI.</td>
    </tr>
    <tr>
       <td>function_name</td>
@@ -250,7 +250,7 @@ The **flow for the execution of a function with a given API** can be roughly des
 4. Make the actual API call using the specified URL, request method etc.
 5. If the call was successful and there is a result path specified, try to extract the result value from the response JSON according to specified path. 
 
-## Technical Implementation by the Service Provider
+## Technical Implementation
 
 As already said, the Service Provider is a straightforward implementation of the Mapping Concept discussed in the prior section. Consequently the core tasks of the Service Provider are, one the hand, to manage a database of functions respectively API specifications and, on the other hand, to execute functions when requested. This is reflected in the three endpoints the Service Provider provides:
 * `/services/manage_functions/`
@@ -259,12 +259,12 @@ As already said, the Service Provider is a straightforward implementation of the
 Thus, at first the functionality of each endpoint is explained. After that, the flow of function execution including possible errors is depicted.
 
 
-### Functionality offered by the individual Endpoints
+### Endpoints
 #### Manage Functions Endpoint
 This endpoint offers the possibility to create new functions, get a list of all existing functions as well as retrieve, update or delete an existing functions. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `function_serializer.py`) before they are executed.
 
 * **Functionality for *GET* request to `/services/manage_functions/`:**
-This request results in a list of all stored functions the requesting user has access to. <!--An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> It should be mentioned that the *user* attribute is not included since there are anyway only functions returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
+This request results in a list of all stored functions the requesting user has access to. <!--An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> It should be mentioned that the *user* attribute is not included since there are anyway only functions returned which are owned by the requesting user.
 
 * **Functionality for *POST* request to `/services/manage_functions/`:**
 Via this request new functions can be added to the user's list of functions. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 1).
@@ -281,7 +281,7 @@ This request results in the deletion of the function with the specified id, if p
 This endpoint offers the possibility to create new APIs, get a list of all existing APIs as well as retrieve, update or delete an existing API. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `api_serializer.py`) before they are executed.
 
 * **Functionality for *GET* request to `/services/manage_apis/`:**
-This request results in a list of all stored APIs the requesting user has access to. <!--An example for an API as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> Again, the *user* attribute is not included since there are anyway only APIs returned which are owned by the requesting user. <!--or *built-in*, i.e. available for every user.-->
+This request results in a list of all stored APIs the requesting user has access to. <!--An example for an API as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> Again, the *user* attribute is not included since there are anyway only APIs returned which are owned by the requesting user. 
 
 * **Functionality for *POST* request to `/services/manage_apis/`:**
 Via this request new APIs can be added to the user's list of APIs. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 2) and 4).
@@ -298,7 +298,7 @@ This request results in the deletion of the API with the specified id, if presen
 #### Invoke Function Endpoint
 This endpoint offers the possibility to invoke a certain function by making a appropriate *POST* request. 
 * **Functionality for *POST* request to `/services/invoke_function/`:**
-Via this request the Service Provider can be advised to execute a certain function. Therefore, the request's body must hold the name of the function (attribute *function_name*) to be executed as well as the values of the fields that were specified by the user. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 5). In order to prevent as many errors as possible at this early stage the provided body is validated exhaustively (see file `invoke_function_serializer.py`) against the corresponding function specification before the request is executed.
+Via this request the Service Provider can be advised to execute a certain function. Therefore, the request's body must hold the name of the function (attribute *function_name*) to be executed as well as the values of the fields that were specified by the user. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 5). In order to prevent as many errors as possible at this early stage the provided body is validated exhaustively (applied serializer see file `invoke_function_serializer.py`) against the corresponding function specification before the request is executed.
 
 If the request is valid (i.e. the function exists, all mandatory fields are specified, all specified fields have the correct type, etc.) the Service Provider tries to execute the function by using associated APIs. This process is discussed in the next section.
 
