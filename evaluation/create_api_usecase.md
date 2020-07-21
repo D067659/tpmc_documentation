@@ -47,7 +47,7 @@ Save the created API to complete this use-case. Feel free to try it out!
 A new API is created correctly at the users account. All information are saved and the API is able to connect correctly to the given URL, authenticated through the RapidAPI headers. The response is extracted correctly, too. This is ensured by the correct usage of the outgoing request template, combined with the response path to result. It is important to understand the concept of placeholders and use them correclty in the API creation. This is why the Developer Suite is only recommendable for advanced users, as the warning pop-up states out.
 
 The saved API will look like this in the database after a succesful save (in JSON form):
-```
+```javascript
 {
    "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/72a42931-fad6-4e17-ad5f-2c0d9cdf2a0e/",
    "id":"72a42931-fad6-4e17-ad5f-2c0d9cdf2a0e",
