@@ -1,1 +1,22 @@
+## Create An API
+### Primary Actor: Advanced User
+### Trigger
+The user wants to use a specific, not included API to solve a given task using a given function.
+### Preconditions
+1. There are (built-in or previously created via the Developer Suite) functions available for the user's account.
 
+### Main success scenarion
+1. The user clicks on "Switch to Developer Suite".
+2. The user confirms the warning pop-up to enter the advanced section Developer Suite.
+3. The user switches to the second tab "Manage APIs".
+4. The user switches to the second sub-tab "Create a new API".
+5. The user unlocks the protection mode to enter the edit mode.
+6. The user specifies general information about the API, information about the connection and additional parameter, required for the API to work.
+7. The user saves and finishes the API creation process.
+
+### Evaluation
+#### Task
+Create a new API based on the following information:
+
+
+#### Control criteria
