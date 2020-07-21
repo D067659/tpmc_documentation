@@ -19,7 +19,7 @@ The user wants to use a specific, not included API to solve a given task using a
 You, as an advanced user, want to add your favourite finance API: **Yahoo Finance** to your account.
 Create a new API based on the following information:
 
-Map the new API to the function ´stock_price_by_name´
+Map the new API to the function `stock_price_by_name`
 
 
 
