@@ -16,7 +16,14 @@ The user wants to use a specific, not included API to solve a given task using a
 
 ### Evaluation
 #### Task
+You, as an advanced user, want to add your favourite finance API: **Yahoo Finance** to your account.
 Create a new API based on the following information:
+
+Map the new API to the function **stock_price_by_name**
+
+
 
 
 #### Control criteria
+A routine is saved correctly at the users account. The first component is a timer condition. The second component is the Finance operation "Stockprice by Company Name" with "Apple" in the field "Company Name" and a result variable starting with a "$". The third component is a messaging operation "Send Email" with a valid email address and an arbitrary subject and message text with at least on containing the stock price result variable starting with a "$".
+The routine JSON of one possible solution would look like this:
