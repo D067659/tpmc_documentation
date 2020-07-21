@@ -47,42 +47,42 @@ A new API is created correctly at the users account. All information are saved a
 The saved API will look like this in the database after a succesful save (in JSON form):
 ```
 {
-"url_api_detail": "http://127.0.0.1:8001/services/manage_apis/72a42931-fad6-4e17-ad5f-2c0d9cdf2a0e/",
-"id": "72a42931-fad6-4e17-ad5f-2c0d9cdf2a0e",
-"function_name": "stock_price_by_name",
-"name": "Yahoo Finance (stock/get-detail by Name)",
-"url": "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
-"header": {
-  "x-rapidapi-key": "3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d",
-  "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
-},
-"request_params_template": {
-" lang": "en",
-  "region": "US",
-  "symbol": "§1§"
-},
-"request_body_template": {},
-"response_result_path": "price.regularMarketOpen.raw",
-"request_method": "GET",
-"priority": 1,
-"enabled": true,
-"placeholders": [
-{
-  "id": 1,
-  "value": {
-    "function_name": "retrieve_company_symbol",
-    "apply_function": true,
-    "function_fields": [
-    {
-      "name": "search_name",
-      "value": "§company_name§"
-    }
-    ]
-},
-"replace_as_string": true
-}
-]
+   "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/72a42931-fad6-4e17-ad5f-2c0d9cdf2a0e/",
+   "id":"72a42931-fad6-4e17-ad5f-2c0d9cdf2a0e",
+   "function_name":"stock_price_by_name",
+   "name":"Yahoo Finance (stock/get-detail by Name)",
+   "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
+   "header":{
+      "x-rapidapi-key":"3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d",
+      "x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com"
+   },
+   "request_params_template":{
+      " lang":"en",
+      "region":"US",
+      "symbol":"§1§"
+   },
+   "request_body_template":{
+
+   },
+   "response_result_path":"price.regularMarketOpen.raw",
+   "request_method":"GET",
+   "priority":1,
+   "enabled":true,
+   "placeholders":[
+      {
+         "id":1,
+         "value":{
+            "function_name":"retrieve_company_symbol",
+            "apply_function":true,
+            "function_fields":[
+               {
+                  "name":"search_name",
+                  "value":"§company_name§"
+               }
+            ]
+         },
+         "replace_as_string":true
+      }
+   ]
 }
 ```
-
-
