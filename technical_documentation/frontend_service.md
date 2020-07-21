@@ -26,7 +26,10 @@ Nowadays, each component of the routine has to be defined by oneself. Additional
 
 ### Create or edit a Function
 Navigation to the Developer Suite, the possibility exists to edit a function or an API.
-This part of the frontend uses again, the model binding for defining the new JSON for a created or updated function. The concept of component-based programming is applied, too:
+This part of the frontend uses again, the model binding for defining the new JSON for a created or updated function. 
+A JSON representaion of a correctly implemented function can be found in the [exemplary_function_fixtures - stock price - Function section](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/exemplary_function_fixtures/stock_price.txt).
+
+The concept of component-based programming is applied, too:
 
 1. `MTPDevelopmentFunction`: This high-level component allows to decide whether a new function shall be created or an existing shall be updated. The underlying components are the same, but some parameter are different, like the setting of not-allowing to edit key fields for an existing function. 
 
@@ -35,7 +38,10 @@ This part of the frontend uses again, the model binding for defining the new JSO
 The changes can then be either discarded and therefore resetted to the default state or saved and thereby stored in the database.
 
 ### Create or edit an API
-The same concept as described in the previous chapter applies to the second part of the Developer Suite, the edit API section. As the definition of APIs are more complex than the ones of functions, more than 2 components are used to make up the page:
+The same concept as described in the previous chapter applies to the second part of the Developer Suite, the edit API section. 
+A JSON representaion of a correctly implemented API for a given function can be found in the [exemplary_function_fixtures - stock price - APIs section](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/exemplary_function_fixtures/stock_price.txt).
+
+As the definition of APIs are more complex than the ones of functions, more than 2 components are used to make up the page:
 
 1. `MTPDevelopmentApi`: This high-level component allows to decide whether a new API shall be created or an existing shall be updated. The underlying components are the same, but some parameter are different, like the setting of not-allowing to edit key fields for an existing API. 
 
