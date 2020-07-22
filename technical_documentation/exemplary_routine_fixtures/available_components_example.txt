@@ -1,0 +1,267 @@
+{
+   "condition":[
+      {
+         "category":"timer",
+         "label":"Timer",
+         "functions":[
+            {
+               "name":"start_at",
+               "label":"Routine start time",
+               "fields":[
+                  {
+                     "name":"time",
+                     "label":"Time",
+                     "type":"time",
+                     "required":true,
+                     "help_text":"Time to start the routine at"
+                  },
+                  {
+                     "name":"weekday",
+                     "label":"Day of the week",
+                     "type":"dropdown",
+                     "required":true,
+                     "select_multiple":true,
+                     "options":[
+                        {
+                           "name":"Monday",
+                           "value":"monday"
+                        },
+                        {
+                           "name":"Tuesday",
+                           "value":"tuesday"
+                        },
+                        {
+                           "name":"Wednesday",
+                           "value":"wednesday"
+                        },
+                        {
+                           "name":"Thursday",
+                           "value":"thursday"
+                        },
+                        {
+                           "name":"Friday",
+                           "value":"friday"
+                        },
+                        {
+                           "name":"Saturday",
+                           "value":"saturday"
+                        },
+                        {
+                           "name":"Sunday",
+                           "value":"sunday"
+                        }
+                     ],
+                     "help_text":"On which weekdays should this routine start?"
+                  },
+                  {
+                     "name":"timezone",
+                     "label":"Timezone",
+                     "type":"dropdown",
+                     "required":true,
+                     "select_multiple":false,
+                     "options":[
+                        {
+                           "name":"Germany (CEST)",
+                           "value":"Europe/Berlin"
+                        },
+                        {
+                           "name":"Romania (EEST)",
+                           "value":"Europe/Bucharest"
+                        }
+                     ],
+                     "help_text":"On which weekdays should this routine start?"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "category":"Numbers",
+         "functions":[
+            {
+               "name":"relation",
+               "label":"Relations between numbers",
+               "fields":[
+                  {
+                     "name":"left_value",
+                     "label":"Left Value",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"Left value to be compared"
+                  },
+                  {
+                     "name":"operator",
+                     "label":"Operator",
+                     "type":"dropdown",
+                     "required":true,
+                     "select_multiple":false,
+                     "options":[
+                        {
+                           "name":"Greater than",
+                           "value":">"
+                        },
+                        {
+                           "name":"Greater or equal than",
+                           "value":">="
+                        },
+                        {
+                           "name":"Equal To",
+                           "value":"=="
+                        },
+                        {
+                           "name":"Lower or equal than",
+                           "value":"<="
+                        },
+                        {
+                           "name":"Lower than",
+                           "value":"<"
+                        },
+                        {
+                           "name":"Not Equal To",
+                           "value":"!="
+                        }
+                     ],
+                     "help_text":"What relation should there be between the two values?"
+                  },
+                  {
+                     "name":"right_value",
+                     "label":"Right Value",
+                     "type":"number",
+                     "required":true,
+                     "help_text":"Right value to be compared"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "operation":[
+      {
+         "category":"Finance",
+         "functions":[
+            {
+               "name":"currency_converter",
+               "label":"Currency Converter",
+               "result":{
+                  "name":"result",
+                  "label":"Result Variable Name",
+                  "type":"text",
+                  "help_text":"A result variable can be used to transmit the result of this component to another"
+               },
+               "fields":[
+                  {
+                     "name":"quantity",
+                     "label":"Amount/Quantity",
+                     "type":"number",
+                     "required":true,
+                     "help_text":"The amount you want to convert"
+                  },
+                  {
+                     "name":"from_currency",
+                     "label":"Original Currency",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"The currency you want to convert"
+                  },
+                  {
+                     "name":"to_currency",
+                     "label":"Converted Currency",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"The currency you want to convert in"
+                  }
+               ]
+            },
+            {
+               "name":"stock_price",
+               "label":"Stock price",
+               "result":{
+                  "name":"result",
+                  "label":"Result Variable Name",
+                  "type":"text",
+                  "help_text":"A result variable can be used to transmit the result of this component to another"
+               },
+               "fields":[
+                  {
+                     "name":"company_symbol",
+                     "label":"Company Name",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"Name of the company"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "category":"Messaging",
+         "functions":[
+            {
+               "name":"send_email",
+               "label":"Send Email",
+               "fields":[
+                  {
+                     "name":"recipient",
+                     "label":"Recipient Email Address",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"E-Mail Address of a person"
+                  },
+                  {
+                     "name":"subject",
+                     "label":"Subject",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"Subject of your E-Mail"
+                  },
+                  {
+                     "name":"content",
+                     "label":"Message",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"Content of your E-Mail"
+                  }
+               ]
+            },
+            {
+               "name":"send_discord_message",
+               "label":"Send Discord Message",
+               "fields":[
+                  {
+                     "name":"username",
+                     "label":"Bot name",
+                     "type":"text",
+                     "required":false,
+                     "help_text":"The displayed username of your bot"
+                  },
+                  {
+                     "name":"content",
+                     "label":"Message",
+                     "type":"text",
+                     "required":true,
+                     "help_text":"Content for your bots message"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "category":"Random",
+         "functions":[
+            {
+               "name":"joke",
+               "label":"Fetch Random Jokes",
+               "result":{
+                  "name":"result",
+                  "label":"Store joke in variable:",
+                  "type":"text",
+                  "help_text":"A result variable can be used to transmit the result of this component to another"
+               },
+               "fields":[
+
+               ]
+            }
+         ]
+      }
+   ]
+}

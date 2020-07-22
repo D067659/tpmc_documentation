@@ -1,0 +1,33 @@
+{
+   "components":[
+      {
+         "category_name":"timer",
+         "function_name":"start_at",
+         "parameters":{
+            "weekday":[
+               "monday",
+               "tuesday"
+            ],
+            "timezone":"Europe/Berlin",
+            "time":"13:37"
+         },
+         "type":"condition"
+      },
+      {
+         "category_name":"Messaging",
+         "function_name":"send_email",
+         "parameters":{
+            "recipient":"peter.widmer@yahoo.de",
+            "subject":"My Subject For Mail",
+            "content":"Just a hi from MTP"
+         },
+         "type":"operation"
+      }
+   ],
+   "created_at":"2020-07-21T07:29:14.720510Z",
+   "id":"a50e9e1e-79be-479a-8a0a-ae025f9007c4",
+   "routine_name":"sample_routine",
+   "state":"standby",
+   "updated_at":"2020-07-21T07:29:14.720537Z",
+   "url":"http://localhost:8000/api/routine/a50e9e1e-79be-479a-8a0a-ae025f9007c4/"
+}

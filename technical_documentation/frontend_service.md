@@ -9,6 +9,8 @@ Furthermore, it is common practice to not strictly separate HTML and JS in diffe
 ## Functionality explained by Actions
 ### Create or edit a Routine
 After the login a user is able to either edit existing routines or create a new one from scratch. Through the model binding (binding a JSON to specific input fields of the HTML), there is no specical effort in creating a valid JSON for a routine. Through the two-way binding concept of VueJS, all the necessary information is handed-in by the user automatically by filling the required input fields. The information about the available components and their metadata is described in the [master service documentation, section AVAILABLE_COMPONENTS](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/master_service.md#available_components-endpoint).
+A JSON representation of possible, automatically created available components can be found in [exemplary_routine fixtures - available components section](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/exemplary_routine_fixtures/available_components_example.txt) and an example of a succesfully saved routine can be found in the [exemplary_routine fixtures - routine section](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/exemplary_routine_fixtures/routine_example.txt).
+
 The creation of a routine follows a wizard component, providing a step-by-step walkthrough when creating or editing a routine. The main part, defining components for the execution of a routine, **mandatorily starts with a timer conditions** to state out a specific time when the routine shall start. This leads to the first example of the component-based idea of VueJS. The definition of components are divided into those componenets, allowing the programmer to use the coding at multiple places without any effort. Thus, the coding is used both at creating a routine and editing a routine. For this use case, 4 components are used (the order of the list shows the order of component-consumption):
 
 1. `MTPRoutineComponent`: Facet of the whole logic, allows to add new conditions and operations and shows all inserted routine parts. 
@@ -24,7 +26,10 @@ Nowadays, each component of the routine has to be defined by oneself. Additional
 
 ### Create or edit a Function
 Navigation to the Developer Suite, the possibility exists to edit a function or an API.
-This part of the frontend uses again, the model binding for defining the new JSON for a created or updated function. The concept of component-based programming is applied, too:
+This part of the frontend uses again, the model binding for defining the new JSON for a created or updated function. 
+A JSON representation of a correctly implemented function can be found in the [exemplary_function_fixtures - stock price - Function section](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/exemplary_function_fixtures/stock_price.txt).
+
+The concept of component-based programming is applied, too:
 
 1. `MTPDevelopmentFunction`: This high-level component allows to decide whether a new function shall be created or an existing shall be updated. The underlying components are the same, but some parameter are different, like the setting of not-allowing to edit key fields for an existing function. 
 
@@ -33,7 +38,10 @@ This part of the frontend uses again, the model binding for defining the new JSO
 The changes can then be either discarded and therefore resetted to the default state or saved and thereby stored in the database.
 
 ### Create or edit an API
-The same concept as described in the previous chapter applies to the second part of the Developer Suite, the edit API section. As the definition of APIs are more complex than the ones of functions, more than 2 components are used to make up the page:
+The same concept as described in the previous chapter applies to the second part of the Developer Suite, the edit API section. 
+A JSON representation of a correctly implemented API for a given function can be found in the [exemplary_function_fixtures - stock price - APIs section](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/exemplary_function_fixtures/stock_price.txt).
+
+As the definition of APIs are more complex than the ones of functions, more than 2 components are used to make up the page:
 
 1. `MTPDevelopmentApi`: This high-level component allows to decide whether a new API shall be created or an existing shall be updated. The underlying components are the same, but some parameter are different, like the setting of not-allowing to edit key fields for an existing API. 
 
