@@ -23,7 +23,7 @@ Create a new API based on the following information:
 
 Map the new API to the function `stock_price_by_name`. Name it `My Evaluation Yahoo Finance API`. Set the priority to `High`. We skip the placeholder option for now. But do not forget to activate the API via the checkbox. The URL which belongs to the API is `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail`. As a header, you need to specify an [RapidAPI](https://rapidapi.com/) key and value pair. If you have an account, use the provided credentials. Else, you can use this as the required header data:
 ```
-x-rapidapi-key: 3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d
+x-rapidapi-key: FOR SECURITY REASONS THE KEY IS SENT VIA PRIVATE CHAT
 x-rapidapi-host: apidojo-yahoo-finance-v1.p.rapidapi.com
 ```
 To tell the API what request need to be sent, you provide the following outgoing request JSON template:
@@ -55,7 +55,7 @@ The saved API will look like this in the database after a succesful save (in JSO
    "name":"Yahoo Finance (stock/get-detail by Name)",
    "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
    "header":{
-      "x-rapidapi-key":"3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d",
+      "x-rapidapi-key": FOR SECURITY REASONS THE KEY IS SENT VIA PRIVATE CHAT,
       "x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com"
    },
    "request_params_template":{
