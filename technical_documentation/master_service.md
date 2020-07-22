@@ -73,9 +73,7 @@ As the user has access to the Development Suite, the possibility exists to delet
 ### AVAILABLE_COMPONENTS Endpoint
 The data structure of a routine or the one for a list of functions differs a lot compared to a descriptive structure of what components are generally available. 
 In this endpoint, the structure is more suitable for the specific requirements of the Frontend, like the order by categories and a split between conditions and operations. For this endpoint only GET is allowed. 
-All available components and their data types are forwarded from the Service Provider to be populated by the Frontend. It is mentionable that no single custom line of code is needed for the available components to be generated. This is automatically built by the information, stored in the database for the functions and APIs. Data types are inferred from their data model and the selection of possible components, too. More information on this topic can be found in the [Frontend documentation](https://github.com/D067659/tpmc_documentation/blob/master-service-docu/technical_documentation/frontend_service.md)
-        
-
+All available components and their data types are forwarded from the Service Provider to be populated by the Frontend. It is mentionable that no single custom line of code is needed for the available components to be generated. This is automatically built by the information, stored in the database for the functions and APIs. Data types are inferred from their data model and the selection of possible components, too. More information on this topic can be found in the [Frontend documentation](https://github.com/D067659/tpmc_documentation/blob/master-service-docu/technical_documentation/frontend_service.md) and a JSON representation of possible, automatically created available components can be found in [exemplary_routine fixtures - available components section](https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/exemplary_routine_fixtures/available_components_example.txt).
 
 ### Appendix 1 - Source Code of Core Components Mechanism
 **Starting point: start_routine**
