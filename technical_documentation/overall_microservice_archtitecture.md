@@ -18,11 +18,13 @@ In turn, the generic data model which is holistic over the whole architecture, e
 
 ## Microservices
 ### Master Service
- 
-
 [Navigate to the Master Service Documentation](master_service.md)
 
-
 ### Service Provider
+[Navigate to the Service Provider Documentation](service_provider.md)
+
 ### User Service
+[Navigate to the User Service Documentation](user_service.md)
+
 ### Frontend
+[Navigate to the Frontend Documentation](frontend_service.md)
