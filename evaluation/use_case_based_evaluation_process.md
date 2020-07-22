@@ -15,3 +15,4 @@ The advanced user has more technical knowledge. Besides creating routines the ad
 1. [Create Routine](create_routine_usecase.md)
 1. [Create API](create_api_usecase.md)
 1. [Edit API](edit_api_usecase.md)
+1. [Delete API](delete_api_usecase.md)
