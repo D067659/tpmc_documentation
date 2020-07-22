@@ -16,8 +16,13 @@ As described in the previous figure, one consistent meaning of a unified data mo
 ### Specific Data Model
 In turn, the generic data model which is holistic over the whole architecture, each individual API which shall be requested, has its own specific data model. The Service Provider is able to translate/map this requiremenet to become a specific data model.
 
-### Microservices
-## Master Service
-## Service Provider
-## User Service
-## Frontend
+## Microservices
+### Master Service
+ 
+
+[Navigate to the Master Service Documentation](master_service.md)
+
+
+### Service Provider
+### User Service
+### Frontend
