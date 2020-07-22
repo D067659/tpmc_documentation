@@ -40,7 +40,7 @@ The saved API will look like this in the database after a succesful save (in JSO
    "name":"COVID-19 Cases",
    "url":"https://covid-19-data.p.rapidapi.com/country",
    "header":{
-      "x-rapidapi-key":"6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+      "x-rapidapi-key": FOR SECURITY REASONS THE KEY IS NOT VISIBLE HERE,
       "x-rapidapi-host":"covid-19-data.p.rapidapi.com"
    },
    "request_params_template":{
