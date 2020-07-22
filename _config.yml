@@ -2,5 +2,5 @@ title: TPMC Documentation
 description: Documentation for the Team Project Cluj Mannheim 2020
 theme: jekyll-theme-cayman
 github:
- documentation_start: https://github.com/D067659/tpmc_documentation/blob/master/technical_documentation/overall_microservice_archtitecture.md
- evaluation_start: https://github.com/D067659/tpmc_documentation/blob/master/evaluation/use_case_based_evaluation_process.md
+ documentation_start: https://d067659.github.io/tpmc_documentation/technical_documentation/overall_microservice_archtitecture.html
+ evaluation_start: https://d067659.github.io/tpmc_documentation/evaluation/use_case_based_evaluation_process.html
