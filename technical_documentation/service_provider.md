@@ -582,5 +582,3 @@ def invoke_api(api: Api, specified_fields, invocation_stack):
 
     return result
 ```
-</details>
-
