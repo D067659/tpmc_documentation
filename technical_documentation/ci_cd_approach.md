@@ -10,6 +10,4 @@ pipeline saves copies of the code on a regular basis in a backup GitHub reposito
 
 Following these steps, a proper contribution towards the CI/CD philosophy is made. Moreover, it is a clean way of accomplishing and mastering the microservice architecture environment by automating as many aspects as possible.
 
-The Jenkinsfile can be found here
-
-[here]{https://github.com/hokedo/tpmc_master_service/blob/master/Jenkinsfile}
+The Jenkinsfile can be found [here](https://github.com/hokedo/tpmc_master_service/blob/master/Jenkinsfile). It consists of the following stages (parts):
