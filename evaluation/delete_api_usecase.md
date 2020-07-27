@@ -7,7 +7,7 @@ The user wants to delete a wrongly created or obsolete API which is linked to a 
 ### Preconditions
 1. The user is logged in.
 2. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
-3. There is at least one (built-in or previously created via the Developer Suite) API to be editted available for the user's account.
+3. There is at least one (built-in or previously created via the Developer Suite) API to be edited available for the user's account.
 
 ### Postconditions
 1. The API is deleted.
