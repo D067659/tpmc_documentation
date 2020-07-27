@@ -14,7 +14,7 @@ The user wants to use a specific, not included API to solve a given task using a
 3. The user switches to the second tab "Manage APIs".
 4. The user switches to the second sub-tab "Create a new API".
 5. The user unlocks the protection mode to enter the edit mode.
-6. The user specifies general information about the API, information about the connection and additional parameter, required for the API to work.
+6. The user specifies general information about the API, information about the connection and additional parameter, required for the API to work. This step is highly dependent on several circumstances which are based on the selected API and its capabilities or requirements in terms of required request and response.
 7. The user saves and finishes the API creation process.
 
 ### Evaluation
