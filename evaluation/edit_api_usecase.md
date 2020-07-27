@@ -28,13 +28,12 @@ You, as an advanced user, are not satisfied with some information of the corona 
 Edit an existing API based on the following information:
 
 In the list, select the API `COVID-19 data`, click on "Show Detail" and switch to edit mode.
-Change the name of the API to `COVID-19 Cases` and set the priorty to `Medium`.
+Change the name of the API to `COVID-19 Cases`.
 
 Save the edited API to complete this use-case. Feel free to try it out!
 
 #### Control criteria
-A edited API is changed correctly at the users account. The name should be different than before and the priority changed (this would only affect the selection of an API for a given function if there are multiple APIs for one function).
-The saved API will look like this in the database after a succesful save (in JSON form):
+A edited API is changed correctly at the users account. The saved API will look like this in the database after a succesful save (in JSON form):
 ```
 {
    "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/a6c661ac-a530-4792-a743-47bb912b5ba4/",
@@ -55,7 +54,7 @@ The saved API will look like this in the database after a succesful save (in JSO
    },
    "response_result_path":"[0].confirmed",
    "request_method":"GET",
-   "priority":1,
+   "priority":3,
    "enabled":true,
    "placeholders":[
       {
