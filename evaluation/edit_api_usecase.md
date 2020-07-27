@@ -19,7 +19,7 @@ The user wants to change an existing API which is linked to a given function.
 4. The user switches to the second sub-tab "Edit existing APIs".
 5. The user selects a target API by clicking on "Show Details".
 6. The user unlocks the protection mode to enter the edit mode.
-7. The user applies changes as far as fields are not protected.
+7. The user applies desired changes.
 8. The user saves and finishes the API edit process.
 
 ### Evaluation
