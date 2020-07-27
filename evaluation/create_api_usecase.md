@@ -22,7 +22,7 @@ The user wants to use a specific, not included API to solve a given task using a
 You, as an advanced user, want to add your favourite finance API for receiving current stock prices, **Yahoo Finance**, to your account.
 Create a new API based on the following information:
 
-Map the new API to the function `stock_price_by_name`. Name it `My Evaluation Yahoo Finance API`. Set the priority to `High`. We skip the placeholder option for now. But do not forget to activate the API via the checkbox. The URL which belongs to the API is `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail`. As a header, you need to specify an [RapidAPI](https://rapidapi.com/) key and value pair. If you have an account, use the provided credentials. Else, you can use this as the required header data:
+Map the new API to the function `stock_price_by_name`. The name is `My Evaluation Yahoo Finance API`. Set the priority to `High`. We skip the placeholder option for now. But do not forget to activate the API via the checkbox. The URL which belongs to the API is `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail`. As a header, you need to specify an [RapidAPI](https://rapidapi.com/) key and value pair. If you have an account, use the provided credentials. Else, you can use this as the required header data:
 ```
 x-rapidapi-key: FOR SECURITY REASONS THE KEY IS SENT VIA PRIVATE CHAT
 x-rapidapi-host: apidojo-yahoo-finance-v1.p.rapidapi.com
