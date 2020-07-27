@@ -18,13 +18,16 @@ The user wants to change an existing Function.
 7. The user applies changes as far as fields are not protected.
 8. The user saves and finishes the Function edit process.
 
+### Postconditions
+1. The Function is changed in the database.
+
 ### Evaluation
 #### Task
 You, as an advanced user, are not satisfied with the Function label of the `Thermometer Temperature` Function.
 Chnage the label to `Thermometer Temperature Home`.
 
 #### Control criteria
-The edit is saved correctly at the users account. The label should be different than before.
+The edited function is saved correctly at the users account. The label should be different than before.
 The saved Function will look like this in the database after a succesful save (in JSON form):
 ```
 {

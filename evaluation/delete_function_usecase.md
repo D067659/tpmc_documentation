@@ -18,14 +18,18 @@ The user wants to delete a wrongly created or obsolete Function.
 7. The user clicks on "Delete Function".
 8. The user confirms the warning pop-up to delete the selected Function irrevocably.
 
+### Postconditions
+1. The Function is delted in the database.
+2. A new Function with the same name can be created now.
+
 ### Evaluation
 #### Task
 You, as an advanced user, notices that the function has two times the same field and want to delete it.
 Delete an existing Function based on the following information:
 
 In the list, select the Function `Typo - Delete me`, click on "Show Detail" and switch to edit mode.
-Notice, that there are two times the same field.
+Notice, that there are two duplicate fields.
 Delete the Function by clicking on "Delete Function" and confirm the warning pop-up.
 
 #### Control criteria
-The Function is removed from the users account in the database. Thus, it should be not discoverable anymore when searching the available Functions list in "Manage Functions".
+The Function is removed from the user's account in the database. Thus, it should be not discoverable anymore when searching the available Functions list in "Manage Functions".
