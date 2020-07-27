@@ -41,7 +41,7 @@ Save the created API to complete this use-case. Feel free to try it out!
 *And P.S.: The company symbol for Microsoft is MSF.*
 
 #### Control criteria
-A new API is created correctly at the users account. All information are saved and the API is able to connect correctly to the given URL, authenticated through the RapidAPI headers. The response is extracted correctly, too. This is ensured by the correct usage of the outgoing request parameter template, combined with the response path to result. It is important to understand the concept of placeholders and use them correctly in the API creation. This is why the Developer Suite is only recommendable for advanced users, as the warning pop-up states out.
+A new API is created correctly at the users account. All information are saved and the API is able to connect correctly to the given URL, authenticated through the RapidAPI headers. The response is extracted correctly, too. This is ensured by the correct usage of the outgoing request parameter template, combined with the response path to result. It is important to understand the concept of placeholders and use them correctly in the API creation.
 
 The saved API will look like this in the database after a succesful save (in JSON form):
 ```
