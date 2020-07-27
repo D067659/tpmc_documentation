@@ -8,6 +8,9 @@ The user wants to use a specific, not included API to solve a given task using a
 1. The user is logged in.
 2. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
 
+### Postconditions
+1. The API is added to the database.
+
 ### Main success scenarion
 1. The user clicks on "Switch to Developer Suite".
 2. The user confirms the warning pop-up to enter the advanced section Developer Suite.
