@@ -28,7 +28,6 @@ You, as an advanced user, are not satisfied with some information of the corona 
 Edit an existing API based on the following information:
 
 In the list, select the API `COVID-19 data`, click on "Show Detail" and switch to edit mode.
-Some fields are not changeable in order to prevent errors by changing mandatory information which should be kept reliable consistent.
 Change the name of the API to `COVID-19 Cases` and set the priorty to `Medium`.
 
 Save the edited API to complete this use-case. Feel free to try it out!
