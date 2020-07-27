@@ -7,7 +7,7 @@ The user wants to change an existing API which is linked to a given function.
 ### Preconditions
 1. The user is logged in.
 2. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
-3. There is at least one (built-in or previously created via the Developer Suite) API to be editted available for the user's account.
+3. There is at least one (built-in or previously created via the Developer Suite) API to be edited available for the user's account.
 
 ### Postconditions
 1. Some values of the API are changed.
@@ -31,10 +31,10 @@ In the list, select the API `COVID-19 data`, click on "Show Detail" and switch t
 Some fields are not changeable in order to prevent errors by changing mandatory information which should be kept reliable consistent.
 Change the name of the API to `COVID-19 Cases` and set the priorty to `Medium`.
 
-Save the editted API to complete this use-case. Feel free to try it out!
+Save the edited API to complete this use-case. Feel free to try it out!
 
 #### Control criteria
-A editted API is changed correctly at the users account. The name should be different than before and the priority changed (this would only affect the selection of an API for a given function if there are multiple APIs for one function).
+A edited API is changed correctly at the users account. The name should be different than before and the priority changed (this would only affect the selection of an API for a given function if there are multiple APIs for one function).
 The saved API will look like this in the database after a succesful save (in JSON form):
 ```
 {
