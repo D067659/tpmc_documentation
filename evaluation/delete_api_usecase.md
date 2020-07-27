@@ -5,8 +5,9 @@
 The user wants to delete a wrongly created or obsolete API which is linked to a given function.
 
 ### Preconditions
-1. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
-2. There is at least one (built-in or previously created via the Developer Suite) API to be editted available for the user's account.
+1. The user is logged in.
+2. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
+3. There is at least one (built-in or previously created via the Developer Suite) API to be editted available for the user's account.
 
 ### Main success scenarion
 1. The user clicks on "Switch to Developer Suite".
