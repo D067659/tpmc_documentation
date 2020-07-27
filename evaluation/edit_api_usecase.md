@@ -9,6 +9,9 @@ The user wants to change an existing API which is linked to a given function.
 2. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
 3. There is at least one (built-in or previously created via the Developer Suite) API to be editted available for the user's account.
 
+### Postconditions
+1. Some values of the API are changed.
+
 ### Main success scenarion
 1. The user clicks on "Switch to Developer Suite".
 2. The user confirms the warning pop-up to enter the advanced section Developer Suite.
