@@ -25,7 +25,7 @@ The user wants to use a specific, not included API to solve a given task using a
 You, as an advanced user, want to add your favourite finance API for receiving current stock prices, **Yahoo Finance**, to your account.
 Create a new API based on the following information:
 
-Map the new API to the function `stock_price_by_name`. The name is `My Evaluation Yahoo Finance API` and its priority is `Preferred`. As we want to use the API, it should be active. The URL which belongs to the API is `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail`. The mandatory header data will be provided for your evaluation task separately.
+Map the new API to the function `stock_price`. The name is `My Evaluation Yahoo Finance API` and its priority is `Preferred`. As we want to use the API, it should be active. The URL which belongs to the API is `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail`. The mandatory header data will be provided for your evaluation task separately.
 To tell the API what request need to be sent, you provide the following outgoing request parameter template (JSON template):
 ```
 "lang": "en",
@@ -50,7 +50,7 @@ The saved API will look like this in the database after a succesful save (in JSO
 {
    "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/<URL_To_Access_API> /",
    "id":"<URL_To_Access_API> ",
-   "function_name":"stock_price_by_name",
+   "function_name":"stock_price",
    "name":"Yahoo Finance (stock/get-detail by Name)",
    "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
    "header":{
