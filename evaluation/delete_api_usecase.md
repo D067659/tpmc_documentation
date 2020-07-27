@@ -24,7 +24,7 @@ The user wants to delete a wrongly created or obsolete API which is linked to a 
 You, as an advanced user, notices that your existing API is too costly to use anymore. Therefore, you want to get rid of it, so that this API is never used for a given function again.
 Delete an existing API based on the following information:
 
-In the list, select the API `Typo - Delete me`, click on "Show Detail" and switch to edit mode.
+In the list, select the API `Way too costly - Delete me`, click on "Show Detail" and switch to edit mode.
 Notice, that some misspelled words appear in non-changeable fields.
 Delete the API by clicking on "Delete API" and confirm the warning pop-up.
 
