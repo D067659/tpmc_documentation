@@ -3,8 +3,9 @@
 ### Trigger
 The user wants to create a new Routine.
 ### Preconditions
-1. The Advanced User added one or more Functions and one or more APIs to the platform.
-2. The user has an user account.
+1. The user is logged in. 
+2. The user added one or more Functions and one or more APIs to the platform.
+3. The user has an user account.
 
 ### Main success scenarion
 1. The user clicks on "Add routine".
