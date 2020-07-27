@@ -53,7 +53,7 @@ The saved API will look like this in the database after a succesful save (in JSO
    },
    "response_result_path":"[0].confirmed",
    "request_method":"GET",
-   "priority":2,
+   "priority":1,
    "enabled":true,
    "placeholders":[
       {
