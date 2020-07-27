@@ -27,7 +27,7 @@ Map the new API to the function `stock_price_by_name`. Name it `My Evaluation Ya
 x-rapidapi-key: FOR SECURITY REASONS THE KEY IS SENT VIA PRIVATE CHAT
 x-rapidapi-host: apidojo-yahoo-finance-v1.p.rapidapi.com
 ```
-To tell the API what request need to be sent, you provide the following outgoing request JSON template:
+To tell the API what request need to be sent, you provide the following outgoing request parameter template (JSON template):
 ```
 "lang": "en",
 "region": "US",
