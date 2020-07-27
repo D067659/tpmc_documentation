@@ -25,7 +25,7 @@ You, as an advanced user, notices that your existing API is too costly to use an
 Delete an existing API based on the following information:
 
 In the list, select the API `Way too costly - Delete me`, click on "Show Detail" and switch to edit mode.
-Notice, that some misspelled words appear in non-changeable fields.
+Imagine, that this API costs $2 each call and you have to call it twice a hour to monitor e.g. the weather very regularly. Quite costly!
 Delete the API by clicking on "Delete API" and confirm the warning pop-up.
 
 Now, this API should not be listed in the Developer Suite anymore. Feel free to try it out!
