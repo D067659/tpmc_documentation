@@ -13,6 +13,9 @@ The advanced user has more technical knowledge. Besides creating routines the ad
 
 ## Use Cases
 1. [Create Routine](create_routine_usecase.md)
-1. [Create API](create_api_usecase.md)
-1. [Edit API](edit_api_usecase.md)
-1. [Delete API](delete_api_usecase.md)
+2. [Create Function](create_function_usecase.md)
+3. [Edit Function](edit_function_usecase.md)
+4. [Delete Function](delete_function_usecase.md)
+5. [Create API](create_api_usecase.md)
+6. [Edit API](edit_api_usecase.md)
+7. [Delete API](delete_api_usecase.md)
