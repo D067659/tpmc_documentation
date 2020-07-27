@@ -5,7 +5,8 @@
 The user wants to delete a wrongly created or obsolete Function.
 
 ### Preconditions
-1. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
+1. The user is logged in.
+2. There is at least one (built-in or previously created via the Developer Suite) function available for the user's account.
 
 ### Main success scenarion
 1. The user clicks on "Switch to Developer Suite".
