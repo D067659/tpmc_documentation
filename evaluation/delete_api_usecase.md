@@ -21,7 +21,7 @@ The user wants to delete a wrongly created or obsolete API which is linked to a 
 
 ### Evaluation
 #### Task
-You, as an advanced user, notices a typo in an API or are just not happy with an existing one and want to get rid of it, so that this API is never used for a given function anymore.
+You, as an advanced user, notices that your existing API is too costly to use anymore. Therefore, you want to get rid of it, so that this API is never used for a given function again.
 Delete an existing API based on the following information:
 
 In the list, select the API `Typo - Delete me`, click on "Show Detail" and switch to edit mode.
