@@ -259,7 +259,7 @@ As already said, the Service Provider is a straightforward implementation of the
 
 Thus, at first the functionality of each endpoint is explained. After that, the flow of function execution including possible errors is depicted.
 
-For the sake of completeness, it should be mentioned that the Service Provider has a fourth endpoint (`/services/built_in_fixtures/`) where a list of built-in function and API specifications can be fetched via a *GET* request containing a valid activation code as request parameter (`/services/built_in_fixtures/?activation_code=<valid_code>`), which - be it for test purposes or as an initial bundle of features - can be loaded into a user account after signup.
+For the sake of completeness, it should be mentioned that the Service Provider has a fourth endpoint (`/services/built_in_fixtures/`) where a list of built-in function and API specifications can be fetched via a *GET* request containing a valid activation code as request parameter (`/services/built_in_fixtures/?activation_code=<valid_code>`). This specifications may be used to load some functions and APIs into a new User's account, either for test purposes or as an initial bundle of features.
 
 
 ### Endpoints
