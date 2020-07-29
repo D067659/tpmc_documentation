@@ -1,6 +1,6 @@
 # Master Service
 The Master Service in the only contact point with the Frontend, besides the User Service for authentication. Its main responsibility is to manage the execution of a given routine, validate the outcome and send it back to the Frontend.
-Since this is only a high-level described fact, it is reasonable to have a look at all the exposed endpoints of the Master Service in order to gain a holistic overview of the capabilities of the Master Service:
+Since this is only a high-level described fact, it is reasonable to have a look at all important endpoints of the Master Service in order to gain a holistic overview of the capabilities of the Master Service:
 
 `/api/routine/`
 
@@ -9,6 +9,8 @@ Since this is only a high-level described fact, it is reasonable to have a look 
 `/api/apis/`
 
 `/api/available_components/` 
+
+For the sake of completeness, it should be mentioned that the Master Service has a fith endpoint (`/api/built_in_fixtures/`) where a list of built-in function and API specifications can be fetched from the Service Provider. Therefore, a valid activation code must be passed as request parameter (`/api/built_in_fixtures/?activation_code=<valid_code>`). The returned fixtures can be loaded into a user account after signup, be it for test purposes or as an initial bundle of features.
 
 ## Functionality explained by Endpoints
 ### ROUTINE Endpoint
