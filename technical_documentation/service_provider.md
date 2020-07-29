@@ -252,11 +252,14 @@ The **flow for the execution of a function with a given API** can be roughly des
 
 ## Technical Implementation
 
-As already said, the Service Provider is a straightforward implementation of the Mapping Concept discussed in the prior section. Consequently the core tasks of the Service Provider are, one the hand, to manage a database of functions respectively API specifications and, on the other hand, to execute functions when requested. This is reflected in the three endpoints the Service Provider provides:
+As already said, the Service Provider is a straightforward implementation of the Mapping Concept discussed in the prior section. Consequently the core tasks of the Service Provider are, one the hand, to manage a database of functions respectively API specifications and, on the other hand, to execute functions when requested. This is reflected in the three main endpoints the Service Provider provides:
 * `/services/manage_functions/`
 * `/services/manage_apis/`
 * `/services/invoke_function/`
+
 Thus, at first the functionality of each endpoint is explained. After that, the flow of function execution including possible errors is depicted.
+
+For the sake of completeness, it should be mentioned that the Service Provider has a fourth endpoint (`/services/built_in_fixtures/`) where a list of built-in function and API specifications can be fetched via a *GET* request containing a valid activation code as request parameter (`/services/built_in_fixtures/?activation_code=<valid_code>`). This specifications may be used to load some functions and APIs into a new user's account, either for testing purposes or as an initial bundle of features.
 
 
 ### Endpoints
@@ -264,7 +267,7 @@ Thus, at first the functionality of each endpoint is explained. After that, the 
 This endpoint offers the possibility to create new functions, get a list of all existing functions as well as retrieve, update or delete an existing functions. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `function_serializer.py`) before they are executed.
 
 * **Functionality for *GET* request to `/services/manage_functions/`:**
-This request results in a list of all stored functions the requesting user has access to. <!--An example for a function as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> It should be mentioned that the *user* attribute is not included since there are anyway only functions returned which are owned by the requesting user.
+This request results in a list of all stored functions the requesting user has access to. It should be mentioned that the *user* attribute is not included since there are anyway only functions returned which are owned by the requesting user.
 
 * **Functionality for *POST* request to `/services/manage_functions/`:**
 Via this request new functions can be added to the user's list of functions. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 1).
@@ -281,7 +284,7 @@ This request results in the deletion of the function with the specified id, if p
 This endpoint offers the possibility to create new APIs, get a list of all existing APIs as well as retrieve, update or delete an existing API. In order to prevent as many errors as possible at this early stage all requests are validated exhaustively (see file `api_serializer.py`) before they are executed.
 
 * **Functionality for *GET* request to `/services/manage_apis/`:**
-This request results in a list of all stored APIs the requesting user has access to. <!--An example for an API as it might occur in this list is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications).--> Again, the *user* attribute is not included since there are anyway only APIs returned which are owned by the requesting user. 
+This request results in a list of all stored APIs the requesting user has access to. Again, the *user* attribute is not included since there are anyway only APIs returned which are owned by the requesting user. 
 
 * **Functionality for *POST* request to `/services/manage_apis/`:**
 Via this request new APIs can be added to the user's list of APIs. An example for a valid request is depicted in [Appendix 1](#appendix-1---exemplary-fixtures-of-function-and-api-specifications), step 2) and 4).
@@ -349,7 +352,7 @@ Since the service provider is very generic and in principle allows the addition 
 	
 
 ## Appendix 1 - Exemplary Fixtures of Function and API Specifications
-**Initial Remark:** Many more fixtures for *POST* requests of Functions and associated APIs along with exemplary function invocations can be found [here](exemplary_function_fixtures). There you can find the fixtures of several "built-in" functions resp. APIs, i.e. functions and APIs that will be added initially to a new user account:
+**Initial Remark:** Many more fixtures for *POST* requests of Functions and associated APIs along with exemplary function invocations can be found [here](exemplary_function_fixtures). There you can find the fixtures of several exemplary functions resp. APIs:
 * [stock_price](exemplary_function_fixtures/stock_price.txt)
 * [currency_converter](exemplary_function_fixtures/currency_converter.txt)
 * [retrieve_company_symbol](exemplary_function_fixtures/retrieve_company_symbol.txt)
