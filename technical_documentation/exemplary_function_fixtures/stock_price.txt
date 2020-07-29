@@ -39,7 +39,7 @@ APIs
             "name": "Yahoo Finance (stock/get-detail by Name)",
             "url": "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
             "header": {
-                "x-rapidapi-key": "3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d",
+                "x-rapidapi-key": "<Secret API Key>",
                 "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
             },
             "request_params_template": {
@@ -75,7 +75,7 @@ APIs
             "name": "Finnhub (by Name)",
             "url": "https://finnhub-realtime-stock-price.p.rapidapi.com/quote",
             "header": {
-                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-key": "<Secret API Key>",
                 "x-rapidapi-host": "finnhub-realtime-stock-price.p.rapidapi.com"
             },
             "request_params_template": {
@@ -109,7 +109,7 @@ APIs
             "name": "Yahoo Finance (stock/get-detail by Symbol)",
             "url": "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
             "header": {
-                "x-rapidapi-key": "3f72aac6ecmsh8671cd5f7cf96c3p1f8535jsn0adae9475a6d",
+                "x-rapidapi-key": "<Secret API Key>",
                 "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
             },
             "request_params_template": {
@@ -139,7 +139,7 @@ APIs
             "name": "Finnhub (by Symbol)",
             "url": "https://finnhub-realtime-stock-price.p.rapidapi.com/quote",
             "header": {
-                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-key": "<Secret API Key>",
                 "x-rapidapi-host": "finnhub-realtime-stock-price.p.rapidapi.com"
             },
             "request_params_template": {
