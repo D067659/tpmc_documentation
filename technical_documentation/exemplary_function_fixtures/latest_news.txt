@@ -28,7 +28,7 @@ APIs
             "name": "Bing News Search",
             "url": "https://microsoft-azure-bing-news-search-v1.p.rapidapi.com/",
             "header": {
-                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-key": "<Secret API Key>",
                 "x-rapidapi-host": "microsoft-azure-bing-news-search-v1.p.rapidapi.com"
             },
             "request_params_template": {},

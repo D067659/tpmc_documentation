@@ -44,7 +44,7 @@ APIs
             "url": "https://api.sendgrid.com/v3/mail/send",
             "header": {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer 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"
+                "Authorization": "Bearer <Secret API Key>"
             },
             "request_params_template": {},
             "request_body_template": {
@@ -106,7 +106,7 @@ APIs
             "url": "https://messaging.gsq.ro/api/send_email/",
             "header": {},
             "request_params_template": {
-                "token": "886dde74-7fd3-459e-9643-6782ee9caeb0"
+                "token": "<Secret API Key>"
             },
             "request_body_template": {
                 "content": "§1§",

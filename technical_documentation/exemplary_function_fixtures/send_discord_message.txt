@@ -38,7 +38,7 @@ APIs
             "url": "https://messaging.gsq.ro/api/send_discord_message/",
             "header": {},
             "request_params_template": {
-                "token": "886dde74-7fd3-459e-9643-6782ee9caeb0"
+                "token": "<Secret API Key>"
             },
             "request_body_template": {
                 "content": "§1§",

@@ -30,7 +30,7 @@ APIs
             "name": "COVID-19 data",
             "url": "https://covid-19-data.p.rapidapi.com/country",
             "header": {
-                "x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e",
+                "x-rapidapi-key": "<Secret API Key>",
                 "x-rapidapi-host": "covid-19-data.p.rapidapi.com"
             },
             "request_params_template": {
@@ -60,7 +60,7 @@ APIs
             "url": "https://covid-193.p.rapidapi.com/statistics",
             "header": {
     		"x-rapidapi-host": "covid-193.p.rapidapi.com",
-   		"x-rapidapi-key": "6714a07789msh802ebd377ba1d29p1c2693jsnb9b0a09ddd9e"
+   		    "x-rapidapi-key": "<Secret API Key>"
     	     },
             "request_params_template": {
                 "country": "§1§"

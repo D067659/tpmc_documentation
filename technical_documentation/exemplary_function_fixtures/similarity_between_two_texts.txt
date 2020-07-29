@@ -37,7 +37,7 @@ APIs
             "name": "Text Similarity",
             "url": "https://twinword-text-similarity-v1.p.rapidapi.com/similarity/",
             "header": {
-                "x-rapidapi-key": "8c0b63edb2msh88d34e61d1241e3p1bf4f4jsn2095178f41c8",
+                "x-rapidapi-key": "<Secret API Key>",
                 "x-rapidapi-host": "twinword-text-similarity-v1.p.rapidapi.com"
             },
             "request_params_template": {
