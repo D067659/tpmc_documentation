@@ -50,5 +50,3 @@ As the definition of APIs are more complex than the ones of functions, more than
 3. `MTPDevelopmentKeyValueGenerator`:  Some information for a part of the API JSON requires to have specific key **and** value pairs. For an API, this is the case when defining an header. This component allows to define both key and value of a JSON.
 
 4. `MTPDevelopmentEditApiPlaceholder`: To provide placeholder for an API, this component shows all required information, similar to the MTPDevelopmentKeyValueGenerator but different in terms of more complex logic and behavior modelling (using e.g. input fields, conditional rendering based on checkboxes)
-
-5. `MTPDevelopmentTemplateForm`: To provide a template for e.g. request/response, this component renders the input JSON more beautiful and in real-time.
