@@ -68,3 +68,6 @@ A edited API is changed correctly at the users account. The saved API will look 
    ]
 }
 ```
+
+#### Further Tasks
+Navigate to the next task ([Delete API](delete_api_usecase.md)) or go back to the previous task ([Create API](create_api_usecase.md)).
