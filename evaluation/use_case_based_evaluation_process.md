@@ -1,4 +1,4 @@
-# Use Case
+# Use Case based Evaluation
 ## Introduction
 In this section we will give some use cases our platform covers. The use cases cover the actors in the use case, the success scenario. Additionally we specify an evaluation task a test user can fulfill to test the performance of our plattform.
 
@@ -19,3 +19,6 @@ The advanced user has more technical knowledge. Besides creating routines the ad
 5. [Create API](create_api_usecase.md)
 6. [Edit API](edit_api_usecase.md)
 7. [Delete API](delete_api_usecase.md)
+
+## Comparison with existing platforms
+A comparison to other platforms, which provide similar or comparable features, can be found [here](comparison_with_existing_platforms.md).

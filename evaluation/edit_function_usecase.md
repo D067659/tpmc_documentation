@@ -62,3 +62,6 @@ The saved Function will look like this in the database after a succesful save (i
        }
 ```
 </details>
+
+#### Further Tasks
+Navigate to the next task ([Delete Function](delete_function_usecase.md)) or go back to the previous task ([Create Function](create_function_usecase.md)).

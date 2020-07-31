@@ -43,6 +43,9 @@ Save the created API to complete this use-case. Feel free to try it out!
 *And P.S.: The company symbol for Microsoft is MSF.*
 
 #### Control criteria
+<details>
+<summary>Show solution</summary>
+<br>
 A new API is created correctly at the users account. All information are saved and the API is able to connect correctly to the given URL, authenticated through the RapidAPI headers. The response is extracted correctly, too. This is ensured by the correct usage of the outgoing request parameter template, combined with the response path to result. It is important to understand the concept of placeholders and use them correctly in the API creation.
 
 The saved API will look like this in the database after a succesful save (in JSON form):
@@ -87,3 +90,7 @@ The saved API will look like this in the database after a succesful save (in JSO
    ]
 }
 ```
+</details>
+
+#### Further Tasks
+Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the previous task ([Delete Function](delete_function_usecase.md)).

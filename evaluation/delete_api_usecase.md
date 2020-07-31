@@ -39,3 +39,6 @@ Now, this API should not be listed in the Developer Suite anymore. Feel free to 
 <br>
 A deleted API is removed from the users account. Thus, it should be not discoverable anymore when searching the available API list in "Manage APIs".
 </details>
+
+#### Further Tasks
+Navigate back to the previous task ([Edit API](edit_api_usecase.md)).

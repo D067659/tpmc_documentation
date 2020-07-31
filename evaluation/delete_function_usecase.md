@@ -37,3 +37,6 @@ Delete the Function by clicking on "Delete Function" and confirm the warning pop
 <br>
 The Function is removed from the user's account in the database. Thus, it should be not discoverable anymore when searching the available Functions list in "Manage Functions".
 </details>
+
+#### Further Tasks
+Navigate to the next task ([Create API](create_api_usecase.md)) or go back to the previous task ([Edit Function](edit_function_usecase.md)).

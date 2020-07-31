@@ -81,3 +81,6 @@ The routine JSON of one possible solution would look like this:
 }
 ```
 </details>
+
+#### Further Tasks
+Navigate to the next task ([Create Function](create_function_usecase.md)).
