@@ -91,3 +91,5 @@ The saved API will look like this in the database after a succesful save (in JSO
 }
 ```
 </details>
+#### Further Tasks
+Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the previous task ([Create API](create_api_usecase.md)).
