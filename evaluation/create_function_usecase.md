@@ -70,4 +70,4 @@ The saved Function will look like this in the database after a succesful save (i
 ```
 
 #### Further Tasks
-Navigate to the next task ([Edit Function](edit_function_usecase.md)) or go back to the previous task ([Create Function](create_function_usecase.md).
+Navigate to the next task ([Edit Function](edit_function_usecase.md)) or go back to the previous task ([Create Routine](create_routine_usecase.md)).
