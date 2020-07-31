@@ -37,6 +37,9 @@ The function should have the following fields:
 2. A field should specify whether the temperature should be in Celcius or Fahrenheit by a boolean value with the label `Temperature Unit` and the helptext `Specify the unit of the temperature. Checked means Celcius and Unchecked means Fahrenheit.`.
 
 #### Control criteria
+<details>
+<summary>Show solution</summary>
+<br>
 A new Function is created correctly at the users account.
 
 The saved Function will look like this in the database after a succesful save (in JSON form):
@@ -68,6 +71,7 @@ The saved Function will look like this in the database after a succesful save (i
            ]
        }
 ```
+</details>
 
 #### Further Tasks
 Navigate to the next task ([Edit Function](edit_function_usecase.md)) or go back to the previous task ([Create Routine](create_routine_usecase.md)).
