@@ -32,6 +32,7 @@ Chnage the label to `Thermometer Temperature Home`.
 <br>
 The edited function is saved correctly at the users account. The label should be different than before.
 The saved Function will look like this in the database after a succesful save (in JSON form):
+           
 ```
 {
            "category": "IoT",
