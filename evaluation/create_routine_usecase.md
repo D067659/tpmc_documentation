@@ -30,6 +30,9 @@ Create a routine that holds the following components:
 ![Email Operation](/resources/images/Email_operation.png)
 
 #### Control criteria
+<details>
+<summary>Show solution</summary>
+<br>
 A routine is saved correctly at the users account. The first component is a timer condition. The second component is the Finance operation "Stockprice by Company Name" with "Apple" in the field "Company Name" and a result variable starting with a "$". The third component is a messaging operation "Send Email" with a valid email address and an arbitrary subject and message text with at least on containing the stock price result variable starting with a "$".
 The routine JSON of one possible solution would look like this:
 
@@ -77,6 +80,6 @@ The routine JSON of one possible solution would look like this:
     "updated_at": "2020-07-13T08:20:25.751354Z"
 }
 ```
-
+</details>
 #### Evaluation criteria
 The test subject stops the time from starting to the successful saving of the routine.
