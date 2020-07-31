@@ -38,8 +38,8 @@ The routine JSON of one possible solution would look like this:
 
 ```
 {
-    "url": "http://master.gsq.ro/api/routine/3348a805-86f3-4271-bd7e-630d065290d1/",
-    "id": "3348a805-86f3-4271-bd7e-630d065290d1",
+    "url": "http://master.gsq.ro/api/routine/<routine_id>/",
+    "id": "<routine_id>",
     "components": [
         {
             "category_name": "timer",
@@ -76,8 +76,8 @@ The routine JSON of one possible solution would look like this:
     ],
     "routine_name": "test",
     "state": "standby",
-    "created_at": "2020-07-10T14:33:54.095380Z",
-    "updated_at": "2020-07-13T08:20:25.751354Z"
+    "created_at": "2020-08-<date>T<hh>:<mm>:<sec,ns>Z",
+    "updated_at": "2020-08-<date>T<hh>:<mm>:<sec,ns>Z"
 }
 ```
 </details>
