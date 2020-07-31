@@ -81,5 +81,3 @@ The routine JSON of one possible solution would look like this:
 }
 ```
 </details>
-#### Evaluation criteria
-The test subject stops the time from starting to the successful saving of the routine.
