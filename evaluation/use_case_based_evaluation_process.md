@@ -21,4 +21,4 @@ The advanced user has more technical knowledge. Besides creating routines the ad
 7. [Delete API](delete_api_usecase.md)
 
 ## Comparison with existing platforms
-A comparison to other platforms, which provide similar or comparable features, can be found [here](comparison_with_existing_platforms.md)
+A comparison to other platforms, which provide similar or comparable features, can be found [here](comparison_with_existing_platforms.md).
