@@ -33,6 +33,9 @@ Change the name of the API to `COVID-19 Cases`.
 Save the edited API to complete this use-case. Feel free to try it out!
 
 #### Control criteria
+<details>
+<summary>Show solution</summary>
+<br>
 A edited API is changed correctly at the users account. The saved API will look like this in the database after a succesful save (in JSON form):
 ```
 {
@@ -68,3 +71,4 @@ A edited API is changed correctly at the users account. The saved API will look 
    ]
 }
 ```
+</details>
