@@ -79,4 +79,4 @@ The routine JSON of one possible solution would look like this:
 ```
 
 #### Further Tasks
-Navigate to the next task ([Create API](create_api_usecase.md)).
+Navigate to the next task ([Create Function](create_function_usecase.md)).
