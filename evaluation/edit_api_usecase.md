@@ -37,6 +37,7 @@ Save the edited API to complete this use-case. Feel free to try it out!
 <summary>Show solution</summary>
 <br>
 A edited API is changed correctly at the users account. The saved API will look like this in the database after a succesful save (in JSON form):
+   
 ```
 {
    "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/a6c661ac-a530-4792-a743-47bb912b5ba4/",
