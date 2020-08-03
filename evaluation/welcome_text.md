@@ -8,7 +8,7 @@ You will find detaield instructions concerning your task here: https://d067659.g
 For now, please complete the tasks 1 to 4 (Creating a routine and perform Create, Update, Delete operations on functions).
 
 To gain a better understanding, it is recommendable to read through the documentation: https://d067659.github.io/tpmc_documentation/technical_documentation/overall_microservice_archtitecture.html
-Especially the Frontend Documentation will provide better insights on the task you are about to complete: https://d067659.github.io/tpmc_documentation/technical_documentation/frontend_service.html
+Especially the Frontend Documentation might be interesting to you regarding a better insight on the task you are about to complete: https://d067659.github.io/tpmc_documentation/technical_documentation/frontend_service.html
 
 Please fill out the attached Excel file where you note the time needed for each individual taks.
 
