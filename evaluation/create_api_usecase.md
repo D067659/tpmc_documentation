@@ -45,7 +45,7 @@ Save the created API to complete this use-case. Feel free to try it out!
 #### Further Tasks
 Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the previous task ([Delete Function](delete_function_usecase.md)).
 
-#### Control criteria
+#### Control criteria for the current task
 <details>
 <summary>Show solution</summary>
 <br>
@@ -53,7 +53,7 @@ A new API is created correctly at the users account. All information are saved a
 <br>
 The saved API will look like this in the database after a succesful save (in JSON form):
 <pre>{
-   "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/<URL_To_Access_API> /",
+   "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/URL_To_Access_API/",
    "id":"<URL_To_Access_API> ",
    "function_name":"stock_price",
    "name":"Yahoo Finance (stock/get-detail by Name)",

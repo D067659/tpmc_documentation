@@ -36,14 +36,17 @@ The function should have the following fields:
 1. A field should specify the exact thermometer by its number with the label `Thermometer Number` and the helptext `Specify the thermometer by its numeric id.`.
 2. A field should specify whether the temperature should be in Celcius or Fahrenheit by a boolean value with the label `Temperature Unit` and the helptext `Specify the unit of the temperature. Checked means Celcius and Unchecked means Fahrenheit.`.
 
-#### Control criteria
+#### Further Tasks
+Navigate to the next task ([Edit Function](edit_function_usecase.md)) or go back to the previous task ([Create Routine](create_routine_usecase.md)).
+
+#### Control criteria for current task
 <details>
 <summary>Show solution</summary>
 <br>
 A new Function is created correctly at the users account.
 
 The saved Function will look like this in the database after a succesful save (in JSON form):
-```
+<pre>
 {
            "category": "IoT",
            "function_name": "thermometer_temperature",
@@ -70,8 +73,5 @@ The saved Function will look like this in the database after a succesful save (i
                }
            ]
        }
-```
+</pre>
 </details>
-
-#### Further Tasks
-Navigate to the next task ([Edit Function](edit_function_usecase.md)) or go back to the previous task ([Create Routine](create_routine_usecase.md)).
