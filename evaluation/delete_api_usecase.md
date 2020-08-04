@@ -33,12 +33,12 @@ Delete the API by clicking on "Delete API" and confirm the warning pop-up.
 
 Now, this API should not be listed in the Developer Suite anymore. Feel free to try it out!
 
-#### Control criteria
+#### Further Tasks
+Navigate back to the previous task ([Edit API](edit_api_usecase.md)).
+
+#### Control criteria for current task
 <details>
 <summary>Show solution</summary>
 <br>
 A deleted API is removed from the users account. Thus, it should be not discoverable anymore when searching the available API list in "Manage APIs".
 </details>
-
-#### Further Tasks
-Navigate back to the previous task ([Edit API](edit_api_usecase.md)).
