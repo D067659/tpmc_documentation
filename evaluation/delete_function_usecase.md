@@ -24,11 +24,10 @@ The user wants to delete a wrongly created or obsolete Function.
 
 ### Evaluation
 #### Task
-You, as an advanced user, notices that the function has two times the same field and want to delete it.
+You, as an advanced user, notices that an implemented function is not needed anymore and to keep your Developer Suite clean, want to delete it.
 Delete an existing Function based on the following information:
 
-In the list, select the Function `Typo - Delete me`, click on "Show Detail" and switch to edit mode.
-Notice, that there are two duplicate fields.
+In the list, select the previously renamed Function `Thermometer Temperature Home`, click on "Show Detail" and switch to edit mode.
 Delete the Function by clicking on "Delete Function" and confirm the warning pop-up.
 
 #### Further Tasks
