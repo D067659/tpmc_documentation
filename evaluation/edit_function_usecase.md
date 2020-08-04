@@ -26,14 +26,17 @@ The user wants to change an existing Function.
 You, as an advanced user, are not satisfied with the Function label of the `Thermometer Temperature` Function.
 Chnage the label to `Thermometer Temperature Home`.
 
-#### Control criteria
+#### Further Tasks
+Navigate to the next task ([Delete Function](delete_function_usecase.md)) or go back to the previous task ([Create Function](create_function_usecase.md)).
+
+#### Control criteria for current task
 <details>
 <summary>Show solution</summary>
 <br>
 The edited function is saved correctly at the users account. The label should be different than before.
 The saved Function will look like this in the database after a succesful save (in JSON form):
            
-```
+<pre>
 {
            "category": "IoT",
            "function_name": "thermometer_temperature",
@@ -60,8 +63,5 @@ The saved Function will look like this in the database after a succesful save (i
                }
            ]
        }
-```
+</pre>
 </details>
-
-#### Further Tasks
-Navigate to the next task ([Delete Function](delete_function_usecase.md)) or go back to the previous task ([Create Function](create_function_usecase.md)).
