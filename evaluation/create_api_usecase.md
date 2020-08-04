@@ -45,7 +45,7 @@ Save the created API to complete this use-case. Feel free to try it out!
 #### Further Tasks
 Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the previous task ([Delete Function](delete_function_usecase.md)).
 
-#### Control criteria
+#### Control criteria for the current task
 <details>
 <summary>Show solution</summary>
 <br>
