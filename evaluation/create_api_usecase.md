@@ -42,6 +42,9 @@ The request method is `GET`.
 Save the created API to complete this use-case. Feel free to try it out!
 *And P.S.: The company symbol for Microsoft is MSF.*
 
+#### Further Tasks
+Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the previous task ([Delete Function](delete_function_usecase.md)).
+
 #### Control criteria
 <details>
 <summary>Show solution</summary>
@@ -91,5 +94,4 @@ The saved API will look like this in the database after a succesful save (in JSO
 </pre>
 </details>
 
-### Further Tasks
-Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the previous task ([Delete Function](delete_function_usecase.md)).
+
