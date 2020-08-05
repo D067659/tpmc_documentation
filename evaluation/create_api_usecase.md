@@ -32,9 +32,11 @@ To tell the API what request need to be sent, you provide the following outgoing
 "region": "US",
 "symbol": "§1§"
 ```
+*Explanation for the JSON template:*
 The langauge is english by default. We target the US market. The symbol might looks strange to you, nothing like a real stock price symbol (shortcut for a public listed company). This is where the interplay with the previously skipped placeholder takes place. Numbers, covered in two paragraph signs (**§**) are tagged as placeholders. As we want to provide a company name instead of a company symbol (or do you know ad-hoc, what the company symbol of Microsoft is?), we want to apply another function call at exactly this place, to tranform the given company name into a symbol and put it in the right place: §1§.
-Therefore, add a new placeholder and click on the checkbox, so that it states that a function is applied at the placeholder.
-Select `retrieve_company_symbol` as the corresponding function. Next, you need to specify how to invoke the selected function in order to get the desired symbol. Therefore, you need to pass the value of the field `company_name` of the Stock Price function as parameter to this auxiliary function by choosing the option `Replace by field of associated function` of the corresponding parameter and selecting `company_name`. We replace it as a string, so click on this checkbox.
+
+Therefore and to use the $1$ placeholder, add a new placeholder and click on the checkbox, so that it states that a function is applied at the placeholder.
+Select `retrieve_company_symbol` as the corresponding function. Next, you need to specify how to invoke the selected function in order to get the desired symbol. Therefore, you need to pass the value of the field `company_name` of the Stock Price function as parameter to this auxiliary function by choosing the option `Replace by field of associated function` of the corresponding parameter. We replace it as a string, so uncheck the checkbox to select `company_name`.
 
 Last, add some more information to make the API run: The response path to result is `price.regularMarketOpen.raw`. It just follows the response node by node to extract the interesting information: The stock price.
 The request method is `GET`.
