@@ -1,3 +1,6 @@
+<head>
+ <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+ </head>
 <p align="center">
  <a href="https://www.uni-mannheim.de/"><img src="resources/images/uni_mannheim_logo.jpg" alt="University of Mannheim Logo" width="250"></a>
  <img src="spacer.png" height="1px" width="10px">
