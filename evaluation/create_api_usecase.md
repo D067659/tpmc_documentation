@@ -58,8 +58,8 @@ A new API is created correctly at the users account. All information are saved a
 <br>
 The saved API will look like this in the database after a succesful save (in JSON form):
 <pre>{
-   "url_api_detail":"<URL_To_Access_API>",
-   "id":"<INTERNAL_ID_OF_API>",
+   "url_api_detail":"&lt;URL_To_Access_API&gt;",
+   "id":"&lt;INTERNAL_ID_OF_API&gt;",
    "function_name":"stock_price",
    "name":"My Evaluation Yahoo Finance API",
    "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
