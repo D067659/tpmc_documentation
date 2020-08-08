@@ -32,7 +32,7 @@ Navigate to the next task ([Delete Function](delete_function_usecase.md)) or go 
 #### Control criteria for current task
 <details>
 <summary>Show solution</summary>
-<br>
+<p>
 The edited function is saved correctly at the users account. The label should be different than before.
 The saved Function will look like this in the database after a succesful save (in JSON form):
            
@@ -63,5 +63,5 @@ The saved Function will look like this in the database after a succesful save (i
                }
            ]
        }
-</pre>
+</pre></p>
 </details>
