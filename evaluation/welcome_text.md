@@ -18,7 +18,7 @@ Please create one by yourself, but do not forget to add the basic bundle (contai
 
 For this reason, please use the following activation key on prompt: [ACTIVATION KEY].
 
-For task 5 (Create API) you are asked to provide header data for the API. Please specify the two key-value pairs xx:xx and xx:xx as the header data.
+For task 5 (Create API) you are asked to provide header data for the API. Please specify the two key-value pairs [KEY]:[VALUE] and [KEY]:[VALUE] as the header data.
 
 
 If you are facing any technical issues or are unable to solve a task, even with the provided hints, do not hesitate to contac tus via the Discord channel at any time.
