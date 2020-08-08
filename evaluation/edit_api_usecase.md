@@ -38,7 +38,7 @@ Navigate to the next task ([Delete API](delete_api_usecase.md)) or go back to th
 #### Control criteria for current task
 <details>
 <summary>Show solution</summary>
-<br>
+<p>
 A edited API is changed correctly at the users account. The saved API will look like this in the database after a succesful save (in JSON form):
    
 <pre>
@@ -74,5 +74,5 @@ A edited API is changed correctly at the users account. The saved API will look 
       }
    ]
 }
-</pre>
+</pre></p>
 </details>
