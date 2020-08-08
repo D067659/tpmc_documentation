@@ -55,9 +55,9 @@ IFTTT requires the providers of the API to return multiple last event so that in
 ### Comparison
 After looking at different competing platforms we want to give a general resume on how the MTPP compares to these platforms.
 
-All platforms allow some kind of routine representation but allows different degress of complexity and different representation. SCI and NodeRed allow more complex routines which are displayed similar to a process model. MTPP and IFTTT only allow simple routines which are represented as a textual list. MTPP's and IFTTT's Routine model consist of only two simple types of components, condition and operation. The other two platforms have a larger of number of complex components. In the end SCI and NodeRed allow more complex routines but are also more complicated to define by users.
+All platforms allow some kind of routine representation but with different degrees of complexity and different representation. SCI and NodeRed allow more complex routines which are displayed similar to a process model. MTPP and IFTTT only allow simple routines which are represented as a textual list. MTPP's and IFTTT's Routine model consist of only two simple types of components, condition and operation. The other two platforms have a larger of number of complex components. In the end, SCI and NodeRed allow more complex routines but are also more complicated to define by users.
 
-All platforms come with predefined operations that integrate other webservices into the plattform. MTPP, NodeRed and SCI allow custom integration of new webservices which is not allow with IFTTT. In IFTTT providers of a webservices must request and prepare the integration to the platform but receive some support.
+All platforms come with predefined operations that integrate other webservices into the platform. MTPP, NodeRed and SCI allow custom integration of new webservices which is not possible with IFTTT. In IFTTT providers of a webservices must request and prepare the integration to the platform but receive some support.
 MTPP is the only platform that allows the built-in definition of alternative APIs for operations so that unavailable APIs can be replaced.
 
 ### Features List
@@ -70,12 +70,14 @@ MTPP is the only platform that allows the built-in definition of alternative API
 6. User sign up service
 
 ### Features yet to be implemented
-1. Graphical user interface for routine creation
+1. More visual Graphical user interface for routine creation e.g. like a process chart
 2. More complex Routine model
 3. Testing and validation tool for the definition of APIs and Routines
 4. Constantly polling triggers
 5. Push events by API providers
 6. Handling of unavailable operations through recent event lists or waiting
+7. Implement more advanced (e.g. semantic) validation of an Operation's result
+8. Allow Operations to have multiple results
 
 [1]: https://platform.ifttt.com/docs
 [2]: https://platform.ifttt.com/blog/product_overview
