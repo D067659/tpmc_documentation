@@ -28,7 +28,7 @@ You, as an advanced user, notices that your existing API is too costly to use an
 Delete an existing API based on the following information:
 
 In the list, select the recently created API `My Evaluation Yahoo Finance API`, click on "Show Detail" and switch to edit mode.
-Imagine, that this API costs $2 each call and you have to call it twice a hour to monitor e.g. the weather very regularly. Quite costly!
+Imagine, that this API costs $2 each call and you have to call it twice a hour to monitor e.g. the stock price of your favourite company regularly. Quite costly!
 Delete the API by clicking on "Delete API" and confirm the warning pop-up.
 
 Now, this API should not be listed in the Developer Suite anymore. Feel free to try it out!
@@ -39,6 +39,6 @@ Navigate back to the previous task ([Edit API](edit_api_usecase.md)).
 #### Control criteria for current task
 <details>
 <summary>Show solution</summary>
-<br>
-A deleted API is removed from the users account. Thus, it should be not discoverable anymore when searching the available API list in "Manage APIs".
+<p>
+A deleted API is removed from the users account. Thus, it should be not discoverable anymore when searching the available API list in "Manage APIs".</p>
 </details>
