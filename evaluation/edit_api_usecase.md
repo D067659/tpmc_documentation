@@ -43,13 +43,13 @@ A edited API is changed correctly at the users account. The saved API will look 
    
 <pre>
 {
-   "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/a6c661ac-a530-4792-a743-47bb912b5ba4/",
-   "id":"a6c661ac-a530-4792-a743-47bb912b5ba4",
+   "url_api_detail":"&lt;URL_To_Access_API&gt;",
+   "id":"&lt;INTERNAL_ID_OF_API&gt;",
    "function_name":"coronavirus_confirmed_cases",
    "name":"COVID-19 Cases",
    "url":"https://covid-19-data.p.rapidapi.com/country",
    "header":{
-      "x-rapidapi-key": FOR SECURITY REASONS THE KEY IS NOT VISIBLE HERE,
+      "x-rapidapi-key": &lt;FOR SECURITY REASONS THE KEY IS NOT VISIBLE HERE&gt;,
       "x-rapidapi-host":"covid-19-data.p.rapidapi.com"
    },
    "request_params_template":{
