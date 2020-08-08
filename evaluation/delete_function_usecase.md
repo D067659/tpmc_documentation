@@ -19,7 +19,7 @@ The user wants to delete a wrongly created or obsolete Function.
 8. The user confirms the warning pop-up to delete the selected Function irrevocably.
 
 ### Postconditions
-1. The Function is delted in the database.
+1. The Function is deleted in the database.
 2. A new Function with the same name can be created now.
 
 ### Evaluation
@@ -36,6 +36,6 @@ Navigate to the next task ([Create API](create_api_usecase.md)) or go back to th
 #### Control criteria
 <details>
 <summary>Show solution</summary>
-<br>
-The Function is removed from the user's account in the database. Thus, it should be not discoverable anymore when searching the available Functions list in "Manage Functions".
+<p>
+The Function is removed from the user's account in the database. Thus, it should be not discoverable anymore when searching the available Functions list in "Manage Functions".</p>
 </details>
