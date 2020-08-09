@@ -4,4 +4,5 @@ theme: jekyll-theme-cayman
 github:
  documentation_start: https://d067659.github.io/tpmc_documentation/technical_documentation/overall_microservice_archtitecture.html
  evaluation_start: https://d067659.github.io/tpmc_documentation/evaluation/use_case_based_evaluation_process.html
- welcome_start: https://d067659.github.io/tpmc_documentation/
+ welcome_start: https://d067659.github.io/tpmc_documentation/README.html
+ comparison_start: https://d067659.github.io/tpmc_documentation/evaluation/comparison_with_existing_platforms.html
