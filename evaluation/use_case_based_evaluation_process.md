@@ -1,6 +1,6 @@
 # Use Case based Evaluation
 ## Introduction
-In this section we will give some use cases our platform covers. The use cases cover the actors in the use case, the success scenario. Additionally we specify an evaluation task a test user can fulfill to test the performance of our plattform.
+XXXIn this section we will give some use cases our platform covers. The use cases cover the actors in the use case, the success scenario. Additionally we specify an evaluation task a test user can fulfill to test the performance of our plattform.
 
 ## Evaluation
 One part of our evaluation will be based on how well users can fulfill the use cases. Therefore each use case will consist of a Task that can be done by a test user for evaulation. Each task has evaluation and control criteria.
