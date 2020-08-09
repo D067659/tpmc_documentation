@@ -42,7 +42,7 @@ Navigate to the next task ([Edit Function](edit_function_usecase.md)) or go back
 #### Control criteria for current task
 <details>
 <summary>Show solution</summary>
-<br>
+<p>
 A new Function is created correctly at the users account.
 
 The saved Function will look like this in the database after a succesful save (in JSON form):
@@ -73,5 +73,5 @@ The saved Function will look like this in the database after a succesful save (i
                }
            ]
        }
-</pre>
+</pre></p>
 </details>
