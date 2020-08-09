@@ -15,7 +15,7 @@
 <hr />
 
 ## About this Project
-This project was developed as part of an international university team project in which students from the University of Mannheim, Germany, and students from Babeș-Bolyai University in Cluj, Romania, worked together for six months on a common research question. The project was mainly organized by the Institute for Enterprise Systems (InES) at the University of Mannheim.
+XXXThis project was developed as part of an international university team project in which students from the University of Mannheim, Germany, and students from Babeș-Bolyai University in Cluj, Romania, worked together for six months on a common research question. The project was mainly organized by the Institute for Enterprise Systems (InES) at the University of Mannheim.
 
 The key goals of the project were given as follows:
 * Understand and evaluate existing architectures in terms of software adapters which link incompatible APIs or devices (provided) to required interfaces (domain-models)
