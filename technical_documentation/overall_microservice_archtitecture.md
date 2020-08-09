@@ -29,4 +29,4 @@ In turn, the generic data model which is holistic over the whole architecture, e
 [Navigate to the Frontend Documentation](frontend_service.md)
 
 ### Orchestration of Deployment
-[Navigate to the Continuous Integration / Continuous Delivery Information](ci_cd_approach.md)
+[Navigate to the Continuous Integration / Continuous Delivery Information](ci_cd_approach.md) 
