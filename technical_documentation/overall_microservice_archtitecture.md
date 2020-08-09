@@ -1,7 +1,6 @@
 # TPMC Documentation
 
 ## Overview of the Microservice Architecture
-XXX
 In the first place, it is reasonable to describe the overall architecture of the solution of the European Master Team Project. The following figure illustrates the microservice approach and the interplay of the different services.
 
 ![Software Architecture](../resources/images/SoftwareArchitecture_MTP_v2.png)
