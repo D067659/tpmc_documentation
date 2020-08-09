@@ -52,9 +52,10 @@ The saved Function will look like this in the database after a succesful save (i
            "function_name": "thermometer_temperature",
            "function_label": "Thermometer Temperature",
            "result": {
-               "name": "Temperature",
+               "name": "result",
+               "label": "Temperature",
                "type": "number",
-               "label": "This result contains the temperature of the choosen thermometer."
+               "help_text": "This result contains the temperature of the choosen thermometer."
            },
            "fields": [
                {
