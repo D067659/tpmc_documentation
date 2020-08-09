@@ -34,9 +34,9 @@ Navigate to the next task ([Create Function](create_function_usecase.md)).
 
 #### Control criteria for current task
 <details>
-<summary>Show solution</summary>
-<br>
-A routine is saved correctly at the users account. The first component is a timer condition. The second component is the Finance operation "Stockprice by Company Name" with "Apple" in the field "Company Name" and a result variable starting with a "$". The third component is a messaging operation "Send Email" with a valid email address and an arbitrary subject and message text with at least on containing the stock price result variable starting with a "$".
+<summary>Show solutionXXX</summary>
+<p>
+XXX A routine is saved correctly at the users account. The first component is a timer condition. The second component is the Finance operation "Stockprice by Company Name" with "Apple" in the field "Company Name" and a result variable starting with a "$". The third component is a messaging operation "Send Email" with a valid email address and an arbitrary subject and message text with at least on containing the stock price result variable starting with a "$".
 The routine JSON of one possible solution would look like this:
 
 <pre>
@@ -82,5 +82,5 @@ The routine JSON of one possible solution would look like this:
     "created_at": "2020-08-<date>T<hh>:<mm>:<sec,ns>Z",
     "updated_at": "2020-08-<date>T<hh>:<mm>:<sec,ns>Z"
 }
-</pre>
+</pre></p>
 </details>
