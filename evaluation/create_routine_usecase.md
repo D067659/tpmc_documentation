@@ -21,20 +21,20 @@ The user wants to create a new Routine.
 Create a routine that holds the following components:
 1. Timer condition
 
-![Timer Condition Screenshot](/resources/images/Timer_condition.png)
+![Timer Condition Screenshot](../resources/images/Timer_condition.png)
 2. A stock price search of "Apple"
 
-![Stock Price Operation](/resources/images/Stockprice_by_name_operation.png)
+![Stock Price Operation](../resources/images/Stockprice_by_name_operation.png)
 3. An email containing the stockprice search result, a subject and a recipient
 
-![Email Operation](/resources/images/Email_operation.png)
+![Email Operation](../resources/images/Email_operation.png)
 
 #### Further Tasks
 Navigate to the next task ([Create Function](create_function_usecase.md)).
 
 #### Control criteria for current task
 <details>
-<summary>Show solutionXXX</summary>
+<summary>Show solution</summary>
 <p>
 XXX A routine is saved correctly at the users account. The first component is a timer condition. The second component is the Finance operation "Stockprice by Company Name" with "Apple" in the field "Company Name" and a result variable starting with a "$". The third component is a messaging operation "Send Email" with a valid email address and an arbitrary subject and message text with at least on containing the stock price result variable starting with a "$".
 The routine JSON of one possible solution would look like this:
