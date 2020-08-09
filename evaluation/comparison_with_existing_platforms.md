@@ -51,6 +51,33 @@ Like the MTPP, IFTTT also pays attention to the availability of the services, ho
 First, IFTTT uses a status endpoint to check if the services are available which is polled periodically. If a service is unavailable too often IFTTT automatically deactivates the corresponding routines [[1]].
 IFTTT requires the providers of the API to return multiple last event so that in case one event was missed it can be handled later. Further it supports webhook call-back requests for instant triggering of events. It supports webhook call-back request and polling of multiple recent events for triggers[[4]].
 
+## Conclusion
+### Comparison
+After looking at different competing platforms we want to give a general resume on how the MTPP compares to these platforms.
+
+All platforms allow some kind of routine representation but with different degrees of complexity and different representation. SCI and NodeRed allow more complex routines which are displayed similar to a process model. MTPP and IFTTT only allow simple routines which are represented as a textual list. MTPP's and IFTTT's Routine model consist of only two simple types of components, condition and operation. The other two platforms have a larger of number of complex components. In the end, SCI and NodeRed allow more complex routines but are also more complicated to define by users.
+
+All platforms come with predefined operations that integrate other webservices into the platform. MTPP, NodeRed and SCI allow custom integration of new webservices which is not possible with IFTTT. In IFTTT providers of a webservices must request and prepare the integration to the platform but receive some support.
+MTPP is the only platform that allows the built-in definition of alternative APIs for operations so that unavailable APIs can be replaced.
+
+### Features List
+
+1. Create Routines of Conditions and Operations
+2. Automatic Routine starting based on Timers
+3. Definition of Operation
+4. Definition of multiple APIs for Operations that cover most types of API calls
+5. Pre-defined Conditions and Operations including compatible APIs
+6. User sign up service
+
+### Features yet to be implemented
+1. More visual Graphical user interface for routine creation e.g. like a process chart
+2. More complex Routine model
+3. Testing and validation tool for the definition of APIs and Routines
+4. Constantly polling triggers
+5. Push events by API providers
+6. Handling of unavailable operations through recent event lists or waiting
+7. Implement more advanced (e.g. semantic) validation of an Operation's result
+8. Allow Operations to have multiple results
 
 [1]: https://platform.ifttt.com/docs
 [2]: https://platform.ifttt.com/blog/product_overview
