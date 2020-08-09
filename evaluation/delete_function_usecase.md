@@ -19,7 +19,7 @@ The user wants to delete a wrongly created or obsolete Function.
 8. The user confirms the warning pop-up to delete the selected Function irrevocably.
 
 ### Postconditions
-1. The Function is delted in the database.
+1. The Function is deleted in the database.
 2. A new Function with the same name can be created now.
 
 ### Evaluation
@@ -27,7 +27,7 @@ The user wants to delete a wrongly created or obsolete Function.
 You, as an advanced user, notices that an implemented function is not needed anymore and to keep your Developer Suite clean, want to delete it.
 Delete an existing Function based on the following information:
 
-In the list, select the previously renamed Function `Thermometer Temperature Home`, click on "Show Detail" and switch to edit mode.
+In the list, select the Function `Latest News`, click on "Show Detail" and switch to edit mode.
 Delete the Function by clicking on "Delete Function" and confirm the warning pop-up.
 
 #### Further Tasks
@@ -36,6 +36,6 @@ Navigate to the next task ([Create API](create_api_usecase.md)) or go back to th
 #### Control criteria
 <details>
 <summary>Show solution</summary>
-<br>
-The Function is removed from the user's account in the database. Thus, it should be not discoverable anymore when searching the available Functions list in "Manage Functions".
+<p>
+The Function is removed from the user's account in the database. Thus, it should be not discoverable anymore when searching the available Functions list in "Manage Functions".</p>
 </details>

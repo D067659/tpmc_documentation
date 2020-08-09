@@ -25,7 +25,7 @@ The user wants to use a specific, not included API to solve a given task using a
 You, as an advanced user, want to add your favourite finance API for receiving current stock prices, **Yahoo Finance**, to your account.
 Create a new API based on the following information:
 
-Map the new API to the function `stock_price`. The name is `My Evaluation Yahoo Finance API` and its priority is `Preferred`. As we want to use the API, it should be active. The URL which belongs to the API is `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail`. The mandatory header data will be provided for your evaluation task separately.
+Map the new API to the function `stock_price`. The name is `My Evaluation Yahoo Finance API` and its priority is `Preferred`. As we want to use the API, it should be enabled. The URL which belongs to the API is `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail`. The mandatory header data will be provided for your evaluation task separately.
 To tell the API what request need to be sent, you provide the following outgoing request parameter template (JSON template):
 ```
 "lang": "en",
@@ -34,12 +34,12 @@ To tell the API what request need to be sent, you provide the following outgoing
 ```
 <details>
 <summary>Explanation for the JSON template</summary>
-<br>
-The langauge is english by default. We target the US market. The symbol might looks strange to you, nothing like a real stock price symbol (shortcut for a public listed company). This is where the interplay with the previously skipped placeholder takes place. Numbers, covered in two paragraph signs (**§**) are tagged as placeholders. As we want to provide a company name instead of a company symbol (or do you know ad-hoc, what the company symbol of Microsoft is?), we want to apply another function call at exactly this place, to tranform the given company name into a symbol and put it in the right place: §1§.
+<p>
+The langauge is english by default. We target the US market. The symbol might looks strange to you, nothing like a real stock price symbol (shortcut for a public listed company). This is where the interplay with the previously skipped placeholder takes place. Numbers, covered in two paragraph signs (§) are tagged as placeholders. As we want to provide a company name instead of a company symbol (or do you know ad-hoc, what the company symbol of Microsoft is?), we want to apply another function call at exactly this place, to tranform the given company name into a symbol and put it in the right place: §1§.</p>
 </details>   
 
 To use the §1§ placeholder, add a new placeholder and click on the checkbox, so that it states that a function is applied at the placeholder.
-Select `retrieve_company_symbol` as the corresponding function. Next, you need to specify how to invoke the selected function in order to get the desired symbol. Therefore, you need to pass the value of the field `company_name` of the Stock Price function as parameter to this auxiliary function by choosing the option `Replace by field of associated function` of the corresponding parameter. We replace it as a string, so uncheck the checkbox to select `company_name`.
+Select `retrieve_company_symbol` as the corresponding function. Next, you need to specify how to invoke the selected function in order to get the desired symbol. Therefore, you need to pass the value of the field `company_name` of the Stock Price function as parameter to this auxiliary function by choosing the option `Replace by field of associated function` of the corresponding function parameter which is also named `company_name`. We replace the placeholder value as a String in our templates for request parameters and request body below, so check the corresponding checkbox.
 
 Last, add some more information to make the API run: The response path to result is `price.regularMarketOpen.raw`. It just follows the response node by node to extract the interesting information: The stock price.
 The request method is `GET`.
@@ -53,18 +53,18 @@ Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the pr
 #### Control criteria for the current task
 <details>
 <summary>Show solution</summary>
-<br>
+<p>
 A new API is created correctly at the users account. All information are saved and the API is able to connect correctly to the given URL, authenticated through the RapidAPI headers. The response is extracted correctly, too. This is ensured by the correct usage of the outgoing request parameter template, combined with the response path to result. It is important to understand the concept of placeholders and use them correctly in the API creation.
 <br>
 The saved API will look like this in the database after a succesful save (in JSON form):
 <pre>{
-   "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/URL_To_Access_API/",
-   "id":"<URL_To_Access_API> ",
+   "url_api_detail":"&lt;URL_To_Access_API&gt;",
+   "id":"&lt;INTERNAL_ID_OF_API&gt;",
    "function_name":"stock_price",
-   "name":"Yahoo Finance (stock/get-detail by Name)",
+   "name":"My Evaluation Yahoo Finance API",
    "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail",
    "header":{
-      "x-rapidapi-key": FOR SECURITY REASONS THE KEY IS SENT VIA PRIVATE CHAT,
+      "x-rapidapi-key": <FOR SECURITY REASONS THE KEY IS SENT VIA PRIVATE CHAT>,
       "x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com"
    },
    "request_params_template":{
@@ -77,7 +77,7 @@ The saved API will look like this in the database after a succesful save (in JSO
    },
    "response_result_path":"price.regularMarketOpen.raw",
    "request_method":"GET",
-   "priority":1,
+   "priority":3,
    "enabled":true,
    "placeholders":[
       {
@@ -96,7 +96,7 @@ The saved API will look like this in the database after a succesful save (in JSO
       }
    ]
 }
-</pre>
+</pre></p>
 </details>
 
 

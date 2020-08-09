@@ -18,7 +18,7 @@ The user wants to use a specific, not included function to solve a given task.
 
 ### Postconditions
 1. The Function is added to the database.
-2. APIs can be added for the which allows the user to use the Function in the Routine building process.
+2. APIs can be added for the function which allows the user to use the Function in the Routine building process.
 
 ### Evaluation
 #### Task
@@ -30,7 +30,7 @@ Category: `IoT`
 Function label: `Thermometer Temperature`
 
 The result is a floating point number.
-The result should be labeled `Temperature`and have the help text `This result contains the temperature of the choosen thermometer.`.
+The result should have some arbitrary result ID, be labeled as `Temperature`and have the help text `This result contains the temperature of the choosen thermometer.`.
 
 The function should have the following fields:
 1. A field should specify the exact thermometer by its number with the label `Thermometer Number` and the helptext `Specify the thermometer by its numeric id.`.
@@ -42,7 +42,7 @@ Navigate to the next task ([Edit Function](edit_function_usecase.md)) or go back
 #### Control criteria for current task
 <details>
 <summary>Show solution</summary>
-<br>
+<p>
 A new Function is created correctly at the users account.
 
 The saved Function will look like this in the database after a succesful save (in JSON form):
@@ -73,5 +73,5 @@ The saved Function will look like this in the database after a succesful save (i
                }
            ]
        }
-</pre>
+</pre></p>
 </details>

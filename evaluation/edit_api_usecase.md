@@ -24,7 +24,7 @@ The user wants to change an existing API which is linked to a given function.
 
 ### Evaluation
 #### Task
-You, as an advanced user, are not satisfied with some information of the corona API for receiving latest news of corona confirmed cases.
+You, as an advanced user, are not satisfied with the name of the corona API for receiving latest news of corona confirmed cases.
 Edit an existing API based on the following information:
 
 In the list, select the API `COVID-19 data`, click on "Show Detail" and switch to edit mode.
@@ -38,18 +38,18 @@ Navigate to the next task ([Delete API](delete_api_usecase.md)) or go back to th
 #### Control criteria for current task
 <details>
 <summary>Show solution</summary>
-<br>
+<p>
 A edited API is changed correctly at the users account. The saved API will look like this in the database after a succesful save (in JSON form):
    
 <pre>
 {
-   "url_api_detail":"http://127.0.0.1:8001/services/manage_apis/a6c661ac-a530-4792-a743-47bb912b5ba4/",
-   "id":"a6c661ac-a530-4792-a743-47bb912b5ba4",
+   "url_api_detail":"&lt;URL_To_Access_API&gt;",
+   "id":"&lt;INTERNAL_ID_OF_API&gt;",
    "function_name":"coronavirus_confirmed_cases",
    "name":"COVID-19 Cases",
    "url":"https://covid-19-data.p.rapidapi.com/country",
    "header":{
-      "x-rapidapi-key": FOR SECURITY REASONS THE KEY IS NOT VISIBLE HERE,
+      "x-rapidapi-key": &lt;FOR SECURITY REASONS THE KEY IS NOT VISIBLE HERE&gt;,
       "x-rapidapi-host":"covid-19-data.p.rapidapi.com"
    },
    "request_params_template":{
@@ -74,5 +74,5 @@ A edited API is changed correctly at the users account. The saved API will look 
       }
    ]
 }
-</pre>
+</pre></p>
 </details>

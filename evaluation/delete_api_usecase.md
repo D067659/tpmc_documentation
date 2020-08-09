@@ -39,6 +39,6 @@ Navigate back to the previous task ([Edit API](edit_api_usecase.md)).
 #### Control criteria for current task
 <details>
 <summary>Show solution</summary>
-<br>
-A deleted API is removed from the users account. Thus, it should be not discoverable anymore when searching the available API list in "Manage APIs".
+<p>
+A deleted API is removed from the users account. Thus, it should be not discoverable anymore when searching the available API list in "Manage APIs".</p>
 </details>
