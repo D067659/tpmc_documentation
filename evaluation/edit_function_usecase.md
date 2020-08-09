@@ -23,8 +23,8 @@ The user wants to change an existing Function.
 
 ### Evaluation
 #### Task
-You, as an advanced user, are not satisfied with the Function label of the `Thermometer Temperature` Function.
-Chnage the label to `Thermometer Temperature Home`.
+You, as an advanced user, are not satisfied with the Function label of the `weather_for_location` Function.
+Change the label to `Current Weather for Location`.
 
 #### Further Tasks
 Navigate to the next task ([Delete Function](delete_function_usecase.md)) or go back to the previous task ([Create Function](create_function_usecase.md)).
