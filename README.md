@@ -63,4 +63,4 @@ During our development process we pursued an approach of **Continuous Integratio
 ## Evaluation
 Initially, it should be mentioned that the following evaluation does not claim to meet scientific standards. The aim is rather to give a short overview of comparable technologies in a first step. In doing so, similarities and differences between our platform and similar tools shall be pointed out. This should only be a purely qualitative comparison. In a second step, we quantitatively evaluated the performance of our platform against various criteria using previously defined use cases and associated evaluation tasks.  
 * [Comparison With Existing Platforms](evaluation/comparison_with_existing_platforms.md)
-* [Use-Case Based Evaluation Process](evaluation/use_case_based_evaluation_process.md)
+* [Use-Case Based Evaluation Process](evaluation/use_case_based_evaluation_process.md) 
