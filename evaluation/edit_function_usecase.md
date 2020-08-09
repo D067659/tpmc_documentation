@@ -37,31 +37,29 @@ The edited function is saved correctly at the users account. The label should be
 The saved Function will look like this in the database after a succesful save (in JSON form):
            
 <pre>
-{
-           "category": "IoT",
-           "function_name": "thermometer_temperature",
-           "function_label": "Thermometer Temperature Home",
-           "result": {
-               "name": "Temperature",
-               "type": "number",
-               "label": "This result contains the temperature of the choosen thermometer."
-           },
-           "fields": [
-               {
-                   "name": "1",
-                   "type": "number",
-                   "label": "Thermometer Number",
-                   "required": true,
-                   "help_text": "Specify the thermometer by its numeric id."
-               },
-               {
-                   "name": "2",
-                   "type": "text",
-                   "label": "Temperature Unit",
-                   "required": true,
-                   "help_text": "Specify the unit of the temperature. Checked means Celcius and Unchecked means Fahrenheit."
-               }
-           ]
-       }
+        {
+            "category": "Weather",
+            "function_name": "weather_for_location",
+            "function_label": "Current Weather for Location",
+            "result": {
+                "name": "weather_description",
+                "type": "text",
+                "label": "Description of current weather at specified location"
+            },
+            "fields": [
+                {
+                    "name": "city",
+                    "type": "text",
+                    "label": "City",
+                    "required": false
+                },
+                {
+                    "name": "country_code",
+                    "type": "text",
+                    "label": "Country Code",
+                    "required": false
+                }
+            ]
+        }
 </pre></p>
 </details>
