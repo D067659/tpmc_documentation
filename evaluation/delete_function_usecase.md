@@ -27,7 +27,7 @@ The user wants to delete a wrongly created or obsolete Function.
 You, as an advanced user, notices that an implemented function is not needed anymore and to keep your Developer Suite clean, want to delete it.
 Delete an existing Function based on the following information:
 
-In the list, select the previously renamed Function `Thermometer Temperature Home`, click on "Show Detail" and switch to edit mode.
+In the list, select the Function `Latest News`, click on "Show Detail" and switch to edit mode.
 Delete the Function by clicking on "Delete Function" and confirm the warning pop-up.
 
 #### Further Tasks
