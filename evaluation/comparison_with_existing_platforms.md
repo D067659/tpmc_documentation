@@ -21,11 +21,11 @@ To sum the comparison of SCI and MTPP up, both services follow a similar approac
 ## Comparison to NodeRed (this is only a sketched Draft version and subject to change if s.o. has better insights!)
 Keeping the naming convention of a *Flow* for clustering a activity, NodeRed is another integration platform which can be compared to MTPP. Having a look at the creation of a flow reveals its difference to the SCI and also to MTPP:
 
-![NodeRedFlow-Example](/resources/images/NodeRedFlow-Example.png)
+![NodeRedFlow-Example](../resources/images/NodeRedFlow-Example.png)
 
 The approach of NodeRed is heavily based on a very technical layer. A real business, following the idea of creating value to the end-users is neglected on this platform. Focusing on exactly the technical integration allows the platform to scale towards huge capabilities in terms of extensibility. Both SCI and MTPP focusing on end-user tasks, their use-cases and concerns. NodeRed, instead, focusing on the properties of a technical integration flow. Another screenshot demonstrates this, as it depicts the properties of a randomly chosen entity:
 
-![NodeRedFlow-Properties](/resources/images/NodeRedFlow-Properties.png)
+![NodeRedFlow-Properties](../resources/images/NodeRedFlow-Properties.png)
 
 No business-related information is given, but a server, a entity ID or the way of manipulating the payload. This is not what MTPP stands for. Besides the rigorous end-to-end focus, MTPP still answers the demand of developers to extend the platform using the MTPP Developer Suite. But even non-technical affine users are easily able to use the platform on their own with a proper intent to use the platform in a sophisticated manner.
 Evaluation of Existing Platforms - Benchmarking against MTP Platform
