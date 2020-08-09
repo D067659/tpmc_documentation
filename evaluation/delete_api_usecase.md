@@ -27,7 +27,7 @@ The user wants to delete a wrongly created or obsolete API which is linked to a 
 You, as an advanced user, notices that your existing API is too costly to use anymore. Therefore, you want to get rid of it, so that this API is never used for a given function again.
 Delete an existing API based on the following information:
 
-In the list, select the recently created API `My Evaluation Yahoo Finance API`, click on "Show Detail" and switch to edit mode.
+In the list, select the API `weather_for_location` from Aeris Weather, click on "Show Detail" and switch to edit mode.
 Imagine, that this API costs $2 each call and you have to call it twice a hour to monitor e.g. the weather very regularly. Quite costly!
 Delete the API by clicking on "Delete API" and confirm the warning pop-up.
 
