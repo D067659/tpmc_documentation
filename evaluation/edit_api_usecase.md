@@ -24,7 +24,7 @@ The user wants to change an existing API which is linked to a given function.
 
 ### Evaluation
 #### Task
-You, as an advanced user, are not satisfied with some information of the corona API for receiving latest news of corona confirmed cases.
+You, as an advanced user, are not satisfied with the name of the corona API for receiving latest news of corona confirmed cases.
 Edit an existing API based on the following information:
 
 In the list, select the API `COVID-19 data`, click on "Show Detail" and switch to edit mode.
