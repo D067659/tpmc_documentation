@@ -21,13 +21,13 @@ The user wants to create a new Routine.
 Create a routine that holds the following components:
 1. Timer condition
 
-![Timer Condition Screenshot](/resources/images/Timer_condition.png)
+![Timer Condition Screenshot](../resources/images/Timer_condition.png)
 2. A stock price search of "Apple"
 
-![Stock Price Operation](/resources/images/Stockprice_by_name_operation.png)
+![Stock Price Operation](../resources/images/Stockprice_by_name_operation.png)
 3. An email containing the stockprice search result, a subject and a recipient
 
-![Email Operation](/resources/images/Email_operation.png)
+![Email Operation](../resources/images/Email_operation.png)
 
 #### Further Tasks
 Navigate to the next task ([Create Function](create_function_usecase.md)).
