@@ -52,4 +52,4 @@ As the definition of APIs are more complex than the ones of functions, more than
 4. `MTPDevelopmentEditApiPlaceholder`: To provide placeholder for an API, this component shows all required information, similar to the MTPDevelopmentKeyValueGenerator but different in terms of more complex logic and behavior modelling (using e.g. input fields, conditional rendering based on checkboxes)
 
 ## User Guide
-A more detailed User Guide (Screenshot Demo Walkthrough) regarding **How To Use the Platform UI** can be found [here](../user_guide/user_guide.md).
+A detailed User Guide (Screenshot Demo Walkthrough) regarding **How To Use the Platform UI** can be found [here](../user_guide/user_guide.md).
