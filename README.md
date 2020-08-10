@@ -6,7 +6,7 @@
 
 <hr />
 <p align="center">
-    <a href="#about-this-project">About this Project</a> • 
+    <a href="#about-this-project">About this Project</a> •
     <a href="#who-we-are">Who We Are</a> •
     <a href="#development-process">Development Process</a> •
     <a href="#technical-documentation">Technical Documentation</a> •
@@ -40,7 +40,7 @@ We are all students in the area of computer science from the two mentioned unive
 While the members from Germany are all studying in the master program in Business Informatics, three of the Romanian students are studying Bachelor Computer Science and one in the master program in Computer Science.
 
 ## Development Process
-Apart from a one-week introduction phase at the beginning of the project, when the students from Mannheim travelled to Cluj, the entire cooperation during the project took place via digital media. 
+Apart from a one-week introduction phase at the beginning of the project, when the students from Mannheim travelled to Cluj, the entire cooperation during the project took place via digital media.
 In order to nevertheless work together successfully in such a large team with very heterogeneous previous knowledge, we pursued an agile development process and strict adherence to the **SCRUM** guidelines. As part of this, we agreed on week-long Sprints from Monday to Monday, with Sprint Review, Retrospective and Sprint Planning taking place in a joint meeting via *Skype* at the end of each Sprint. To keep track of our progress and upcoming tasks, we decided to use a *Trello Board* where we assigned tasks into mainly five categories: *Product Backlog*, *Sprint Backlog*, *In Progress*, *In Review* and *Done* (see exemplary Screenshot). Apart from this, we agreed on a written daily twice a week via the Messaging Service *Discord*, which was also used for other written communication during the project. The roles of Product Owner and Scrum Master changed between the team members during the project. The role of the external customer was taken over by the supervisors from the InES.
 <p align="center">
 <img src="resources/images/trello_board_screenshot.png" alt="Screenshot Trello Board" width="700px">
@@ -59,6 +59,10 @@ After a description of the overall archtitecture, the four microservices that ar
 Besides, there are two supplementary services that were initially developed as part of an earlier archtitecture idea which was based on several independent *Category Services* instead of having one more generic *Service Provider* and became redundant with the introduction of this (in case of [Finance Category Service](https://github.com/hokedo/tpmc_finance_category_service/tree/master/finance_category_service/api)) or were modified to serve only as an additional external API (in case of [Messaging Category Service](https://github.com/TobiasHorn1899/tpmc_messaging_category_service)) to be accessed by the *Service Provider* like any external API.
 
 During our development process we pursued an approach of **Continuous Integration and Continous Delivery (CI/CD)** which is shortly explained [here](technical_documentation/ci_cd_approach.md).
+
+## User guide
+
+You can find the user guide [here](user_guide/user_guide.md).
 
 ## Evaluation
 Initially, it should be mentioned that the following evaluation does not claim to meet scientific standards. The aim is rather to give a short overview of comparable technologies in a first step. In doing so, similarities and differences between our platform and similar tools shall be pointed out. This should only be a purely qualitative comparison. In a second step, we quantitatively evaluated the performance of our platform against various criteria using previously defined use cases and associated evaluation tasks.  
