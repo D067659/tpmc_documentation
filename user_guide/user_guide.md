@@ -95,19 +95,96 @@ On the Control Page the existing Routines can be stated manually by clicking the
 
 ## Devloper Suite
 
-The Developer Suite allows to create, edit and delete Functions i.e. Operations or APIs.
+The Developer Suite allows to create, edit and delete Functions or APIs. It is important to mention that Operation and Function can be used synonymous, more precisly Function is only used in the context of the Developer Suite as it behaves like a function in programming. The developer suite requires decent knowledge about several cloud technologies and can render the app to break.
 
-*Click the "Switch to Developer Suite" button.*
+It is important
 
 ![Control Page](../resources/images/control_page.png)
 
+*Click the "Switch to Developer Suite" button. Confirm the warning with the "Ok" button.*
+
+![Developer Suite](../resources/images/developer_suite.png)
+
 ### Functions
 
+Since we are already automatically in the Manage Functions mode we have to do nothing.
+
+In case you are not:
+*Click the "Manage Functions" button.*
+
 #### Create
+*Click the "Create a new Function" button.*
+
+![Create a new Function](../resources/images/create_function1.png)
+
+*Click on the switch next to "In protected mode" to make the fields editable. Click again to switch to protected mode again.*
+
+We now see a number of fields that can or have to be filled.
+
+**Category** specifies under which category the Function is listed in the Operations in the Routine creation.
+
+**Function ID** is a unique identifier for the Function that can be a custom string.
+
+**Function Label** is the label that is displayed for the Operation in the Routine creation.
+
+A **result of a Function** is optional and can be deactived in activated with the "Function returns a Result Variable" checkbox.
+
+**Result ID** is a unique identifier for the result that can be a custom string and has to be used in the API definition.
+
+**Result Type** is the value type of the result.
+
+**Result Pattern** is an optional pattern defined by a Regular Expression and has to be matched by the result.
+
+**Result Label** is the label that is displayed for the Result in the Routine creation.
+
+**Result Help Text** is the help text that is displayed for the Result in the Routine creation.
+
+**Function fields** are optional. They can be added and deleted. The button "Add a new field" adds an additional field. The button "Reset created fields" deletes all fields from this Function.
+
+**Field ID** is a unique identifier for the field that can be a custom string and has to be used in the API definition.
+
+**Field Type** is the value type of the field.
+
+**Field Label** is the label that is displayed for the Field in the Routine creation.
+
+**Field Help Text** is the help text that is displayed for the Field in the Routine creation.
+
+Here you can see an example of how the fields are defiened for the "Retrieve Stock Price of a Company" Function.
+
+![Create a new Function – Stock Price Example](../resources/images/create_function2.png)
+
+*Click the "Save" button to save the new Function.*
 
 #### Edit
 
+You can edit the fields Category and Function label as well as add addtional fields for existing Functions.
+
+*Click the "Edit existing Functions" button.*
+
+![Existing Functions](../resources/images/developer_suite.png)
+
+*Click the "Show Details" button of the Function you want to edit.*
+
+*Click on the switch next to "In protected mode" to make the fields editable.*
+
+You can now edit the Fields.
+
+*Click the "Save" button to save the changes.*
+
+
 #### Delete
+
+In the editing mode you can also delete existing Functions.
+
+*Click the "Edit existing Functions" button.*
+
+![Existing Functions](../resources/images/developer_suite.png)
+
+*Click the "Show Details" button of the Function you want to edit.*
+
+*Click on the switch next to "In protected mode" to make the fields editable.*
+
+*Click the "Delete function" button to delete the Function.*
 
 ### APIs
 
