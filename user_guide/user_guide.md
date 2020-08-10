@@ -43,7 +43,7 @@ Let's start with adding the timer Condition "Routine start time".
 
 *Specify a time, day and timezone at which the Routine should start.*
 
-Next we can choose an Operation we want to happend next.
+Next we can choose an Operation we want to append next.
 
 *Click on the "Add a new operation" button.*
 
