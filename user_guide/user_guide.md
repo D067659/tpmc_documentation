@@ -7,14 +7,14 @@ Before you can start with the MTPP you have to register your own user.
 
 <br>
 <kbd>
-<img src="../resources/images/login_page.png" width="350">
+<img src="../resources/images/login_page.png" width="450">
 </kbd>
 </br>
 
 *Enter a username and your password. Confirm by clicking "Sign Up".*
 <br>
 <kbd>
-<img src="../resources/images/register_page.png" width="350">
+<img src="../resources/images/register_page.png" width="450">
 </kbd>
 </br>
 
@@ -31,14 +31,14 @@ After a user account was created and some Functions and APIs were load to the ac
 *On the Control Page click on "Routine Page" or "+ Add routine" to create a new routine.*
 <br>
 <kbd>
-<img src="../resources/images/control_page.png" width="350">
+<img src="../resources/images/control_page.png" width="450">
 </kbd>
 </br>
 
 *Enter the routine name and confirm with "Next".*
 <br>
 <kbd>
-<img src="../resources/images/routine_name.png" width="350">
+<img src="../resources/images/routine_name.png" width="450">
 </kbd>
 </br>
 
@@ -47,7 +47,7 @@ On the appearing page you can add and edit the routines components.
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine1.png" width="350">
+<img src="../resources/images/create_routine1.png" width="450">
 </kbd>
 </br>
 
@@ -59,7 +59,7 @@ Let's start with adding the timer Condition "Routine start time".
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine2.png" width="350">
+<img src="../resources/images/create_routine2.png" width="450">
 </kbd>
 </br>
 
@@ -75,7 +75,7 @@ You can now choose any category you like to add the corresponding operations. We
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine3.png" width="350">
+<img src="../resources/images/create_routine3.png" width="450">
 </kbd>
 </br>
 
@@ -85,7 +85,7 @@ In Operations the results can be saved in variables so they can be used in other
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine4.png" width="350">
+<img src="../resources/images/create_routine4.png" width="450">
 </kbd>
 </br>
 
@@ -100,7 +100,7 @@ This condition has three fields, the two values to compare and the operator. Rem
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine5.png" width="350">
+<img src="../resources/images/create_routine5.png" width="450">
 </kbd>
 </br>
 
@@ -114,7 +114,7 @@ Before starting the Routine we want to save it so our account.
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine6.png" width="350">
+<img src="../resources/images/create_routine6.png" width="450">
 </kbd>
 </br>
 
@@ -124,7 +124,7 @@ The Routine is now visible in the Control Page. If not visible immediately, try 
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine7.png" width="350">
+<img src="../resources/images/create_routine7.png" width="450">
 </kbd>
 </br>
 
@@ -136,7 +136,7 @@ On the Control Page the existing Routines can be stated manually by clicking the
 
 <br>
 <kbd>
-<img src="../resources/images/create_routine7.png" width="350">
+<img src="../resources/images/create_routine7.png" width="450">
 </kbd>
 </br>
 
@@ -146,7 +146,7 @@ The Developer Suite allows to create, edit and delete Functions or APIs. It is i
 
 <br>
 <kbd>
-<img src="../resources/images/control_page.png" width="350">
+<img src="../resources/images/control_page.png" width="450">
 </kbd>
 </br>
 
@@ -154,7 +154,7 @@ The Developer Suite allows to create, edit and delete Functions or APIs. It is i
 
 <br>
 <kbd>
-<img src="../resources/images/developer_suite.png" width="350">
+<img src="../resources/images/developer_suite.png" width="450">
 </kbd>
 </br>
 
@@ -170,7 +170,7 @@ In case you are not:
 
 <br>
 <kbd>
-<img src="../resources/images/create_function1.png" width="350">
+<img src="../resources/images/create_function1.png" width="450">
 </kbd>
 </br>
 
@@ -210,7 +210,7 @@ Here you can see an example of how the fields are defined for the "Retrieve Stoc
 
 <br>
 <kbd>
-<img src="../resources/images/create_function2.png" width="350">
+<img src="../resources/images/create_function2.png" width="450">
 </kbd>
 </br>
 
@@ -224,7 +224,7 @@ You can edit the fields Category and Function label as well as add addtional fie
 
 <br>
 <kbd>
-<img src="../resources/images/developer_suite.png" width="350">
+<img src="../resources/images/developer_suite.png" width="450">
 </kbd>
 </br>
 
