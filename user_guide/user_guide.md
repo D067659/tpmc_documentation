@@ -109,21 +109,29 @@ When a Routine is created it is automatically started when the timer condition i
 
 On the Control Page the existing Routines can be stated manually by clicking the play button, edited by clicking the pencil button or deleted by clicking the bin button.
 
-![Control Page](../resources/images/create_routine7.png)
+<br>
+<kbd>
+<img src="../resources/images/create_routine7.png" width="350">
+</kbd>
+</br>
 
 ## Devloper Suite
 
 The Developer Suite allows to create, edit and delete Functions or APIs. It is important to mention that Operation and Function can be used synonymous, more precisly Function is only used in the context of the Developer Suite as it behaves like a function in programming. The developer suite requires decent knowledge about several cloud technologies and can render the app to break.
 
+<br>
 <kbd>
 <img src="../resources/images/control_page.png" width="350">
 </kbd>
+</br>
 
 *Click the "Switch to Developer Suite" button. Confirm the warning with the "Ok" button.*
 
+<br>
 <kbd>
 <img src="../resources/images/developer_suite.png" width="350">
 </kbd>
+</br>
 
 ### Functions
 
