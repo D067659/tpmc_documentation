@@ -140,7 +140,7 @@ On the Control Page the existing Routines can be stated manually by clicking the
 </kbd>
 </br>
 
-## Devloper Suite
+## Developer Suite
 
 The Developer Suite allows to create, edit and delete Functions or APIs. It is important to mention that Operation and Function can be used synonymous, more precisly Function is only used in the context of the Developer Suite as it behaves like a function in programming. The developer suite requires decent knowledge about several cloud technologies and can render the app to break.
 
