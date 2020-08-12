@@ -5,18 +5,18 @@ Before you can start with the MTPP you have to register your own user.
 
 *Click on the Button "You're new to MTPP? Sign Up!".*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/login_page.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Enter a username and your password. Confirm by clicking "Sign Up".*
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/register_page.png" width="450">
 </kbd>
-</br>
+<br/>
 
 Now your account is created successfully. You can add our bundle of predefined Functions and APIs to your account, if you acquired the activation code.
 
@@ -29,27 +29,27 @@ Now your account is created successfully. You can add our bundle of predefined F
 After a user account was created and some Functions and APIs were load to the account either manually or by using the predefined bundle, routines can be created by the user.
 
 *On the Control Page click on "Routine Page" or "+ Add routine" to create a new routine.*
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/control_page.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Enter the routine name and confirm with "Next".*
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/routine_name.png" width="450">
 </kbd>
-</br>
+<br/>
 
 
 On the appearing page you can add and edit the routines components.
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine1.png" width="450">
 </kbd>
-</br>
+<br/>
 
 A Routine behaves like a workflow in which each Component is treated sequentially. A Routine can consists of the components Conditions and Operations. Both are structured in categories where similar types of Components are clustered. Conditions have to be fullfilled for the Routine to continue. If the condition is not fullfilled the Routine will interrupt. One very important Condition is the timer Condition "Routine start time" which checks checks if the current time equals the specified time to start the Routine. An Operation can be anykind of action or request to an external service. Each operation can have different input fields and one return value.
 
@@ -57,11 +57,11 @@ Let's start with adding the timer Condition "Routine start time".
 
 *Click on the "Add a new Condition" button. Then select the timer category in the appearing dropdown menu. Finally select the "Routine start time" Condition in the second dropdown.*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine2.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Specify a time, day and timezone at which the Routine should start.*
 
@@ -73,21 +73,21 @@ You can now choose any category you like to add the corresponding operations. We
 
 *Select "Finance" in the dropdown and select "Retrieve Stock Price of a Company".*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine3.png" width="450">
 </kbd>
-</br>
+<br/>
 
 In Operations the results can be saved in variables so they can be used in other components. The result variable name is specified in the "Result variable name" field. The variable name has to start with a Dollar sign "$" to indicate that it is an variable and can be used in other Component's fields. In string fields we can just write the variable name including the Dollar sign. In number fields we have to change the field to variable mode by clicking the variable button and then selecting the variable name. The variable mode can be left by clicking the variable button again.
 
 *Enter "Google" in the Company Name field and "$stockprice" in the "Result variable name" field.*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine4.png" width="450">
 </kbd>
-</br>
+<br/>
 
 
 Next we want to compare the stockprice to the fixed number 445 with the Numbers Condition "Relation between two numbers".
@@ -98,11 +98,11 @@ This condition has three fields, the two values to compare and the operator. Rem
 
 *Click the "Variable buttong below the "Left Value" field and select the "$stockprice" variable. Select "Greater than" in the Operator dropdown. Finally type "445" in the "Right Value" field.*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine5.png" width="450">
 </kbd>
-</br>
+<br/>
 
 If the Condition is satisfied i.e. the Apple stock price is greater than 445, the Routine will continue with the following components. If not, it would stop.
 
@@ -112,21 +112,21 @@ Before starting the Routine we want to save it so our account.
 
 *Click the "Next" button on the bottom right corner.*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine6.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Finally click the "Finish" button.*
 
 The Routine is now visible in the Control Page. If not visible immediately, try refreshing the page.
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine7.png" width="450">
 </kbd>
-</br>
+<br/>
 
 ## Manage Routines
 
@@ -134,29 +134,29 @@ When a Routine is created it is automatically started when the timer condition i
 
 On the Control Page the existing Routines can be stated manually by clicking the play button, edited by clicking the pencil button or deleted by clicking the bin button.
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_routine7.png" width="450">
 </kbd>
-</br>
+<br/>
 
 ## Developer Suite
 
 The Developer Suite allows to create, edit and delete Functions or APIs. It is important to mention that Operation and Function can be used synonymous, more precisly Function is only used in the context of the Developer Suite as it behaves like a function in programming. The developer suite requires decent knowledge about several cloud technologies and can render the app to break.
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/control_page.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Click the "Switch to Developer Suite" button. Confirm the warning with the "Ok" button.*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/developer_suite.png" width="450">
 </kbd>
-</br>
+<br/>
 
 ### Functions
 
@@ -168,11 +168,11 @@ In case you are not:
 #### Create
 *Click the "Create a new Function" button.*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_function1.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Click on the switch next to "In protected mode" to make the fields editable. Click again to switch to protected mode again.*
 
@@ -208,11 +208,11 @@ A **result of a Function** is optional and can be deactived and activated with t
 
 Here you can see an example of how the fields are defined for the "Retrieve Stock Price of a Company" Function.
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/create_function2.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Click the "Save" button to save the new Function.*
 
@@ -222,11 +222,11 @@ You can edit the fields Category and Function label as well as add addtional fie
 
 *Click the "Edit existing Functions" button.*
 
-<br>
+<br/>
 <kbd>
 <img src="../resources/images/developer_suite.png" width="450">
 </kbd>
-</br>
+<br/>
 
 *Click the "Show Details" button of the Function you want to edit.*
 
