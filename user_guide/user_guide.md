@@ -239,7 +239,7 @@ You can now edit the Fields.
 
 #### Delete
 
-In the editing mode you can also delete existing Functions.
+In the editing mode you can also delete existing Functions. Please note that once an Function is deleted all the APIs that belong to the Function are deleted as well.
 
 *Click the "Edit existing Functions" button.*
 
@@ -267,20 +267,98 @@ We now see a number of fields that can or have to be filled according to the API
 
 **Belongs to Function** is the Function that the API implements and can deliver a value for. Use the dropdown menu to select an existing Function.
 
-**API Name** is the Name and unique identifier of the API.
+**API Name** is the name and unique identifier of the API.
 
-**Priority** specifies which API is used first for this Function. There are four different types of priority values: Preferred, High, Medium, Low. Preferred is the highest priority and can only be set onced. If set a second time, the old API's priority will be downgraded.
+**Priority** specifies which API is used first for this Function. There are four different types of priority values: Preferred, High, Medium, Low. Preferred is the highest priority and can only be set onced. If set a second time, the former preferred API's priority will be downgraded.
 
-**Placeholders** are links to other values e.g. Fields of the corresponding Function or results of other Functions. The Placeholder can be used in other parts of the API definition like Headers, Parameters or Body. You can use the Placeholders by inserting "§id§" where "id" is the id of the placeholder. The string gets then replaced by the value of the placeholder i.e. field. You can *click the "Add a new placeholder" and "Delete all Placeholders" to add and remove Placeholders.
+**Placeholders** are links to other values, namely Fields of the corresponding Function or results of other Functions. The Placeholder can be used in other parts of the API definition like Headers, Parameters or Body. You can use the Placeholders by inserting "§id§" where "id" is the id of the Placeholder. The string gets then replaced by the value of the placeholder i.e. field. You can *click the "Add a new placeholder", bin and "Delete all Placeholders" buttons to add and remove Placeholders.*
+
+<br>
+<kbd>
+<img src="../resources/images/create_api2.png" width="350">
+</kbd>
+</br>
 
 **Placeholder ID** gets defined automatically and is needed when using the placeholder in other fields.
 
 **Placeholder Field** specifies the field of the Function which is used to replace the placeholder. You can select in a dropdown menu every field of the Function you defined in the "Belongs to Function" field.
 
-Alternatively to replacing the Placeholder by a Function field it can also be replaced by a
 
+Alternatively to replacing the Placeholder by a Function field it can also be replaced by the result of another Function. *Check the "Replace Placeholder by value of the function this API belongs to." box to switch and click again to switch back.*
 
+<br>
+<kbd>
+<img src="../resources/images/create_api3.png" width="350">
+</kbd>
+</br>
+
+**Placeholder Function name** specifies the Function the Placeholder receives the result from.
+
+**Placeholder Function Fields** can be set if the Function needs some fields to return the value.
+
+Some API need the values in a String format or in a number format. *Uncheck the "Do not convert placeholder value to 'String' before insertion into a JSON template." checkbox to convert the Placeholder value to a string, check to leave the orginal value.*
+
+You can add **Headers** to the API request.
+*Click the "Add a new key-value pair", bin and "Delete all key-value pairs" buttons to add and remove header fields*
+
+<br>
+<kbd>
+<img src="../resources/images/create_api4.png" width="350">
+</kbd>
+</br>
+
+In the "Provide a template for required URL parameter" field you can add **Parameters** in the JSON format to the API request.
+
+In the "Provide a template for the outgoing requests" field you can add a **Body** in the JSON format to the API request.
+
+**Response Path to Result** specifies how the API result is retrieved from the response body. The path is defined by a series of JSON keys that are seperate with a `.`. Elements in lists can be accessed via their index in square brackets `[index]`. The sample response path `devices.lamps[0].power` takes the value under the "devices" key, then the list under the "lamps" key, then the 0. element of that list and then the value under "power" key.
+
+**Request Method** specifies which HTTP request method is used for the API request which can be selected from the dropdown menu.
+
+We show an example API definition, the Finnhub Finance API which translates a custom string to a company symbol with the Company Symbol Function.
+<br>
+<kbd>
+<img src="../resources/images/create_api5.png" width="450">
+<img src="../resources/images/create_api6.png" width="450">
+</kbd>
+</br>
+
+Let us put attention on how the Placeholder was used to call another Function with the input i.e. field of the original function and put the result of that Function in the API body template.
 
 #### Edit
 
+You can edit all fields of existing APIs.
+
+*Click the "Edit existing APIs" button.*
+
+<br>
+<kbd>
+<img src="../resources/images/edit_api1.png" width="450">
+</kbd>
+</br>
+
+*Click the "Show Details" button of the API you want to edit.*
+
+*Click on the switch next to "In protected mode" to make the fields editable.*
+
+<br>
+<kbd>
+<img src="../resources/images/edit_api2.png" width="450">
+</kbd>
+</br>
+
+You can now edit the Fields.
+
+*Click the "Save" button to save the changes.*
+
 #### Delete
+
+In the editing mode you can also delete existing APIs.
+
+*Click the "Edit existing APIs" button.*
+
+*Click the "Show Details" button of the API you want to edit.*
+
+*Click on the switch next to "In protected mode" to make the fields editable.*
+
+*Click the "Delete API" button to delete the API.*
