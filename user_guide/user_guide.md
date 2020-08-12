@@ -250,8 +250,36 @@ In the editing mode you can also delete existing Functions.
 *Click the "Delete function" button to delete the Function.*
 
 ### APIs
+*Click the "Manage APIs" button.*
 
 #### Create
+*Click the "Create a new API" button.*
+
+<br>
+<kbd>
+<img src="../resources/images/create_api1.png" width="450">
+</kbd>
+</br>
+
+*Click on the switch next to "In protected mode" to make the fields editable.*
+
+We now see a number of fields that can or have to be filled according to the API call.
+
+**Belongs to Function** is the Function that the API implements and can deliver a value for. Use the dropdown menu to select an existing Function.
+
+**API Name** is the Name and unique identifier of the API.
+
+**Priority** specifies which API is used first for this Function. There are four different types of priority values: Preferred, High, Medium, Low. Preferred is the highest priority and can only be set onced. If set a second time, the old API's priority will be downgraded.
+
+**Placeholders** are links to other values e.g. Fields of the corresponding Function or results of other Functions. The Placeholder can be used in other parts of the API definition like Headers, Parameters or Body. You can use the Placeholders by inserting "§id§" where "id" is the id of the placeholder. The string gets then replaced by the value of the placeholder i.e. field. You can *click the "Add a new placeholder" and "Delete all Placeholders" to add and remove Placeholders.
+
+**Placeholder ID** gets defined automatically and is needed when using the placeholder in other fields.
+
+**Placeholder Field** specifies the field of the Function which is used to replace the placeholder. You can select in a dropdown menu every field of the Function you defined in the "Belongs to Function" field.
+
+Alternatively to replacing the Placeholder by a Function field it can also be replaced by a
+
+
 
 #### Edit
 
