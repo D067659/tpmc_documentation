@@ -45,7 +45,7 @@ Last, add some more information to make the API run: The response path to result
 The request method is `GET`.
 
 Save the created API to complete this use-case. Feel free to try it out!
-*And P.S.: The company symbol for Microsoft is MSF.*
+*And P.S.: The company symbol for Microsoft is MSFT.*
 
 #### Further Tasks
 Navigate to the next task ([Edit API](edit_api_usecase.md)) or go back to the previous task ([Delete Function](delete_function_usecase.md)).
