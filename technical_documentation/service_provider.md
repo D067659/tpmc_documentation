@@ -161,7 +161,7 @@ In order to understand the concept we developed to achieved these goals, it is e
  <tr>
   <td>header</td>
   <td>Object</td>
-  <td>Header that should be sent together with the request to the API. Must be a valid JSON Object (might be empty). May contain placeholders (see below).</td>
+  <td>Header that should be sent together with the request to the API. Must be a valid JSON Object (might be empty).</td>
 	</tr>
  <tr>
   <td>request_params_template</td>
