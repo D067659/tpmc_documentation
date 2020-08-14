@@ -180,13 +180,13 @@ We now see a number of fields that can or have to be filled.
 
 **Category** specifies under which category the Function is listed in the Operations in the Routine creation.
 
-**Function ID** is a unique identifier for the Function that can be a custom string.
+**Function Name** is a unique identifier for the Function that can be a custom string.
 
 **Function Label** is the label that is displayed for the Operation in the Routine creation.
 
 A **result of a Function** is optional and can be deactived and activated with the "Function returns a Result Variable" checkbox.
 
-**Result ID** is a unique identifier for the result that can be a custom string.
+**Result Name** is a unique identifier for the result that can be a custom string.
 
 **Result Type** is the value type of the result.
 
@@ -198,7 +198,7 @@ A **result of a Function** is optional and can be deactived and activated with t
 
 **Function fields** are optional. They can be added and deleted. The button "Add a new field" adds an additional field. The button "Reset created fields" deletes all fields from this Function.
 
-**Field ID** is a unique identifier for the field that can be a custom string and can to be used in the API definition.
+**Field Name** is a unique identifier for the field that can be a custom string.
 
 **Field Type** is the value type of the field.
 
@@ -218,7 +218,7 @@ Here you can see an example of how the fields are defined for the "Retrieve Stoc
 
 #### Edit
 
-You can edit the fields Category and Function label as well as add addtional fields for existing Functions.
+You can edit the fields Category and Function label as well as add and remove fields for existing Functions. To avoid inconsistencies or a new validation of all existing APIs, it is not possible to make further changes to a function after its definition.
 
 *Click the "Edit existing Functions" button.*
 
@@ -263,15 +263,16 @@ In the editing mode you can also delete existing Functions. Please note that onc
 
 *Click on the switch next to "In protected mode" to make the fields editable.*
 
-We now see a number of fields that can or have to be filled according to the API call.
+We now see a number of fields to be filled in order to specify General Information about the API as well as how a call to this API must be performed in order to get the desired result for the associated function considering the specified function parameters.
+
 
 **Belongs to Function** is the Function that the API implements and can deliver a value for. Use the dropdown menu to select an existing Function.
 
 **API Name** is the name and unique identifier of the API.
 
-**Priority** specifies which API is used first for this Function. There are four different types of priority values: Preferred, High, Medium, Low. Preferred is the highest priority and can only be set onced. If set a second time, the former preferred API's priority will be downgraded.
+**Priority** specifies which order the APIs are used to evaluate this function (until one API call is successful). There are four different types of priority values: Preferred, High, Medium, Low. Preferred is the highest priority and can only be set once and is always assigned to exactly one API per Function. If set a second time, the former preferred API's priority will be downgraded. The preferred API determines which function fields are marked as required, i.e. must be specified when using this function, namely those fields that are required to apply this API.
 
-**Placeholders** are links to other values, namely Fields of the corresponding Function or results of other Functions. The Placeholder can be used in other parts of the API definition like Headers, Parameters or Body. You can use the Placeholders by inserting "§id§" where "id" is the id of the Placeholder. The string gets then replaced by the value of the placeholder i.e. field. You can *click the "Add a new placeholder", bin and "Delete all Placeholders" buttons to add and remove Placeholders.*
+**Placeholders** are Placeholders for other values, namely Fields of the corresponding Function or results of other Functions. The Placeholder can be used in other parts of the API definition: Parameters, response path or request body. You can use the Placeholders by inserting "§id§" where "id" is the id of the Placeholder. When an API is called, at first the placeholders are evaluated and afterwards this string gets then replaced by the evaluated value of the placeholder with the certain id.. The exact value of a placeholder is only known when the function is invoked, e.g. because it depends on inputs specified by the user. You can *click the "Add a new placeholder", bin and "Delete all Placeholders" buttons to add and remove Placeholders.*
 
 <br/>
 <kbd>
@@ -294,9 +295,9 @@ Alternatively to replacing the Placeholder by a Function field it can also be re
 
 **Placeholder Function name** specifies the Function the Placeholder receives the result from.
 
-**Placeholder Function Fields** can be set if the Function needs some fields to return the value.
+**Placeholder Function Fields** can be set if the Function needs some fields to return the value. You can specify fields of the auxiliary function either by selecting the value of a field of the function this API belongs to or by specifying a fix value rightaway. Make sure to specify at least all fields of the chosen function that are marked as required (see corresponding Function specification).
 
-Some API need the values in a String format or in a number format. *Uncheck the "Do not convert placeholder value to 'String' before insertion into a JSON template." checkbox to convert the Placeholder value to a string, check to leave the orginal value.*
+Placeholders can take potentially three primitive datatypes (string, number or boolean). In case of number  respectively boolean you can specify if this values should be converted to a string if they need to be inserted into a "URL Parameters Template" or "Request Body Template". *Uncheck the "Do not convert placeholder value to 'String' before insertion into a JSON template." checkbox to convert the Placeholder value to a string, check to leave the orginal value.* In case of a placeholder that receives a value of type string, it does not matter whether you check or uncheck this checkbox.
 
 You can add **Headers** to the API request.
 *Click the "Add a new key-value pair", bin and "Delete all key-value pairs" buttons to add and remove header fields*
@@ -307,15 +308,15 @@ You can add **Headers** to the API request.
 </kbd>
 <br/>
 
-In the "Provide a template for required URL parameter" field you can add **Parameters** in the JSON format to the API request.
+In the "Template for the request (URL) Parameters" field you can add **Parameters** in the JSON format to the API request. You can also insert parameters directly in the URL when specifying the "API Endpoint URL" field.
 
-In the "Provide a template for the outgoing requests" field you can add a **Body** in the JSON format to the API request.
+In the "Template for the request Body" field you can add a **Body** in the JSON format to the API request.
 
-**Response Path to Result** specifies how the API result is retrieved from the response body. The path is defined by a series of JSON keys that are seperate with a `.`. Elements in lists can be accessed via their index in square brackets `[index]`. The sample response path `devices.lamps[0].power` takes the value under the "devices" key, then the list under the "lamps" key, then the 0. element of that list and then the value under "power" key.
+**Response Path to Result** specifies how the API result is retrieved from the response body. The path is defined by a series of JSON keys that are seperate with a `.`. Elements in lists can be accessed via their index in square brackets `[index]`. The sample response path `devices.lamps[0].power` takes the value under the "devices" key, then the list under the "lamps" key, then the 0. element of that list and then the value under "power" key. If the response is a list itself you can start the path with `[index]`. It is mentionable, that you can also use placeholders in the response path.
 
 **Request Method** specifies which HTTP request method is used for the API request which can be selected from the dropdown menu.
 
-We show an example API definition, the Finnhub Finance API which translates a custom string to a company symbol with the Company Symbol Function.
+We show an example API definition, the Finnhub Finance API which returns the stock price of a company specified by a custom string.
 <br/>
 <kbd>
 <img src="../resources/images/create_api5.png" width="450">
@@ -323,7 +324,7 @@ We show an example API definition, the Finnhub Finance API which translates a cu
 </kbd>
 <br/>
 
-Let us put attention on how the Placeholder was used to call another Function with the input i.e. field of the original function and put the result of that Function in the API body template.
+Let us put attention on how the placeholder is evaluated by calling another function named "retrieve_company_symbol" and passing the value of the field "company_name" of the "stock_price" function to which this API belongs. The result of that function call, i.e. the company_symbol, is finally the value of this placeholder and thus inserted into the template given for the URL parameters.
 
 #### Edit
 
