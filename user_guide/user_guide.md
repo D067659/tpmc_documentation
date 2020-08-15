@@ -299,6 +299,10 @@ Alternatively to replacing the Placeholder by a Function field it can also be re
 
 Placeholders can take potentially three primitive datatypes (string, number or boolean). In case of number  respectively boolean you can specify if this values should be converted to a string if they need to be inserted into a "URL Parameters Template" or "Request Body Template". *Uncheck the "Do not convert placeholder value to 'String' before insertion into a JSON template." checkbox to convert the Placeholder value to a string, check to leave the orginal value.* In case of a placeholder that receives a value of type string, it does not matter whether you check or uncheck this checkbox.
 
+**Request Method** specifies which HTTP request method is used for the API request which can be selected from the dropdown menu.
+
+**API Endpoint URL** specifies to which URL the request should be made. You can also use Placeholders in this field.
+
 You can add **Headers** to the API request.
 *Click the "Add a new key-value pair", bin and "Delete all key-value pairs" buttons to add and remove header fields*
 
@@ -308,13 +312,11 @@ You can add **Headers** to the API request.
 </kbd>
 <br/>
 
-In the "Template for the request (URL) Parameters" field you can add **Parameters** in the JSON format to the API request. You can also insert parameters directly in the URL when specifying the "API Endpoint URL" field.
+In the **Template for the request (URL) Parameters** field you can add Parameters in the JSON format to the API request. You can also insert parameters directly in the URL when specifying the "API Endpoint URL" field.
 
-In the "Template for the request Body" field you can add a **Body** in the JSON format to the API request.
+In the **Template for the request Body** field you can add a Body in the JSON format to the API request.
 
 **Response Path to Result** specifies how the API result is retrieved from the response body. The path is defined by a series of JSON keys that are seperate with a `.`. Elements in lists can be accessed via their index in square brackets `[index]`. The sample response path `devices.lamps[0].power` takes the value under the "devices" key, then the list under the "lamps" key, then the 0. element of that list and then the value under "power" key. If the response is a list itself you can start the path with `[index]`. It is mentionable, that you can also use placeholders in the response path.
-
-**Request Method** specifies which HTTP request method is used for the API request which can be selected from the dropdown menu.
 
 We show an example API definition, the Finnhub Finance API which returns the stock price of a company specified by a custom string.
 <br/>
